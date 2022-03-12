@@ -1,0 +1,253 @@
+id,user_id,status,city,job_title,organization_id,contracts
+0,55,published,HOMERVILLE,Medical Receptionist,0,AL
+1,90,published,DEMOTTE,Clinical Research Associate,1,AL
+2,2,published,CARY,Territory Sales Representative,2,AL
+3,3,published,SKOWHEGAN,Bus Driver,3,AL
+4,4,published,HOLLISTER,Foreign Service Officer,4,AL
+5,5,published,JASPER,Sales Analyst,5,AL
+6,6,published,WARRIOR,Strategy Consultant?,6,AL
+7,7,published,GRAND RAPIDS,Cost Engineer,7,AL
+8,8,published,SAN ANTONIO,Solutions Consultant - Electrical Engineering,8,AL
+9,9,published,MCALLEN,Power Regulator,9,AL
+10,10,published,LOUISVILLE,Conservation Technician,10,AL
+11,11,published,OAK LAWN,Manager of Engineering,11,AL
+12,12,published,WEEHAWKEN,Forecast Systems Manager,12,AL
+13,13,published,NOVATO,Water Services Technician,13,AL
+14,14,published,MANATI,Senior Analyst Retail Analytics and Reporting,14,AL
+15,15,published,MANAHAWKIN,Total Quality Management Director,15,AL
+16,16,published,GRANT,HVAC Mechanic,16,AL
+17,17,published,ARECIBO,Cognos Business Development Architect,17,AL
+18,18,published,WEST CALDWELL,School Social Worker,18,AL
+19,19,published,MC KEE,Treasurer,19,AL
+20,20,published,HAVERHILL,Manufacturing Customer Service Representative,20,AL
+21,21,published,RINCON,Quality Assurance Manager,21,AL
+22,22,published,ALEXANDRIA,Night Auditor,22,AL
+23,23,published,HOMERVILLE,Medical Receptionist,23,AL
+24,24,published,BORDENTOWN,Business Intelligence Developer,24,AL
+25,25,published,DANVILLE,Solid Waste Field Technician,25,AL
+26,26,published,BRIGANTINE,Healthcare Consultant,26,AL
+27,27,published,PELHAM,Organic Lab Worker,27,AL
+28,28,published,ARECIBO,Compliance Engineer,28,AL
+29,29,published,CROGHAN,Chief of Career Pathways and Integrated Learning,29,AL
+30,30,published,GILBERTOWN,Assistant Coach,30,AL
+31,31,published,RAIFORD,IT Support Staff,31,AL
+32,32,published,MEXIA,Meeting Specialist,32,AL
+33,33,published,GALLION,Freelance Travel Writer,33,AL
+34,34,published,HOBOKEN,Account Executive,34,AL
+35,35,published,HOUSTON,Process Engineer,35,AL
+36,36,published,PELL CITY,Catering Manager,36,AL
+37,37,published,MILLBURY,Roadie,37,AL
+38,38,published,HOUSTON,Research and Development Technician,38,AL
+39,39,published,CENTRALIA,Human Resources Assistant,39,AL
+40,40,published,WOODSVILLE,Solar Installers,40,AL
+41,41,published,HAZEL GREEN,Travel Consultant,41,AL
+42,42,published,WILMINGTON,Stationary Engineer,42,AL
+43,43,published,SCHENECTADY,Material Handler,43,AL
+44,44,published,DORCHESTER,Healthcare Business Intelligence Manager,44,AL
+45,45,published,PORT HUENEME CBC BASE,Quality Assurance Technologist,45,AL
+46,46,published,EPSOM,Staff Assistant - Accounting,46,AL
+47,47,published,CONCORD,Staff Engineer,47,AL
+48,48,published,SYLACAUGA,Assistant Technician,48,AL
+49,49,published,FARWELL,Strategy Consultant?,49,AL
+50,50,published,PAGE,Project Manager,50,AL
+51,51,published,DORADO,Engineering Technician,51,AL
+52,52,published,LAYTON,Solution Architect Business Intelligence,52,AL
+53,53,published,YAUCO,Market Access Associate,53,AL
+54,54,published,JAMESTOWN,Operations Research Analysis Manager,54,AL
+55,55,published,MEDFORD,Bellman,55,AL
+56,56,published,VEGA BAJA,Real Estate Appraiser,56,AL
+57,57,published,MAMMOTH CAVE,Human Resources Director,57,AL
+58,58,published,FAYETTE,Crew Scheduling Manager,58,AL
+59,59,published,HENNEPIN,Total Quality Management Director,59,AL
+60,60,published,URBANA,Controller,60,AL
+61,61,published,PARKVILLE,Senior Manager Yield and Revenue Management,61,AL
+62,62,published,KANSAS CITY,Transportation Project Manager,62,AL
+63,63,published,AVON,Chemical Technician,63,AL
+64,64,published,HOUSTON,Investment Advisor,64,AL
+65,65,published,SABANA GRANDE,Oceanographer,65,AL
+66,66,published,GRIFFITH,Sales Coordinator,66,AL
+67,67,published,CANOVANAS,Concierge,67,AL
+68,68,published,SEATTLE,Institutional Research Business Intelligence Systems Analyst,68,AL
+69,69,published,WETUMPKA,Producer,69,AL
+70,70,published,SOUTH ELGIN,Commercial Sales Representative,70,AL
+71,71,published,DOVER,Electrical Design Engineer,71,AL
+72,72,published,CEDAR FALLS,Marketing Consultant,72,AL
+73,73,published,REESE,Senior Manager of Industry Analytics,73,AL
+74,74,published,OAKMAN,Valet Parker,74,AL
+75,75,published,DEVILS LAKE,Organic Lab Research Assistant,75,AL
+76,76,published,ELKTON,Pharmacy Assistant,76,AL
+77,77,published,HOUSTON,Meeting Specialist,77,AL
+78,78,published,SLOATSBURG,Lineman,78,AL
+79,79,published,JOLIET,Golf Pro,79,AL
+80,80,published,COLUMBIA,Principal Service Engineer,80,AL
+81,81,published,EASTON,Retail Sales Associate,81,AL
+82,82,published,TOLEDO,Group Sales Management,82,AL
+83,83,published,LANCASTER,Club Representative,83,AL
+84,84,published,ARECIBO,Client Service Specialist,84,AL
+85,85,published,MARLTON,Operations Clerk,85,AL
+86,86,published,ALICEVILLE,Technical Support Engineer,86,AL
+87,87,published,NASSAU,Special Education Teacher,87,AL
+88,88,published,CARY,Travel Secretary,88,AL
+89,89,published,HARRISBURG,Reservoir Engineer,89,AL
+90,90,published,ARECIBO,Quality Assistant,90,AL
+91,91,published,ARECIBO,Project Manager,91,AL
+92,92,published,ANTIGO,Business Intelligence Developer,92,AL
+93,93,published,HOUSTON,Government Contract Consultant,93,AL
+94,94,published,MILLBROOK,General Manager,94,AL
+95,95,published,GUEYDAN,Software Developer,95,AL
+96,96,published,PLANO,Research and Development Tester,96,AL
+97,97,published,ASHEBORO,Corporate Sales Manager,97,AL
+98,98,published,BROKEN ARROW,Director of? Customer Success and Satisfaction,98,AL
+99,99,published,DEATSVILLE,Catering Account Manger,99,AL
+100,100,published,AMES,Assistant Customer Care Center Manager,100,AL
+101,101,published,HANKINSON,Manufacturing Specialist,101,AL
+102,102,published,ALBANY,Piping Stress Engineer,102,AL
+103,103,published,HUNTSVILLE,RF Engineer,103,AL
+104,104,published,PHOENIX,Rental Representative,104,AL
+105,105,published,BECKET,Data Architect,105,AL
+106,106,published,NEW RIVER,Organizational Development Consultant,106,AL
+107,107,published,FAIRMONT,Drilling Engineer,107,AL
+108,108,published,DEMOTTE,Station Agent,108,AL
+109,109,published,PHELAN,Hostess,109,AL
+110,110,published,PRINCETON,School Nurse,110,AL
+111,111,published,HALE,Behavior Specialist,111,AL
+112,112,published,HAMMONTON,Construction Engineer,112,AL
+113,113,published,DORADO,Corporate Reservations Agent,113,AL
+114,114,published,MANTON,Chef,114,AL
+115,115,published,HORTON,Account Executive,115,AL
+116,116,published,LAKELAND,Athletic Scout,116,AL
+117,117,published,PITTSBURGH,Threat Intelligence Analyst,117,AL
+118,118,published,MAYAGUEZ,Environmental Compliance Engineer,118,AL
+119,119,published,BECKET,Senior Mechanical Engineer,119,AL
+120,120,published,PHOENIX,Customer Support Associate,120,AL
+121,121,published,AGUADA,Associate Producer Events,121,AL
+122,122,published,HOBOKEN,Sales Manager,122,AL
+123,123,published,LYNWOOD,Pharmacy Assistant,123,AL
+124,124,published,JOLIET,Corporate Recruiter,124,AL
+125,125,published,WEST GRANBY,Ground Support Equipment Mechanic,125,AL
+126,126,published,EDMORE,Software Engineer - Data Warehouse/Business Intelligence,126,AL
+127,127,published,ATCO,Network Engineer,127,AL
+128,128,published,JACKSONVILLE,Global Development Specialist,128,AL
+129,129,published,COLONIE,Fabricator,129,AL
+130,130,published,BROOKLYN,Technology Consultant,130,AL
+131,131,published,NEW MARKET,Patient Care Coordinator,131,AL
+132,132,published,UPPER LAKE,Senior Manager Product Intelligence and Cost Analytics,132,AL
+133,133,published,CARPENTER,Countertop Fabricator and Installer,133,AL
+134,134,published,TOPEKA,Cruise Ship,134,AL
+135,135,published,FLOWOOD,Institutional Research Business Intelligence Systems Analyst,135,AL
+136,136,published,SAN BENITO,Director of Hotel Sales,136,AL
+137,137,published,HUNTSVILLE,Treasurer,137,AL
+138,138,published,PHILLIPSBURG,Commercial Print Management Consultant,138,AL
+139,139,published,WOODBRIDGE,Instrumentation Engineer,139,AL
+140,140,published,NEEDHAM,Competitive Intelligence Manager,140,AL
+141,141,published,TAMPA,Firmware Engineer,141,AL
+142,142,published,GRAND RAPIDS,Dermatology Nurse,142,AL
+143,143,published,MANSFIELD,Production Assistant Events,143,AL
+144,144,published,ARECIBO,Alarm Technician,144,AL
+145,145,published,STRATFORD,Sports Physician,145,AL
+146,146,published,BRIGHAM CITY,Guest Room Sales Manager,146,AL
+147,147,published,TENAFLY,Hunting Guide,147,AL
+148,148,published,EVANSVILLE,Server,148,AL
+149,149,published,HOMESTEAD,Guest Services Agent,149,AL
+150,150,published,EAST HADDAM,Wedding Sales Manager,150,AL
+151,151,published,WOBURN,Concierge?,151,AL
+152,152,published,NYACK,Industrial Technology Teacher,152,AL
+153,153,published,ST PETERSBURG,Front Desk Clerk,153,AL
+154,154,published,ECHOLA,Tax Advisor,154,AL
+155,155,published,FLORENCE,Executive Conference Manager,155,AL
+156,156,published,ARECIBO,Engineering Technician,156,AL
+157,157,published,HALES CORNERS,Vice President of Engineering,157,AL
+158,158,published,PROVIDENCE,Change Management Consultant,158,AL
+159,159,published,LOS ANGELES,Financial Analyst,159,AL
+160,160,published,MECHANICSVLLE,Online Customer Support,160,AL
+161,161,published,BOSTON,Cook,161,AL
+162,162,published,VICTORIA,Club Representative,162,AL
+163,163,published,WOODSTOWN,Associate Athletic Director,163,AL
+164,164,published,NEW CITY,Front Desk Manager,164,AL
+165,165,published,LEXINGTON,Tile Setter,165,AL
+166,166,published,CLEWISTON,Technology Research Manager,166,AL
+167,167,published,ELKHART,Rotating Equipment Engineer,167,AL
+168,168,published,JONESTOWN,Director of Hotel Operations,168,AL
+169,169,published,ARCHER,Night Auditor,169,AL
+170,170,published,PITTSBURGH,Bus Driver,170,AL
+171,171,published,PHOENIX,Front End Load Driver,171,AL
+172,172,published,WESTMINSTER,Oracle Technical Lead,172,AL
+173,173,published,ASHVILLE,Informatica Extract Transform Load (ETL) Developer,173,AL
+174,174,published,CORINNA,Financial Analyst,174,AL
+175,175,published,ATCO,Mining Safety Engineer,175,AL
+176,176,published,ARECIBO,Front Desk Associate,176,AL
+177,177,published,PEORIA,Forecast Systems Manager,177,AL
+178,178,published,LYNN,Director of Guidance,178,AL
+179,179,published,NORTH LEECHBURG,Service Consultant,179,AL
+180,180,published,ARECIBO,Account Manager,180,AL
+181,181,published,PALATINE,Business Objects Architect,181,AL
+182,182,published,GARLAND,Assistant Principal,182,AL
+183,183,published,SAINT PETERSBURG,Integration/Business Intelligence Technical Lead,183,AL
+184,184,published,YAUCO,Online Customer Support,184,AL
+185,185,published,ELGIN,Choral Music Teacher,185,AL
+186,186,published,RIVERTON,Quality Control Engineer,186,AL
+187,187,published,HOUSTON,Conference Coordinator,187,AL
+188,188,published,HOPE HULL,Freelance Travel Writer,188,AL
+189,189,published,WAYNE,Transportation Project Manager,189,AL
+190,190,published,BUSHTON,Strength and Conditioning Coach,190,AL
+191,191,published,EVANSTON,Field Technician,191,AL
+192,192,published,YAUCO,Manager Special Events,192,AL
+193,193,published,HANNAH,Benefit Coordinator,193,AL
+194,194,published,LESTER PRAIRIE,Referee,194,AL
+195,195,published,DAZEY,Bus Driver,195,AL
+196,196,published,WESTPORT,Controls Engineer,196,AL
+197,197,published,LOCKESBURG,Implementation Consultant,197,AL
+198,198,published,LILLY,Competitive Intelligence Manager,198,AL
+199,199,published,KIRKLAND,Health/Physical Education Teacher,199,AL
+200,200,published,TAUNTON,Mechanical Engineer,199,AL
+201,201,published,NORTH CHICAGO,Customer Service Agent,21,AL
+202,22,published,CHICAGO RIDGE,Endoscopy Nurse,2,AL
+203,3,published,COMFORT,Metal Building Erector,46,AL
+204,42,published,SANDUSKY,Aviation Inside Sales,15,AL
+205,53,published,DEVILS LAKE,Maintenance Engineer,50,AL
+206,62,published,HOUSTON,Front Desk Associate,13,AL
+207,72,published,PAYSON,Technical Writer,7,AL
+208,8,published,HOUSTON,Research and Development Tester,28,AL
+209,29,published,BALTIMORE,Ethics Office Business Intelligence Officer,90,AL
+210,10,published,FRANKVILLE,Technical Trainer,100,AL
+211,21,published,MILAN,Pipeline Engineer,6,AL
+212,12,published,WALDOBORO,Computer Science Teacher,122,AL
+213,23,published,MESA,Market Access Associate,113,AL
+214,41,published,IRWINDALE,Concrete Finisher,24,AL
+215,52,published,FRESNO,Patio Room Installer,155,AL
+216,26,published,PITTSBURGH,Provisioning Agents,116,AL
+217,17,published,YAUCO,Passenger Service Agent,177,AL
+218,81,published,ADAMSVILLE,International Education Coordinator,18,AL
+219,92,published,MATTAPAN,Pipefitter,19,AL
+220,22,published,AUGUSTA,Laboratory Sales Consultant,20,AL
+221,12,published,RICHMOND,Territory Service Representative,122,AL
+222,200,published,CENTERVILLE,Process Control Engineer,22,AL
+223,26,published,PARRISH,Laboratory Assistant,98,AL
+224,4,published,BOSTON,Component Engineer,45,AL
+225,5,published,SHREWSBURY,Vice Principal,32,AL
+226,34,published,CLARK,Producer Travel Channel,26,AL
+227,20,published,CLINTON,Attorney,27,AL
+228,8,published,HOBOKEN,Quality Associate/Validation,28,AL
+229,29,published,TINTON FALLS,Executive Conference Manager,29,AL
+230,32,published,N LAWRENCE,Station Agent,39,AL
+231,13,published,MADISON,Cardiovascular Operating Room Nurse,31,AL
+232,26,published,TRYON,Cyber Intelligence Watch Officer,32,AL
+233,33,published,YORK,Compensation Manager,78,AL
+234,34,published,READING,Heavy Equipment Technician,87,AL
+235,5,published,VERMONTVILLE,Electronics Engineer,93,AL
+236,99,published,KEARNY,Benefit Coordinator,88,AL
+237,7,published,KELLYTON,Chemical Engineer,91,AL
+238,38,published,FULTON,Front Desk Attendant,38,AL
+239,39,published,WALTHAM,Sales and Marketing Coordinator,39,AL
+240,40,published,CABO ROJO,Environmental Project Analyst,40,AL
+241,142,published,CAMAK,International Travel Consultant,142,AL
+242,199,published,UNION SPRINGS,Airline Pilot,121,AL
+243,36,published,MANATI,Catering Account Manger,34,AL
+244,24,published,MADISON,Senior Competitive Intelligence Manager,44,AL
+245,45,published,CEDAR RAPIDS,Threat Intelligence Analyst,45,AL
+246,26,published,BROOKLYN,Environmental Services Representative,46,AL
+247,74,published,LILLIAN,Assistant General Manager,33,AL
+248,8,published,MELBOURNE,Operations Agent,84,AL
+249,13,published,AMITY HARBOR,Event Coordinator,94,AL
+250,17,published,ATCO,Mutual Fund Analyst,52,AL
+251,2,published,GORDO,Director of Hotel Sales,51,AL
