@@ -4,7 +4,7 @@ db = SQLAlchemy()
 
 
 def get_user(username):
-    return db.session.query(Alumno).filter_by(nombreUsuario=username).first()
+    return db.session.query(Alumno).filter_by(username=username).first()
 
 
 def get_user_id():
@@ -18,6 +18,7 @@ def get_user_by_id(alumno_id):
 def add_to_db(e):
     db.session.add(e)
     db.session.commit()
+
 
 class Alumno(db.Model):
     __tablename__ = 'alumnos'

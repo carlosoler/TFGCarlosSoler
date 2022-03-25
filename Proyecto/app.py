@@ -22,8 +22,18 @@ migrate = Migrate(app, db)
 def load_user(id):
     return get_user_by_id(id)
 
-@app.route('/')
+@app.route('/', methods=["GET", "POST"])
 def main():
+    if request.method == 'POST' and 'nombreUsuario' in request.form and 'pwd' in request.form:
+        username = request.form.get('nombreUsuario')
+        password = request.form.get('pwd')
+        user = get_user(username)
+        if not user:
+            flash('¡El usuario que ha introducido no existe!')
+        elif user.password == password:
+            return render_template('home.html')
+        else:
+            flash('Contraseña incorrecta')
     return render_template('login.html')
 
 @app.route('/resgistroUsuario', methods=["GET", "POST"])
