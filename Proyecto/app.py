@@ -31,7 +31,7 @@ def main():
         if not user:
             flash('¡El usuario que ha introducido no existe!')
         elif user.password == password:
-            return render_template('home.html')
+            return redirect(url_for('home'))
         else:
             flash('Contraseña incorrecta')
     return render_template('login.html')
@@ -56,6 +56,18 @@ def registro_usuario():
 @app.route('/resgistroEmpresa')
 def registro_empresa():
     return render_template('resgistroEmpresa.html')
+
+@app.route('/home')
+def home():
+    return render_template('home.html')
+
+@app.route('/alumnos')
+def alumnos():
+    return render_template('alumnos.html')
+
+@app.route('/empresas')
+def empresas():
+    return render_template('empresas.html')
 
 
 if __name__ == '__main__':
