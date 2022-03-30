@@ -51,7 +51,7 @@ def registro_usuario():
 
         add_to_db(user)
         flash("Usuario creado correctamente. Por favor inicie sesión con su usuario")
-    return render_template('resgistroUsuario.html')
+    return render_template('registroUsuario.html')
 
 @app.route('/resgistroEmpresa')
 def registro_empresa():
@@ -68,6 +68,7 @@ def alumnos():
 @app.route('/empresas')
 def empresas():
     return render_template('empresas.html')
+
 
 
 if __name__ == '__main__':
