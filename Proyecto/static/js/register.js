@@ -138,18 +138,3 @@ $(document).ready(function() {
     });
 });
 
-function validar_dni(value){
-
-				  var validChars = 'TRWAGMYFPDXBNJZSQVHLCKET';
-				  var nifRexp = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]{1}$/i;
-				  var str = value.toString().toUpperCase();
-
-				  if (!nifRexp.test(str)) return false;
-
-				  var letter = str.substr(-1);
-				  var charIndex = parseInt(str.substr(0, 8)) % 23;
-
-				  if (validChars.charAt(charIndex) === letter) return true;
-
-				  return false;
-}

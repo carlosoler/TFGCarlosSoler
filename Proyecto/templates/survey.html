@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="es" >
+<head>
+    <meta charset="UTF-8">
+    <title>Cuestionario</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/register.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+</head>
+<body>
+    {% block content %}
+        <div class="busqueda">
+            {% for message in get_flashed_messages() %}
+            <div class="alert alert-warning">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% block page_content %}{% endblock %}
+        </div>
+    {% endblock %}
+
+    <div class="container">
+
+        <form class="well form-horizontal" action=" " method="post" id="survey_form">
+            <fieldset>
+                <div class="right">
+                        ¿Tienes una cuenta ya? <a href="{{ url_for('home')}}">Volver al menu</a>
+                </div>
+                <legend><center><h2><b>Introducir Skills/Competencias</b></h2></center></legend><br>
+                <legend><h1><b>Grado</b></h1></legend><br>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Grado</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="grado" class="form-control selectpicker">
+                                <option value="">Selecciona el grado estudiado</option>
+                                <option value=0>Ingenieria Informatica</option>
+                                <option value=1>Ingenieria Industrial</option>
+                                <option value=2>Ingenieria Telecomunicaciones</option>
+                                <option value=3>Data Scientist</option>
+                                <option value=4>Matemáticas</option>
+                                <option value=5>Física</option>
+                                <option value=6>ADE</option>
+                                <option value=7>Derecho</option>
+                                <option value=8>Marketing</option>
+                                <option value=9>Sociología</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <legend><h1><b>Nota media</b></h1></legend><br>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Nota media</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="nota_media" class="form-control selectpicker">
+                                <option value="">Selecciona la nota media</option>
+                                <option value=5>5</option>
+                                <option value=6>6</option>
+                                <option value=7>7</option>
+                                <option value=8>8</option>
+                                <option value=9>9</option>
+                                <option value=10>10</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <legend><h1><b>Idiomas</b></h1></legend><br>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Inglés</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="ingles_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Aleman</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="aleman_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Frances</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="frances_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <legend><h1><b>Soft-Skills</b></h1></legend><br>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Capacidad analítica</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="capAnalitica_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Trabajo en equipo</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="trabajoEquipo_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Comunicación</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="comunicacion_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Pensamiento crítico</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="pensamientoCritico_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Innovación</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="innovacion_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Liderazgo</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="liderazgo_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Toma de decisiones</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="tomaDecisiones_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Solución a problemas</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="solucionProblemas_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <legend><h1><b>Competencias</b></h1></legend><br>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Marketing</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="marketing_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">E-Commerce</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="ecommerce_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Diseño Gráfico</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="disenoGrafico_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Matemáticas</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="matematicas_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Estadística</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="estadistica_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Gestión Proyectos</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="gestionProyectos_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Redes Sociales</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="redesSociales_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Sostenibilidad</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="sostenibilidad_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Inteligencia Artificial</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="inteligenciaArtificial_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Big Data</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="bigData_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Machine Learning</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="machineLearning_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Análisis de datos</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="analisisDatos_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Bases de datos</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="basesDatos_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Cloud</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="cloud_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Internet de las Cosas</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="iot_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Redes</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="redes_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Sistemas operativos</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="sistemasOperativos_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Desarrollo Web</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="desarrolloWeb_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Diseño Web</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="disenoWeb_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <legend><h1><b>Lenguajes Programación</b></h1></legend><br>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">R</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="r_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Java</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="java_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Pascal</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="pascal_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Python</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select name="python_level" class="form-control selectpicker">
+                                <option value="">Selecciona el nivel</option>
+                                <option value=0>No aplica</option>
+                                <option value=1>Nivel básico</option>
+                                <option value=2>Nivel medio</option>
+                                <option value=3>Nivel avanzado</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label"></label>
+                    <div class="col-md-4"><br>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" name="botonSkills" value="botonCrear" class="btn btn-warning" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCrear CV<span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+                    </div>
+                </div>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="{{ url_for('home') }}" class="btn btn-default" style="position: center">Volver al menu</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
+<script src="${pageContext.request.contextPath}/bootstrapValidator/js/bootstrapValidator.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+<script src="{{ url_for('static', filename= 'js/survey.js') }}"></script>
+
+</body>
+</html>

@@ -39,10 +39,10 @@
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li class="active"><a href="{{ url_for('home')}}"><span>Home</span></a></li>
                 <li class="has-children">
-                  <a href="about.html"><span>Dropdown</span></a>
+                  <a href="about.html"><span>Alumnos</span></a>
                   <ul class="dropdown arrow-top">
-                    <li><a href="#">Menu One</a></li>
-                    <li><a href="#">Menu Two</a></li>
+                    <li><a href="{{ url_for('survey')}}">Añadir/Modificar Skills</a></li>
+                    <li><a href="{{ url_for('mostrar_skills')}}">Mostrar mis Skills</a></li>
                     <li><a href="#">Menu Three</a></li>
                     <li class="has-children">
                       <a href="#">Dropdown</a>
@@ -59,6 +59,7 @@
                 <li><a href="{{ url_for('empresas')}}"><span>Empresas</span></a></li>
                 <li><a href="blog.html"><span>Blog</span></a></li>
                 <li><a href="contact.html"><span>Contact</span></a></li>
+                <li><a href="{{ url_for('logout')}}">Cerrar Sesión</a></li>
               </ul>
             </nav>
           </div>
