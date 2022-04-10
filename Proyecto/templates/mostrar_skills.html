@@ -4,14 +4,16 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'fonts/icomoon/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/home/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/home/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/home/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/mostrarSkills/style.css') }}">
 
-    <title>Website Menu #3</title>
+    <title>Mostrar Skills</title>
   </head>
   <body>
 
@@ -42,7 +44,7 @@
                   <a href="about.html"><span>Alumnos</span></a>
                   <ul class="dropdown arrow-top">
                     <li><a href="{{ url_for('survey')}}">Añadir/Modificar Skills</a></li>
-                    <li><a href="{{ url_for('mostrar_skills')}}">Mostrar mis Skills</a></li>
+                    <li><a href="{{ url_for('mostrar_skills')}}">Mostrar mi CV</a></li>
                     <li><a href="#">Menu Three</a></li>
                     <li class="has-children">
                       <a href="#">Dropdown</a>
@@ -75,13 +77,635 @@
     </header>
 
     <div class="hero" style="background-image: url('static/images/hero_1.jpg');"></div>
-
-    {% for skill in lista_skills %}
-        <div class="verevento">
-            <h3>{{ skill.grado }}</h3>
-        </div>
-    {% endfor %}
-
+    <section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Grado y Nota media</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap">
+						<table class="table">
+						  <thead class="thead-dark">
+						    <tr>
+						      <th>Usuario</th>
+						      <th>Grado</th>
+						      <th>Nota media</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">{{ username }}</th>
+                              {% if skill.grado == 0 %}
+						        <td>Ingeniería Informatica</td>
+                              {% elif skill.grado == 1 %}
+                                <td>Ingeniería Industrial</td>
+                              {% elif skill.grado == 2 %}
+                                <td>Ingeniería Telecomunicaciones</td>
+                              {% elif skill.grado == 3 %}
+                                <td>Data Scientist</td>
+                              {% elif skill.grado == 4 %}
+                                <td>Matemáticas</td>
+                              {% elif skill.grado == 5 %}
+                                <td>Física</td>
+                              {% elif skill.grado == 6 %}
+                                <td>ADE</td>
+                              {% elif skill.grado == 7 %}
+                                <td>Derecho</td>
+                              {% elif skill.grado == 8 %}
+                                <td>Marketing</td>
+                              {% elif skill.grado == 9 %}
+                                <td>Sociología</td>
+                            {% endif %}
+						      <td>{{ skill.nota_media }}</td>
+                            {% endfor %}
+						    </tr>
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+    <section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Idiomas</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap">
+						<table class="table">
+						  <thead class="thead-dark">
+						    <tr>
+						      <th>Idioma</th>
+						      <th>Nivel</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">Inglés</th>
+                              {% if skill.ingles == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.ingles == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.ingles == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.ingles == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+                          <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">Aleman</th>
+                              {% if skill.aleman == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.aleman == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.aleman == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.aleman == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+                          <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">Francés</th>
+                              {% if skill.frances == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.frances == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.frances == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.frances == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+    <section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Soft-Skills</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap">
+						<table class="table">
+						  <thead class="thead-dark">
+						    <tr>
+						      <th>Skill</th>
+						      <th>Nivel</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">Capacidad analítica</th>
+                              {% if skill.capacidad_analitica == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.capacidad_analitica == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.capacidad_analitica == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.capacidad_analitica == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+                          <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">Trabajo en equipo</th>
+                              {% if skill.trabajo_equipo == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.trabajo_equipo == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.trabajo_equipo == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.trabajo_equipo == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+                          <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">Comunicación</th>
+                              {% if skill.comunicacion == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.comunicacion == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.comunicacion == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.comunicacion == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+                          <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">Pensamiento crítico</th>
+                              {% if skill.pensamiento_critico == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.pensamiento_critico == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.pensamiento_critico == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.pensamiento_critico == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+                          <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">Innocación</th>
+                              {% if skill.inovacion == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.inovacion == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.inovacion == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.inovacion == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+                          <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">Liderazgo</th>
+                              {% if skill.liderazgo == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.liderazgo == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.liderazgo == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.liderazgo == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+                          <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">Toma de decisiones</th>
+                              {% if skill.decision_making == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.decision_making == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.decision_making == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.decision_making == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+                          <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">Solución de problemas</th>
+                              {% if skill.problem_solving == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.problem_solving == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.problem_solving == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.problem_solving == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+    <section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Competencias</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap">
+						<table class="table">
+						  <thead class="thead-dark">
+						    <tr>
+						      <th>Competencia</th>
+						      <th>Nivel</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">Marketing</th>
+                              {% if skill.marketing == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.marketing == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.marketing == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.marketing == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+                          <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">E-commerce</th>
+                              {% if skill.e_commerce == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.e_commerce == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.e_commerce == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.e_commerce == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+                          <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">Diseño gráfico</th>
+                              {% if skill.diseno_grafico == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.diseno_grafico == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.diseno_grafico == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.diseno_grafico == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+                          <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">Matemáticas</th>
+                              {% if skill.matematicas == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.matematicas == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.matematicas == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.matematicas == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+                          <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">Estadítica</th>
+                              {% if skill.estadistica == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.estadistica == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.estadistica == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.estadistica == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+                          <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">Gestión de proyectos</th>
+                              {% if skill.gestion_proyectos == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.gestion_proyectos == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.gestion_proyectos == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.gestion_proyectos == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+                          <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">Redes sociales</th>
+                              {% if skill.redes_sociales == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.redes_sociales == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.redes_sociales == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.redes_sociales == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+                          <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">Sostenibilidad</th>
+                              {% if skill.sostenibilidad == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.sostenibilidad == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.sostenibilidad == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.sostenibilidad == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+                          <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">Inteligencia Artificial</th>
+                              {% if skill.inteligencia_artificial == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.inteligencia_artificial == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.inteligencia_artificial == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.inteligencia_artificial == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+                          <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">Big Data</th>
+                              {% if skill.big_data == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.big_data == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.big_data == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.big_data == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+                          <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">Machine Learning</th>
+                              {% if skill.machine_learning == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.machine_learning == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.machine_learning == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.machine_learning == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+                          <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">Análisis de Datos</th>
+                              {% if skill.analisis_datos == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.analisis_datos == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.analisis_datos == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.analisis_datos == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+                          <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">Bases de Datos</th>
+                              {% if skill.bases_datos == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.bases_datos == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.bases_datos == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.bases_datos == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+                          <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">Cloud</th>
+                              {% if skill.cloud == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.cloud == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.cloud == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.cloud == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+                          <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">IoT</th>
+                              {% if skill.intenet_of_things == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.intenet_of_things == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.intenet_of_things == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.intenet_of_things == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+                          <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">Redes</th>
+                              {% if skill.networks == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.networks == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.networks == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.networks == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+                          <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">Sistemas operativos</th>
+                              {% if skill.sistemas_operativos == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.sistemas_operativos == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.sistemas_operativos == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.sistemas_operativos == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+                          <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">Desarrollo Web</th>
+                              {% if skill.web_desarrollo == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.web_desarrollo == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.web_desarrollo == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.web_desarrollo == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+                          <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">Diseño Web</th>
+                              {% if skill.web_diseno == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.web_diseno == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.web_diseno == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.web_diseno == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+    <section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Lenguajes programación</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap">
+						<table class="table">
+						  <thead class="thead-dark">
+						    <tr>
+						      <th>Lenguaje</th>
+						      <th>Nivel</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">R</th>
+                              {% if skill.r == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.r == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.r == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.r == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+                          <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">Java</th>
+                              {% if skill.java == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.java == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.java == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.java == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+                          <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">Pascal</th>
+                              {% if skill.pascal == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.pascal == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.pascal == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.pascal == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+                          <tr class="alert" role="alert">
+                            {% for skill in lista_skills %}
+						      <th scope="row">Python</th>
+                              {% if skill.python == 0 %}
+						        <td>No aplica</td>
+                              {% elif skill.python == 1 %}
+                                <td>Nivel Básico</td>
+                              {% elif skill.python == 2 %}
+                                <td>Nivel medio</td>
+                              {% elif skill.python == 3 %}
+                                <td>Nivel avanzado</td>
+                            {% endif %}
+                            {% endfor %}
+                          </tr>
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
     <script src="{{ url_for('static', filename= 'js/home/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ url_for('static', filename= 'js/home/popper.min.js') }}"></script>
     <script src="{{ url_for('static', filename= 'js/home/bootstrap.min.js') }}"></script>

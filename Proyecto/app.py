@@ -86,7 +86,7 @@ def empresas():
 def mostrar_skills():
     if session.get('logged_in'):
         lista_skills = get_all_skills_foruser(get_user_tableSkill_id(session['username']))
-        return render_template('mostrar_skills.html', lista_skills=lista_skills)
+        return render_template('mostrar_skills.html', lista_skills=lista_skills, username=session['username'])
 
 @app.route('/survey', methods=["GET", "POST"])
 @login_required
