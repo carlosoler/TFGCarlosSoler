@@ -9,6 +9,9 @@ def get_user(username):
 def get_user_id():
     return db.session.query(Alumno.alumno_id).order_by(Alumno.alumno_id.desc()).first().alumno_id + 1
 
+def get_empresa_id():
+    return db.session.query(Empresa.empresa_id).order_by(Empresa.empresa_id.desc()).first().empresa_id + 1
+
 def get_user_by_id(alumno_id):
     return db.session.query(Alumno).filter_by(alumno_id=alumno_id).first()
 
@@ -151,3 +154,52 @@ class Skill(db.Model):
 
     def is_anonymous(self):
         return False
+
+class Empresa(db.Model):
+    __tablename__ = 'empresas'
+    empresa_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    username = db.Column(db.String, unique=True)
+    password = db.Column(db.String)
+    empresa_nombre = db.Column(db.String)
+    telefono = db.Column(db.String, unique=True)
+    email = db.Column(db.String, unique=True)
+
+    def __init__(self, empresa_id, username, password, empresa_nombre, telefono, email):
+        self.empresa_id = empresa_id
+        self.username = username
+        self.password = password
+        self.empresa_nombre = empresa_nombre
+        self.telefono = telefono
+        self.email = email
+
+    def is_active(self):
+        return True
+
+    def is_authenticated(self):
+        return True
+
+    def is_anonymous(self):
+        return False
+
+    def get_id(self):
+        return str(self.empresa_id)
+
+class Oferta(db.Model):
+    __tablename__ = 'ofertas'
+    job_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    empresa_id = db.Column(db.Integer, db.ForeignKey('empresas.empresa_id'))
+    empresa_nombre = db.Column(db.String)
+    job_tittle = db.Column(db.String)
+    ciudad = db.Column(db.String)
+    asignada = db.Column(db.Integer)
+
+    def __init__(self, job_id, empresa_id, empresa_nombre, job_tittle, ciudad, asignada):
+        self.job_id = job_id
+        self.empresa_id = empresa_id
+        self.empresa_nombre = empresa_nombre
+        self.job_tittle = job_tittle
+        self.ciudad = ciudad
+        self.asignada = asignada
+
+    def is_active(self):
+        return True

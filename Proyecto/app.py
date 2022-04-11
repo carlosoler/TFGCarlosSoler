@@ -5,7 +5,7 @@ from flask_login import LoginManager, login_user, login_required, logout_user
 from flask_migrate import Migrate
 
 from model.model import db, get_user_id, Alumno, get_user, add_to_db, get_user_by_id, Skill, get_tableSkill_id, \
-    get_user_tableSkill_id, get_all_skills_foruser
+    get_user_tableSkill_id, get_all_skills_foruser, get_empresa_id, Empresa
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:qwerty@localhost:5432/JOBS'
@@ -59,9 +59,20 @@ def registro_usuario():
         flash("Usuario creado correctamente. Por favor inicie sesión con su usuario")
     return render_template('registroUsuario.html')
 
-@app.route('/resgistroEmpresa')
+@app.route('/resgistroEmpresa', methods=["GET", "POST"])
 def registro_empresa():
-    return render_template('resgistroEmpresa.html')
+    if request.method == 'POST':
+        id_reg = get_empresa_id()
+        nombreUsuario_emp_reg = request.form.get('username')
+        contrasena_emp_reg = request.form.get('pass')
+        nombre_emp_reg = request.form.get('nombre')
+        telefono_reg = request.form.get('tel')
+        email_reg = request.form.get('email')
+        emp = Empresa(empresa_id=id_reg, username=nombreUsuario_emp_reg, password=contrasena_emp_reg,
+                      empresa_nombre=nombre_emp_reg, telefono=telefono_reg, email=email_reg)
+        add_to_db(emp)
+        flash("Empresa creada correctamente. Por favor inicie sesión con su usuario")
+    return render_template('registroEmpresa.html')
 
 @app.route('/home')
 @login_required
