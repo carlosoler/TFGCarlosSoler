@@ -5,7 +5,7 @@ from flask_login import LoginManager, login_user, login_required, logout_user
 from flask_migrate import Migrate
 
 from model.model import db, get_user_id, Alumno, get_user, add_to_db, get_user_by_id, Skill, get_tableSkill_id, \
-    get_user_tableSkill_id, get_all_skills_foruser, get_empresa_id, Empresa
+    get_user_tableSkill_id, get_all_skills_foruser, get_empresa_id, Empresa, get_skills_foruser, update_skills
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:qwerty@localhost:5432/JOBS'
@@ -36,6 +36,7 @@ def main():
             login_user(user)
             session['logged_in'] = True
             session['username'] = user.username
+            session['id'] = user.alumno_id
             session.modified = True
             return redirect(url_for('home'))
         else:
@@ -92,11 +93,17 @@ def empresas():
     if session.get('logged_in'):
         return render_template('empresas.html')
 
+@app.route('/crearOfertas')
+@login_required
+def crearOfertas():
+    if session.get('logged_in'):
+        return render_template('crearOfertas.html')
+
 @app.route('/mostrar_skills')
 @login_required
 def mostrar_skills():
     if session.get('logged_in'):
-        lista_skills = get_all_skills_foruser(get_user_tableSkill_id(session['username']))
+        lista_skills = get_all_skills_foruser(session['id'])
         return render_template('mostrar_skills.html', lista_skills=lista_skills, username=session['username'])
 
 @app.route('/survey', methods=["GET", "POST"])
@@ -104,6 +111,8 @@ def mostrar_skills():
 def survey():
     if session.get('logged_in'):
         if request.method == 'POST':
+            id_user_session = session['id']
+
             id_reg = get_tableSkill_id()
             alumno_id_reg = get_user_tableSkill_id(session['username'])
             grado_reg = request.form.get('grado')
@@ -142,21 +151,70 @@ def survey():
             java_reg = request.form.get('java_level')
             pascal_reg = request.form.get('pascal_level')
             python_reg = request.form.get('python_level')
+            if not id_user_session:
+                skills = Skill(id=id_reg, alumno_id=alumno_id_reg, grado=grado_reg, nota_media=nota_media_reg,
+                               ingles=ingles_reg, aleman=aleman_reg, frances=frances_reg,
+                               capacidad_analitica=capacidad_analitica_reg,
+                               trabajo_equipo=trabajo_equipo_reg, comunicacion=comunicacion_reg,
+                               pensamiento_critico=pensamiento_critico_reg,
+                               inovacion=inovacion_reg, liderazgo=liderazgo_reg, decision_making=decision_making_reg,
+                               problem_solving=problem_solving_reg,
+                               marketing=marketing_reg, e_commerce=e_commerce_reg, diseno_grafico=diseno_grafico_reg,
+                               matematicas=matematicas_reg,
+                               estadistica=estadistica_reg, gestion_proyectos=gestion_proyectos_reg,
+                               redes_sociales=redes_sociales_reg, sostenibilidad=sostenibilidad_reg,
+                               inteligencia_artificial=inteligencia_artificial_reg, big_data=big_data_reg,
+                               machine_learning=machine_learning_reg,
+                               analisis_datos=analisis_datos_reg, bases_datos=bases_datos_reg, cloud=cloud_reg,
+                               intenet_of_things=intenet_of_things_reg,
+                               networks=networks_reg, sistemas_operativos=sistemas_operativos_reg,
+                               web_desarrollo=web_desarrollo_reg,
+                               web_diseno=web_diseno_reg, r=r_reg, java=java_reg, pascal=pascal_reg, python=python_reg)
 
-            skills = Skill(id = id_reg, alumno_id = alumno_id_reg, grado = grado_reg, nota_media = nota_media_reg,
-                           ingles = ingles_reg, aleman = aleman_reg, frances = frances_reg, capacidad_analitica = capacidad_analitica_reg,
-                           trabajo_equipo = trabajo_equipo_reg, comunicacion = comunicacion_reg, pensamiento_critico = pensamiento_critico_reg,
-                           inovacion = inovacion_reg, liderazgo = liderazgo_reg, decision_making = decision_making_reg, problem_solving = problem_solving_reg,
-                           marketing = marketing_reg,e_commerce = e_commerce_reg, diseno_grafico = diseno_grafico_reg, matematicas = matematicas_reg,
-                           estadistica = estadistica_reg, gestion_proyectos = gestion_proyectos_reg, redes_sociales = redes_sociales_reg, sostenibilidad = sostenibilidad_reg,
-                           inteligencia_artificial = inteligencia_artificial_reg, big_data = big_data_reg, machine_learning = machine_learning_reg,
-                           analisis_datos = analisis_datos_reg, bases_datos = bases_datos_reg, cloud = cloud_reg, intenet_of_things = intenet_of_things_reg,
-                           networks = networks_reg, sistemas_operativos = sistemas_operativos_reg, web_desarrollo = web_desarrollo_reg,
-                           web_diseno = web_diseno_reg, r = r_reg, java = java_reg, pascal = pascal_reg, python = python_reg)
-
-            add_to_db(skills)
-            flash("SKILLs.")
+                add_to_db(skills)
+                flash("Skills creadas!")
+            else:
+                person = update_skills(session['id'])
+                person.grado = grado_reg
+                person.nota_media = nota_media_reg
+                person.ingles = ingles_reg
+                person.aleman = aleman_reg
+                person.frances = frances_reg
+                person.capacidad_analitica = capacidad_analitica_reg
+                person.trabajo_equipo = trabajo_equipo_reg
+                person.comunicacion = comunicacion_reg
+                person.pensamiento_critico = pensamiento_critico_reg
+                person.inovacion = inovacion_reg
+                person.liderazgo = liderazgo_reg
+                person.decision_making = decision_making_reg
+                person.problem_solving = problem_solving_reg
+                person.marketing = marketing_reg
+                person.e_commerce = e_commerce_reg
+                person.diseno_grafico = diseno_grafico_reg
+                person.matematicas = matematicas_reg
+                person.estadistica = estadistica_reg
+                person.gestion_proyectos = gestion_proyectos_reg
+                person.redes_sociales = redes_sociales_reg
+                person.sostenibilidad = sostenibilidad_reg
+                person.inteligencia_artificial = inteligencia_artificial_reg
+                person.big_data = big_data_reg
+                person.machine_learning = machine_learning_reg
+                person.analisis_datos = analisis_datos_reg
+                person.bases_datos = bases_datos_reg
+                person.cloud = cloud_reg
+                person.intenet_of_things = intenet_of_things_reg
+                person.networks = networks_reg
+                person.sistemas_operativos = sistemas_operativos_reg
+                person.web_desarrollo = web_desarrollo_reg
+                person.web_diseno = web_diseno_reg
+                person.r = r_reg
+                person.java = java_reg
+                person.pascal = pascal_reg
+                person.python = python_reg
+                db.session.commit()
+                flash("Skills modificadas!")
         return render_template('survey.html')
+
 
 @app.route("/logout")
 @login_required

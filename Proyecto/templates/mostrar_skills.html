@@ -33,7 +33,7 @@
         <div class="row align-items-center">
 
           <div class="col-11 col-xl-2">
-            <h1 class="mb-0 site-logo"><a href="index.html" class="text-white mb-0">Brand</a></h1>
+            <h1 class="mb-0 site-logo"><a href="index.html" class="text-white mb-0">JOBS</a></h1>
           </div>
           <div class="col-12 col-md-10 d-none d-xl-block">
             <nav class="site-navigation position-relative text-right" role="navigation">
@@ -41,7 +41,7 @@
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li class="active"><a href="{{ url_for('home')}}"><span>Home</span></a></li>
                 <li class="has-children">
-                  <a href="about.html"><span>Alumnos</span></a>
+                  <a href="{{ url_for('alumnos')}}"><span>Alumnos</span></a>
                   <ul class="dropdown arrow-top">
                     <li><a href="{{ url_for('survey')}}">Añadir/Modificar Skills</a></li>
                     <li><a href="{{ url_for('mostrar_skills')}}">Mostrar mi CV</a></li>
@@ -57,8 +57,23 @@
                     </li>
                   </ul>
                 </li>
-                <li><a href="{{ url_for('alumnos')}}"><span>Alumnos</span></a></li>
-                <li><a href="{{ url_for('empresas')}}"><span>Empresas</span></a></li>
+                <li class="has-children">
+                  <a href="{{ url_for('empresas')}}"><span>Empresas</span></a>
+                  <ul class="dropdown arrow-top">
+                    <li><a href="{{ url_for('crearOfertas')}}">Crear ofertas</a></li>
+                    <li><a href="#">Menu Three</a></li>
+                    <li><a href="#">Menu Three</a></li>
+                    <li class="has-children">
+                      <a href="#">Dropdown</a>
+                      <ul class="dropdown">
+                        <li><a href="#">Menu One</a></li>
+                        <li><a href="#">Menu Two</a></li>
+                        <li><a href="#">Menu Three</a></li>
+                        <li><a href="#">Menu Four</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
                 <li><a href="blog.html"><span>Blog</span></a></li>
                 <li><a href="contact.html"><span>Contact</span></a></li>
                 <li><a href="{{ url_for('logout')}}">Cerrar Sesión</a></li>

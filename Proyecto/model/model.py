@@ -24,6 +24,12 @@ def get_user_tableSkill_id(username):
 def get_all_skills_foruser(id):
     return db.session.query(Skill).order_by(Skill.id.desc()).filter_by(alumno_id=id)
 
+def get_skills_foruser(alumno_id):
+    return Skill.query.get(alumno_id)
+
+def update_skills(alumno_id):
+    return Skill.query.filter_by(alumno_id = alumno_id).first()
+
 def add_to_db(e):
     db.session.add(e)
     db.session.commit()
