@@ -4,8 +4,9 @@ from flask import Flask, render_template, request, flash, redirect, url_for, ses
 from flask_login import LoginManager, login_user, login_required, logout_user
 from flask_migrate import Migrate
 
-from model.model import db, get_user_id, Alumno, get_user, add_to_db, get_user_by_id, Skill, get_tableSkill_id, \
-    get_user_tableSkill_id, get_all_skills_foruser, get_empresa_id, Empresa, get_skills_foruser, update_skills
+from model.model import db, get_user_id, Alumno, get_users, add_to_db, get_user_by_id, Skill, get_tableSkill_id, \
+    get_user_tableSkill_id, get_all_skills_foruser, get_empresa_id, Empresa, get_skills_foruser, update_skills, get_emp, \
+    get_users, get_alumn
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:qwerty@localhost:5432/JOBS'
@@ -29,14 +30,13 @@ def main():
     if request.method == 'POST' and 'nombreUsuario' in request.form and 'pwd' in request.form:
         username = request.form.get('nombreUsuario')
         password = request.form.get('pwd')
-        user = get_user(username)
+        user = get_users(username)
         if not user:
             flash('¡El usuario que ha introducido no existe!')
         elif user.password == password:
             login_user(user)
             session['logged_in'] = True
             session['username'] = user.username
-            session['id'] = user.alumno_id
             session.modified = True
             return redirect(url_for('home'))
         else:
@@ -103,7 +103,7 @@ def crearOfertas():
 @login_required
 def mostrar_skills():
     if session.get('logged_in'):
-        lista_skills = get_all_skills_foruser(session['id'])
+        lista_skills = get_all_skills_foruser(get_user_tableSkill_id(session['username']))
         return render_template('mostrar_skills.html', lista_skills=lista_skills, username=session['username'])
 
 @app.route('/survey', methods=["GET", "POST"])
@@ -111,7 +111,7 @@ def mostrar_skills():
 def survey():
     if session.get('logged_in'):
         if request.method == 'POST':
-            id_user_session = session['id']
+            id_user_session = get_user_tableSkill_id(session['username'])
 
             id_reg = get_tableSkill_id()
             alumno_id_reg = get_user_tableSkill_id(session['username'])
@@ -174,7 +174,7 @@ def survey():
                 add_to_db(skills)
                 flash("Skills creadas!")
             else:
-                person = update_skills(session['id'])
+                person = update_skills(get_user_tableSkill_id(session['username']))
                 person.grado = grado_reg
                 person.nota_media = nota_media_reg
                 person.ingles = ingles_reg

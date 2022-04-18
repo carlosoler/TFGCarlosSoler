@@ -3,8 +3,14 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
 
-def get_user(username):
+def get_users(username):
+    return db.session.query(Alumno).filter_by(username=username).first() or db.session.query(Empresa).filter_by(username=username).first()
+
+def get_alumn(username):
     return db.session.query(Alumno).filter_by(username=username).first()
+
+def get_emp(username):
+    return db.session.query(Empresa).filter_by(username=username).first()
 
 def get_user_id():
     return db.session.query(Alumno.alumno_id).order_by(Alumno.alumno_id.desc()).first().alumno_id + 1
