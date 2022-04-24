@@ -323,3 +323,16 @@ a {
         width: auto; }
         .site-mobile-menu .site-nav-wrap[data-class="social"] > li:first-child a {
           padding-left: 15px !important; }
+
+#boxperfil {
+    width: 1500px;
+    height: 900px;
+    vertical-align: middle;
+    background: #eee;
+    box-shadow: 0 8px 8px -4px grey;
+    margin-left: 30px;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}

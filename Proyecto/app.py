@@ -157,6 +157,14 @@ def ver_ofertas():
         ofertas = get_ofertas()
         return render_template('verOfertas.html', ofertas=ofertas)
 
+@app.route('/perfil')
+@login_required
+def perfil():
+    if session.get('logged_in'):
+        emp = get_emp(username=session['username'])
+        alum = get_alumn(username=session['username'])
+        return render_template('perfil.html', username=session['username'], emp=emp, alum=alum)
+
 @app.route('/survey', methods=["GET", "POST"])
 @login_required
 @restricted_access_toEmp

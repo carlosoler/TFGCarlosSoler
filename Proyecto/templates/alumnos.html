@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/home/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/home/style.css') }}">
 
-    <title>Website Menu #3</title>
+    <title>Alumnos</title>
   </head>
   <body>
 
@@ -56,7 +56,7 @@
                   </ul>
                 </li>
                 <li><a href="contact.html"><span>Contact</span></a></li>
-                <li><a href="blog.html"><span>Perfil</span></a></li>
+                <li><a href="{{ url_for('perfil')}}"><span>Perfil</span></a></li>
                 <li><a href="{{ url_for('logout')}}"><span>Cerrar Sesión</span></a></li>
               </ul>
             </nav>
