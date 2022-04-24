@@ -37,15 +37,6 @@
 
                 <legend><center><h2><b>Crear nueva oferta de trabajo</b></h2></center></legend><br>
 
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Nombre empresa</label>
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input  name="title_job" id="title_job" placeholder="Ej: Accenture" style="font-style: italic" class="form-control" type="text" required>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="form-group">
                     <label class="col-md-4 control-label">Título del puesto de trabajo</label>
@@ -62,7 +53,7 @@
                     <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input  name="title_job" id="title_job" placeholder="Ej: Jornada completa ..." style="font-style: italic" class="form-control" type="text" required>
+                            <input  name="info_job" id="info_job" placeholder="Ej: Jornada completa ..." style="font-style: italic" class="form-control" type="text" required>
                         </div>
                     </div>
                 </div>
@@ -72,7 +63,7 @@
                     <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input  name="nombre" id="nombre" placeholder="Ej: Lavanderia Paco" style="font-style: italic" class="form-control" type="text" required>
+                            <input  name="city" id="city" placeholder="Ej: Lavanderia Paco" style="font-style: italic" class="form-control" type="text" required>
                         </div>
                     </div>
                 </div>
@@ -83,7 +74,7 @@
                         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" name="botonRegistro" value="botonCrear" class="btn btn-warning" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCrear cuenta <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
                     </div>
                 </div>
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="{{ url_for('main') }}" class="btn btn-default" style="position: center">Iniciar Sesión</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="{{ url_for('home') }}" class="btn btn-default" style="position: center">Volver al menu</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
             </fieldset>
         </form>
     </div>

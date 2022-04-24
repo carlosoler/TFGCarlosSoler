@@ -36,6 +36,15 @@ def get_skills_foruser(alumno_id):
 def update_skills(alumno_id):
     return Skill.query.filter_by(alumno_id = alumno_id).first()
 
+def get_ofer_id():
+    return db.session.query(Oferta.job_id).order_by(Oferta.job_id.desc()).first().job_id + 1
+
+def get_empId_byOffer(username):
+    return db.session.query(Empresa.empresa_id).order_by(Empresa.empresa_id.desc()).filter_by(username=username).first().empresa_id
+
+def get_empName(username):
+    return db.session.query(Empresa.empresa_nombre).order_by(Empresa.empresa_id.desc()).filter_by(username=username).first().empresa_nombre
+
 def add_to_db(e):
     db.session.add(e)
     db.session.commit()
@@ -203,15 +212,22 @@ class Oferta(db.Model):
     empresa_nombre = db.Column(db.String)
     job_tittle = db.Column(db.String)
     ciudad = db.Column(db.String)
-    asignada = db.Column(db.Integer)
 
-    def __init__(self, job_id, empresa_id, empresa_nombre, job_tittle, ciudad, asignada):
+    def __init__(self, job_id, empresa_id, empresa_nombre, job_tittle, ciudad):
         self.job_id = job_id
         self.empresa_id = empresa_id
         self.empresa_nombre = empresa_nombre
         self.job_tittle = job_tittle
         self.ciudad = ciudad
-        self.asignada = asignada
 
     def is_active(self):
         return True
+
+    def is_authenticated(self):
+        return True
+
+    def is_anonymous(self):
+        return False
+
+    def get_id(self):
+        return str(self.job_id)

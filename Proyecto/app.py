@@ -8,7 +8,7 @@ from flask_migrate import Migrate
 
 from model.model import db, get_user_id, Alumno, get_users, add_to_db, get_user_by_id, Skill, get_tableSkill_id, \
     get_user_tableSkill_id, get_all_skills_foruser, get_empresa_id, Empresa, get_skills_foruser, update_skills, get_emp, \
-    get_users, get_alumn
+    get_users, get_alumn, get_ofer_id, get_empId_byOffer, get_empName, Oferta
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:qwerty@localhost:5432/JOBS'
@@ -116,11 +116,21 @@ def empresas():
     if session.get('logged_in'):
         return render_template('empresas.html')
 
-@app.route('/crearOfertas')
+@app.route('/crearOfertas', methods=["GET", "POST"])
 @login_required
 @restricted_access_toAlumn
 def crearOfertas():
     if session.get('logged_in'):
+        if request.method == 'POST':
+            id_reg = get_ofer_id()
+            id_emp_reg = get_empId_byOffer(session['username'])
+            nombre_emp_reg = get_empName(session['username'])
+            job_tittle_reg = request.form.get('title_job')
+            ciudad_reg = request.form.get('city')
+            oferta = Oferta(job_id=id_reg, empresa_id=id_emp_reg, empresa_nombre=nombre_emp_reg, job_tittle=job_tittle_reg,
+                          ciudad=ciudad_reg)
+            add_to_db(oferta)
+            flash("Oferta creada correctamente.")
         return render_template('crearOfertas.html')
 
 @app.route('/mostrar_skills')
@@ -138,7 +148,6 @@ def survey():
     if session.get('logged_in'):
         if request.method == 'POST':
             id_user_session = get_user_tableSkill_id(session['username'])
-
             id_reg = get_tableSkill_id()
             alumno_id_reg = get_user_tableSkill_id(session['username'])
             grado_reg = request.form.get('grado')
