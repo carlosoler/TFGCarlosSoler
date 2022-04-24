@@ -10,21 +10,19 @@
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/home/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/home/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/home/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'vendor/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'vendor/animate/animate.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'vendor/select2/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'vendor/perfect-scrollbar/perfect-scrollbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/verAlumn/util.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/verAlumn/main.css') }}">
 
-    <title>HOME</title>
+    <title>Ver Ofertas</title>
   </head>
   <body>
-    {% block content %}
-        <div class="busqueda">
-            {% for message in get_flashed_messages() %}
-            <div class="alert alert-danger" role="alert">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                {{ message }}
-            </div>
-            {% endfor %}
-            {% block page_content %}{% endblock %}
-        </div>
-    {% endblock %}
+
+
     <div class="site-mobile-menu">
       <div class="site-mobile-menu-header">
         <div class="site-mobile-menu-close mt-3">
@@ -79,12 +77,50 @@
       </div>
       
     </header>
-    <div class="hero" style="background-image: url('static/images/hero_1.jpg');"></div>
 
+    <div class="hero" style="background-image: url('static/images/hero_1.jpg');"></div>
+    <div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100 ver1 m-b-110">
+					<div class="table100-head">
+						<table>
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column1">Empresa </th>
+									<th class="cell100 column2">Titulo trabajo</th>
+									<th class="cell100 column3">Ciudad</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+
+					<div class="table100-body js-pscroll">
+						<table>
+							<tbody>
+                            {% for oferta in ofertas %}
+								<tr class="row100 body">
+									<td class="cell100 column1">{{ oferta.empresa_nombre }}</td>
+									<td class="cell100 column2">{{ oferta.job_tittle }}</td>
+									<td class="cell100 column3">{{ oferta.ciudad }}</td>
+								</tr>
+                            {% endfor %}
+							</tbody>
+						</table>
+					</div>
+				</div>
+            </div>
+        </div>
+    </div>
+  </body>
     <script src="{{ url_for('static', filename= 'js/home/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ url_for('static', filename= 'js/home/popper.min.js') }}"></script>
     <script src="{{ url_for('static', filename= 'js/home/bootstrap.min.js') }}"></script>
     <script src="{{ url_for('static', filename= 'js/home/jquery.sticky.js') }}"></script>
-  <script src="{{ url_for('static', filename= 'js/home/main.js') }}"></script>
-  </body>
+    <script src="{{ url_for('static', filename= 'js/home/main.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'vendor/bootstrap/js/popper.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'vendor/select2/select2.min.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'vendor/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
 </html>

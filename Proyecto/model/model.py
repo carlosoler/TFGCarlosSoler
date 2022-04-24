@@ -45,6 +45,12 @@ def get_empId_byOffer(username):
 def get_empName(username):
     return db.session.query(Empresa.empresa_nombre).order_by(Empresa.empresa_id.desc()).filter_by(username=username).first().empresa_nombre
 
+def get_alumnos():
+    return db.session.query(Alumno).order_by(Alumno.alumno_id.desc())
+
+def get_ofertas():
+    return db.session.query(Oferta).order_by(Oferta.job_id.desc())
+
 def add_to_db(e):
     db.session.add(e)
     db.session.commit()

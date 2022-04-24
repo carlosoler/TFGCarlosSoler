@@ -8,7 +8,7 @@ from flask_migrate import Migrate
 
 from model.model import db, get_user_id, Alumno, get_users, add_to_db, get_user_by_id, Skill, get_tableSkill_id, \
     get_user_tableSkill_id, get_all_skills_foruser, get_empresa_id, Empresa, get_skills_foruser, update_skills, get_emp, \
-    get_users, get_alumn, get_ofer_id, get_empId_byOffer, get_empName, Oferta
+    get_users, get_alumn, get_ofer_id, get_empId_byOffer, get_empName, Oferta, get_alumnos, get_ofertas
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:qwerty@localhost:5432/JOBS'
@@ -140,6 +140,22 @@ def mostrar_skills():
     if session.get('logged_in'):
         lista_skills = get_all_skills_foruser(get_user_tableSkill_id(session['username']))
         return render_template('mostrar_skills.html', lista_skills=lista_skills, username=session['username'])
+
+@app.route('/ver_alumnos')
+@login_required
+@restricted_access_toAlumn
+def ver_alumnos():
+    if session.get('logged_in'):
+        alumnos = get_alumnos()
+        return render_template('verAlumnos.html', alumnos=alumnos)
+
+@app.route('/ver_ofertas')
+@login_required
+@restricted_access_toEmp
+def ver_ofertas():
+    if session.get('logged_in'):
+        ofertas = get_ofertas()
+        return render_template('verOfertas.html', ofertas=ofertas)
 
 @app.route('/survey', methods=["GET", "POST"])
 @login_required
