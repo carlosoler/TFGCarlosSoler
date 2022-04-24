@@ -1,3 +1,5 @@
+from functools import wraps
+
 from flask import Flask, render_template
 
 from flask import Flask, render_template, request, flash, redirect, url_for, session
@@ -23,6 +25,27 @@ migrate = Migrate(app, db)
 @login_manager.user_loader
 def load_user(id):
     return get_user_by_id(id)
+
+def restricted_access_toAlumn(func):
+    @wraps(func)
+    def wrappper_restricted_access():
+        emp = get_emp(username=session['username'])
+        if not emp:
+            flash('Necesitas tener un usuario de Empresa para acceder a esta página')
+            return redirect(url_for('home'))
+        return func()
+    return wrappper_restricted_access
+
+def restricted_access_toEmp(func):
+    @wraps(func)
+    def wrappper_restricted_access():
+        alum = get_alumn(username=session['username'])
+        if not alum:
+            flash('Necesitas tener un alumno para acceder a esta página')
+            return redirect(url_for('home'))
+        return func()
+    return wrappper_restricted_access
+
 
 @app.route('/', methods=["GET", "POST"])
 def main():
@@ -95,12 +118,14 @@ def empresas():
 
 @app.route('/crearOfertas')
 @login_required
+@restricted_access_toAlumn
 def crearOfertas():
     if session.get('logged_in'):
         return render_template('crearOfertas.html')
 
 @app.route('/mostrar_skills')
 @login_required
+@restricted_access_toEmp
 def mostrar_skills():
     if session.get('logged_in'):
         lista_skills = get_all_skills_foruser(get_user_tableSkill_id(session['username']))
@@ -108,6 +133,7 @@ def mostrar_skills():
 
 @app.route('/survey', methods=["GET", "POST"])
 @login_required
+@restricted_access_toEmp
 def survey():
     if session.get('logged_in'):
         if request.method == 'POST':

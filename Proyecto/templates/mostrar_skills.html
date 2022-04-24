@@ -39,7 +39,7 @@
             <nav class="site-navigation position-relative text-right" role="navigation">
 
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li class="active"><a href="{{ url_for('home')}}"><span>Home</span></a></li>
+                <li ><a href="{{ url_for('home')}}"><span>Home</span></a></li>
                 <li class="has-children">
                   <a href="{{ url_for('alumnos')}}"><span>Alumnos</span></a>
                   <ul class="dropdown arrow-top">
@@ -76,11 +76,10 @@
                 </li>
                 <li><a href="blog.html"><span>Blog</span></a></li>
                 <li><a href="contact.html"><span>Contact</span></a></li>
-                <li><a href="{{ url_for('logout')}}">Cerrar Sesión</a></li>
+                <li><a href="{{ url_for('logout')}}"><span>Cerrar Sesión</span></a></li>
               </ul>
             </nav>
           </div>
-
 
           <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
 
