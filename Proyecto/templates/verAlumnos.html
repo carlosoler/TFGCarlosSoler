@@ -63,7 +63,7 @@
                   </ul>
                 </li>
                 <li><a href="contact.html"><span>Contact</span></a></li>
-                <li><a href="blog.html"><span>Perfil</span></a></li>
+                <li><a href="{{ url_for('perfil')}}"><span>Perfil</span></a></li>
                 <li><a href="{{ url_for('logout')}}"><span>Cerrar Sesión</span></a></li>
               </ul>
             </nav>
@@ -79,7 +79,6 @@
     </header>
 
     <div class="hero" style="background-image: url('static/images/hero_1.jpg');"></div>
-    <h1>VER ALUMNOS</h1>
 
     <div class="limiter">
 		<div class="container-table100">
