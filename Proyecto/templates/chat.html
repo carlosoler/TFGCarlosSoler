@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chat</title>
+    <link rel='stylesheet' href="{{ url_for('static', filename= 'css/chat.css') }}" />
+</head>
+<body>
+<ul id="messages"></ul>
+<form id="form">
+    <input id="input" autocomplete="off" autofocus="on" oninput="isTyping()">
+    <button>Enviar</button>
+</form>
+</body>
+<script src="{{ url_for('static', filename= '/socket.io/socket.io.js') }}"></script>
+<script type="text/javascript">
+    const socket = io();
+    const form = document.getElementById("form");
+    const input = document.getElementById("input");
+    const list = document.getElementById("messages");
+    form.addEventListener('submit', function(e){
+        e.preventDefault();
+        if(input.value){
+            socket.emit('chat message', input.value);
+            input.value = "";
+        }
+    });
+    socket.on('chat message', function(msg){
+        const item = document.createElement('li');
+        item.textContent = msg;
+        list.appendChild(item);
+    });
+    socket.on('is_online', function(username) {
+        const item = document.createElement('li');
+        item.textContent = username;
+        list.appendChild(item);
+    });
+    var username = ' <%= userChat %>'
+    socket.emit('username', username);
+</script>
+</html>
+

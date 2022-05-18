@@ -157,6 +157,21 @@ def ver_ofertas():
         ofertas = get_ofertas()
         return render_template('verOfertas.html', ofertas=ofertas)
 
+@app.route('/ver_skills_alumnos')
+@login_required
+@restricted_access_toAlumn
+def ver_skills_alumnos():
+    if session.get('logged_in'):
+        usuario = request.args.get('username')
+        lista_skills = get_all_skills_foruser(get_user_tableSkill_id(usuario))
+        return render_template('ver_skill_alumnos.html', lista_skills=lista_skills, username=usuario)
+
+@app.route('/chat')
+@login_required
+def chat():
+    if session.get('logged_in'):
+        return render_template('chat.html')
+
 @app.route('/perfil')
 @login_required
 def perfil():
