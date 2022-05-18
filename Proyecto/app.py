@@ -1,14 +1,16 @@
+import json
 from functools import wraps
 
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 
 from flask import Flask, render_template, request, flash, redirect, url_for, session
 from flask_login import LoginManager, login_user, login_required, logout_user
 from flask_migrate import Migrate
+import requests
 
 from model.model import db, get_user_id, Alumno, get_users, add_to_db, get_user_by_id, Skill, get_tableSkill_id, \
     get_user_tableSkill_id, get_all_skills_foruser, get_empresa_id, Empresa, get_skills_foruser, update_skills, get_emp, \
-    get_users, get_alumn, get_ofer_id, get_empId_byOffer, get_empName, Oferta, get_alumnos, get_ofertas
+    get_users, get_alumn, get_ofer_id, get_empId_byOffer, get_empName, Oferta, get_alumnos, get_ofertas, get_id_by_user
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:qwerty@localhost:5432/JOBS'
@@ -179,6 +181,20 @@ def perfil():
         emp = get_emp(username=session['username'])
         alum = get_alumn(username=session['username'])
         return render_template('perfil.html', username=session['username'], emp=emp, alum=alum)
+
+@app.route('/recomendarOfertas', methods=["GET","POST"])
+@login_required
+@restricted_access_toEmp
+def recomendarOfertas():
+    if session.get('logged_in'):
+        id = get_id_by_user(session['username'])
+        if request.method == 'POST':
+            r = requests.post('http://127.0.0.1:8001/recomendar.practicas', params={'codigoEstudiante': id})
+            ejemplo = r.json()
+            return render_template('recomendarOfertas.html', username=session['username'], ejemplo=ejemplo, id=id)
+        return render_template('recomendarOfertas.html', username=session['username'], id=id)
+
+
 
 @app.route('/survey', methods=["GET", "POST"])
 @login_required

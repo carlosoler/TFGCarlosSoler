@@ -21,6 +21,9 @@ def get_empresa_id():
 def get_user_by_id(alumno_id):
     return db.session.query(Alumno).filter_by(alumno_id=alumno_id).first()
 
+def get_id_by_user(username):
+    return db.session.query(Alumno.alumno_id).filter_by(username=username).order_by(Alumno.alumno_id.desc()).first().alumno_id
+
 def get_tableSkill_id():
     return db.session.query(Skill.id).order_by(Skill.id.desc()).first().id + 1
 
