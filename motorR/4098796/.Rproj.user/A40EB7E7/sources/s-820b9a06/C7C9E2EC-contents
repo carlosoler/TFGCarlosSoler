@@ -1,0 +1,4 @@
+ofertas_asignadas<-read.xlsx("ofertas_asign.xlsx")
+ofertas_nuevas<-read.xlsx("ofertas_nuevas.xlsx")
+alumnos_antiguos<-read.xlsx("alumnos_antiguos.xlsx")
+alumno_nuevo<-read.xlsx("alumno_nuevo.xlsx")

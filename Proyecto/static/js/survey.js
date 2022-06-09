@@ -258,6 +258,13 @@ $(document).ready(function() {
                         message: 'Por favor introduzca su nivel correspondiente'
                     }
                 }
+            },
+            progra_level: {
+                validators: {
+                    notEmpty: {
+                        message: 'Por favor introduzca su nivel correspondiente'
+                    }
+                }
             }
         }
     })

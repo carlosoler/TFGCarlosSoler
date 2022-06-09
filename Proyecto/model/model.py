@@ -40,7 +40,7 @@ def update_skills(alumno_id):
     return Skill.query.filter_by(alumno_id = alumno_id).first()
 
 def get_ofer_id():
-    return db.session.query(Oferta.job_id).order_by(Oferta.job_id.desc()).first().job_id + 1
+    return db.session.query(OfertaAsiganda.job_id).order_by(OfertaAsiganda.job_id.desc()).first().job_id + 1
 
 def get_empId_byOffer(username):
     return db.session.query(Empresa.empresa_id).order_by(Empresa.empresa_id.desc()).filter_by(username=username).first().empresa_id
@@ -52,7 +52,7 @@ def get_alumnos():
     return db.session.query(Alumno).order_by(Alumno.alumno_id.desc())
 
 def get_ofertas():
-    return db.session.query(Oferta).order_by(Oferta.job_id.desc())
+    return db.session.query(OfertaAsiganda).order_by(OfertaAsiganda.job_id.desc())
 
 def add_to_db(e):
     db.session.add(e)
@@ -89,6 +89,7 @@ class Alumno(db.Model):
 
     def get_id(self):
         return str(self.alumno_id)
+
 
 class Skill(db.Model):
     __tablename__ = 'skills'
@@ -214,20 +215,48 @@ class Empresa(db.Model):
     def get_id(self):
         return str(self.empresa_id)
 
-class Oferta(db.Model):
-    __tablename__ = 'ofertas'
+class OfertaAsiganda(db.Model):
+    __tablename__ = 'ofertas_asignadas'
     job_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    alumno_id = db.Column(db.Integer, db.ForeignKey('alumnos.alumno_id'), unique=True)
     empresa_id = db.Column(db.Integer, db.ForeignKey('empresas.empresa_id'))
     empresa_nombre = db.Column(db.String)
     job_tittle = db.Column(db.String)
     ciudad = db.Column(db.String)
+    grado = db.Column(db.Integer)
+    nota_media = db.Column(db.Integer)
+    ingles = db.Column(db.Integer)
+    aleman = db.Column(db.Integer)
+    frances = db.Column(db.Integer)
+    trabajo_equipo = db.Column(db.Integer)
+    comunicacion = db.Column(db.Integer)
+    matematicas = db.Column(db.Integer)
+    estadistica = db.Column(db.Integer)
+    gestion_proyectos = db.Column(db.Integer)
+    sostenibilidad = db.Column(db.Integer)
+    big_data = db.Column(db.Integer)
+    programacion = db.Column(db.Integer)
 
-    def __init__(self, job_id, empresa_id, empresa_nombre, job_tittle, ciudad):
+    def __init__(self, job_id, alumno_id, empresa_id, empresa_nombre, job_tittle, ciudad, grado, nota_media, ingles, aleman, frances, trabajo_equipo, comunicacion, matematicas, estadistica, gestion_proyectos, sostenibilidad, big_data, programacion):
         self.job_id = job_id
+        self.alumno_id = alumno_id
         self.empresa_id = empresa_id
         self.empresa_nombre = empresa_nombre
         self.job_tittle = job_tittle
         self.ciudad = ciudad
+        self.grado = grado
+        self.nota_media = nota_media
+        self.ingles = ingles
+        self.aleman = aleman
+        self.frances = frances
+        self.trabajo_equipo = trabajo_equipo
+        self.comunicacion = comunicacion
+        self.matematicas = matematicas
+        self.estadistica = estadistica
+        self.gestion_proyectos = gestion_proyectos
+        self.sostenibilidad = sostenibilidad
+        self.big_data = big_data
+        self.programacion = programacion
 
     def is_active(self):
         return True
@@ -240,3 +269,57 @@ class Oferta(db.Model):
 
     def get_id(self):
         return str(self.job_id)
+
+class OfertaNueva(db.Model):
+    __tablename__ = 'ofertas_nuevas'
+    job_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    empresa_id = db.Column(db.Integer, db.ForeignKey('empresas.empresa_id'))
+    empresa_nombre = db.Column(db.String)
+    job_tittle = db.Column(db.String)
+    ciudad = db.Column(db.String)
+    grado = db.Column(db.Integer)
+    nota_media = db.Column(db.Integer)
+    ingles = db.Column(db.Integer)
+    aleman = db.Column(db.Integer)
+    frances = db.Column(db.Integer)
+    trabajo_equipo = db.Column(db.Integer)
+    comunicacion = db.Column(db.Integer)
+    matematicas = db.Column(db.Integer)
+    estadistica = db.Column(db.Integer)
+    gestion_proyectos = db.Column(db.Integer)
+    sostenibilidad = db.Column(db.Integer)
+    big_data = db.Column(db.Integer)
+    programacion = db.Column(db.Integer)
+
+    def __init__(self, job_id, empresa_id, empresa_nombre, job_tittle, ciudad, grado, nota_media, ingles, aleman, frances, trabajo_equipo, comunicacion, matematicas, estadistica, gestion_proyectos, sostenibilidad, big_data, programacion):
+        self.job_id = job_id
+        self.empresa_id = empresa_id
+        self.empresa_nombre = empresa_nombre
+        self.job_tittle = job_tittle
+        self.ciudad = ciudad
+        self.grado = grado
+        self.nota_media = nota_media
+        self.ingles = ingles
+        self.aleman = aleman
+        self.frances = frances
+        self.trabajo_equipo = trabajo_equipo
+        self.comunicacion = comunicacion
+        self.matematicas = matematicas
+        self.estadistica = estadistica
+        self.gestion_proyectos = gestion_proyectos
+        self.sostenibilidad = sostenibilidad
+        self.big_data = big_data
+        self.programacion = programacion
+
+    def is_active(self):
+        return True
+
+    def is_authenticated(self):
+        return True
+
+    def is_anonymous(self):
+        return False
+
+    def get_id(self):
+        return str(self.job_id)
+

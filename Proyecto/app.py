@@ -10,7 +10,8 @@ import requests
 
 from model.model import db, get_user_id, Alumno, get_users, add_to_db, get_user_by_id, Skill, get_tableSkill_id, \
     get_user_tableSkill_id, get_all_skills_foruser, get_empresa_id, Empresa, get_skills_foruser, update_skills, get_emp, \
-    get_users, get_alumn, get_ofer_id, get_empId_byOffer, get_empName, Oferta, get_alumnos, get_ofertas, get_id_by_user
+    get_users, get_alumn, get_ofer_id, get_empId_byOffer, get_empName, OfertaAsiganda, get_alumnos, get_ofertas, \
+    get_id_by_user, OfertaNueva
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:qwerty@localhost:5432/JOBS'
@@ -129,8 +130,23 @@ def crearOfertas():
             nombre_emp_reg = get_empName(session['username'])
             job_tittle_reg = request.form.get('title_job')
             ciudad_reg = request.form.get('city')
-            oferta = Oferta(job_id=id_reg, empresa_id=id_emp_reg, empresa_nombre=nombre_emp_reg, job_tittle=job_tittle_reg,
-                          ciudad=ciudad_reg)
+            grado_reg = request.form.get('grado')
+            nota_media_reg = request.form.get('nota_media')
+            ingles_reg = request.form.get('ingles_level')
+            aleman_reg = request.form.get('aleman_level')
+            frances_reg = request.form.get('frances_level')
+            trabajo_equipo_reg = request.form.get('trabajoEquipo_level')
+            comunicacion_reg = request.form.get('comunicacion_level')
+            matematicas_reg = request.form.get('matematicas_level')
+            estadistica_reg = request.form.get('estadistica_level')
+            gestion_proyectos_reg = request.form.get('gestionProyectos_level')
+            sostenibilidad_reg = request.form.get('sostenibilidad_level')
+            big_data_reg = request.form.get('bigData_level')
+            progra_reg = request.form.get('progra_level')
+            oferta = OfertaNueva(job_id=id_reg, empresa_id=id_emp_reg, empresa_nombre=nombre_emp_reg, job_tittle=job_tittle_reg,
+                          ciudad=ciudad_reg, grado=grado_reg, nota_media=nota_media_reg, ingles=ingles_reg, aleman=aleman_reg, frances=frances_reg, trabajo_equipo=trabajo_equipo_reg,
+                          comunicacion=comunicacion_reg, matematicas=matematicas_reg, estadistica=estadistica_reg, gestion_proyectos=gestion_proyectos_reg,
+                          sostenibilidad=sostenibilidad_reg, big_data=big_data_reg, programacion=progra_reg)
             add_to_db(oferta)
             flash("Oferta creada correctamente.")
         return render_template('crearOfertas.html')
@@ -189,7 +205,7 @@ def recomendarOfertas():
     if session.get('logged_in'):
         id = get_id_by_user(session['username'])
         if request.method == 'POST':
-            r = requests.post('http://127.0.0.1:8001/recomendar.practicas', params={'codigoEstudiante': id})
+            r = requests.post('http://127.0.0.1:8001/recomendar.ofertas', params={'codigoalumno': id})
             ejemplo = r.json()
             return render_template('recomendarOfertas.html', username=session['username'], ejemplo=ejemplo, id=id)
         return render_template('recomendarOfertas.html', username=session['username'], id=id)
