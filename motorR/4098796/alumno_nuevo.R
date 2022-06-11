@@ -40,7 +40,7 @@ recomendacion_alumno_nuevo <- function(alumnonuevo) {
   # Uno el alumno_nuevo con los alumnos_antiguos
   alumnos<-rbind(alumnos_antiguos,alumno_nuevo)
   # Parto de alumnos y elimino las columnas con info de los alumnos primera columna (me quedo solo con las skills)
-  alumnos1<-select(alumnos, -alumno_id, -username,-password, -nombre, -apellido, -telefono, -email)
+  alumnos1<-dplyr::select(alumnos, -alumno_id, -username,-password, -nombre, -apellido, -telefono, -email)
   # Transpongo alumnos1(71x36) y obtengo alumnos2 (36x71)
   alumnos2 <- t(alumnos1)
   # Convierto alumnos2 en un DF
@@ -83,11 +83,11 @@ recomendacion_alumno_nuevo <- function(alumnonuevo) {
   # Transformo formato numeric para user_id en vecinos
   vecinos$alumno_id <- as.numeric(vecinos$alumno_id)
   # Elimino V2
-  vecinos<-select(vecinos, -V2)
+  vecinos<-dplyr::select(vecinos, -V2)
   # Identifico vecinos alumno71
   vecinos71<-vecinos[vecinos$alumno_id == alumnonuevo,]
   # Elimino alumno_id
-  vecinos71<-select(vecinos71, -alumno_id)
+  vecinos71<-dplyr::select(vecinos71, -alumno_id)
   # Traspongo vecinos71
   vecinos71<-t(vecinos71)
   vecinos71<-data.frame(vecinos71)

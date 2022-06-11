@@ -39,8 +39,17 @@ def get_skills_foruser(alumno_id):
 def update_skills(alumno_id):
     return Skill.query.filter_by(alumno_id = alumno_id).first()
 
+def update_alumno(alumno_id):
+    return Alumno.query.filter_by(alumno_id = alumno_id).first()
+
+def update_ofertaNueva(job_id):
+    return OfertaNueva.query.filter_by(job_id = job_id).first()
+
+def update_ofertaAsignada(job_id):
+    return OfertaAsignada.query.filter_by(job_id = job_id).first()
+
 def get_ofer_id():
-    return db.session.query(OfertaAsiganda.job_id).order_by(OfertaAsiganda.job_id.desc()).first().job_id + 1
+    return db.session.query(OfertaNueva.job_id).order_by(OfertaNueva.job_id.desc()).first().job_id + 1
 
 def get_empId_byOffer(username):
     return db.session.query(Empresa.empresa_id).order_by(Empresa.empresa_id.desc()).filter_by(username=username).first().empresa_id
@@ -52,7 +61,16 @@ def get_alumnos():
     return db.session.query(Alumno).order_by(Alumno.alumno_id.desc())
 
 def get_ofertas():
-    return db.session.query(OfertaAsiganda).order_by(OfertaAsiganda.job_id.desc())
+    return db.session.query(OfertaAsignada).order_by(OfertaAsignada.job_id.desc())
+
+def get_ofertas_nuevas():
+    return db.session.query(OfertaNueva).order_by(OfertaNueva.job_id.desc())
+
+def get_alumn_sinOfertas():
+    return db.session.query(Alumno).order_by(Alumno.alumno_id.desc()).filter_by(ofert_asignada=0)
+
+def get_eliminarOfertaNueva(job_id):
+    return db.session.query(OfertaNueva).filter_by(job_id=job_id).delete()
 
 def add_to_db(e):
     db.session.add(e)
@@ -68,8 +86,9 @@ class Alumno(db.Model):
     apellido = db.Column(db.String)
     telefono = db.Column(db.String, unique=True)
     email = db.Column(db.String, unique=True)
+    ofert_asignada = db.Column(db.Integer)
 
-    def __init__(self, alumno_id, username, password, nombre, apellido, telefono, email):
+    def __init__(self, alumno_id, username, password, nombre, apellido, telefono, email, ofert_asignada):
         self.alumno_id = alumno_id
         self.username = username
         self.password = password
@@ -77,6 +96,7 @@ class Alumno(db.Model):
         self.apellido = apellido
         self.telefono = telefono
         self.email = email
+        self.ofert_asignada = ofert_asignada
 
     def is_active(self):
         return True
@@ -215,7 +235,7 @@ class Empresa(db.Model):
     def get_id(self):
         return str(self.empresa_id)
 
-class OfertaAsiganda(db.Model):
+class OfertaAsignada(db.Model):
     __tablename__ = 'ofertas_asignadas'
     job_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     alumno_id = db.Column(db.Integer, db.ForeignKey('alumnos.alumno_id'), unique=True)

@@ -39,7 +39,7 @@ ofertas_nuevas <- function(a,b) {
   # Uno ofertas_asignadas con ofertas_nuevas
   ofertas<-rbind(ofertas_asignadas,ofertas_nuevas)
   # Parto de ofertas y elimino las columnas con info de las ofertas no relevante
-  ofertas1<-select(ofertas, -alumno_id,-job_id,-empresa_nombre,-job_tittle,-ciudad)
+  ofertas1<-dplyr::select(ofertas,-alumno_id,-job_id,-empresa_nombre,-job_tittle,-ciudad)
   # Transpongo ofertas1(80x13) y obtengo ofertas2 (13x80)
   ofertas2 <- t(ofertas1)
   # Convierto ofertas2 en un DF
@@ -82,16 +82,16 @@ ofertas_nuevas <- function(a,b) {
   # Transformo formato numeric para job_id en vecinos
   vecinos$job_id <- as.numeric(vecinos$job_id)
   # Elimino V2
-  vecinos<-select(vecinos, -V2)
+  vecinos<-dplyr::select(vecinos, -V2)
   # Identifico vecinos ofertas_nuevas (71:80)
   vecinos_ofertas_nuevas<-vecinos[vecinos$job_id == a:b,]
   # Transformo el dataframe
   vecinos_ofertas_nuevas<-vecinos_ofertas_nuevas%>%
     gather(key="V",value="vecinos",2:6)
-  vecinos_ofertas_nuevas<-select(vecinos_ofertas_nuevas, -V)
+  vecinos_ofertas_nuevas<-dplyr::select(vecinos_ofertas_nuevas, -V)
   # Creo archivo xlsx
   write.xlsx(vecinos_ofertas_nuevas,"vecinos_ofertas_nuevas.xlsx")
   
   return(vecinos_ofertas_nuevas)
 }
-
+ 

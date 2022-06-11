@@ -10,8 +10,9 @@ import requests
 
 from model.model import db, get_user_id, Alumno, get_users, add_to_db, get_user_by_id, Skill, get_tableSkill_id, \
     get_user_tableSkill_id, get_all_skills_foruser, get_empresa_id, Empresa, get_skills_foruser, update_skills, get_emp, \
-    get_users, get_alumn, get_ofer_id, get_empId_byOffer, get_empName, OfertaAsiganda, get_alumnos, get_ofertas, \
-    get_id_by_user, OfertaNueva
+    get_users, get_alumn, get_ofer_id, get_empId_byOffer, get_empName, get_alumnos, get_ofertas, \
+    get_id_by_user, OfertaNueva, get_ofertas_nuevas, get_alumn_sinOfertas, update_alumno, update_ofertaAsignada, \
+    OfertaAsignada, update_ofertaNueva, get_eliminarOfertaNueva
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:qwerty@localhost:5432/JOBS'
@@ -79,8 +80,9 @@ def registro_usuario():
         contrasena_reg = request.form.get('pass')
         telefono_reg = request.form.get('tel')
         email_reg = request.form.get('email')
+        oferta_asiganda = 0
         user = Alumno(alumno_id=id_reg, username=nombreUsuario_reg, password=contrasena_reg, nombre=nombre_reg,
-                      apellido=apellido_reg, telefono=telefono_reg, email=email_reg)
+                      apellido=apellido_reg, telefono=telefono_reg, email=email_reg, ofert_asignada=oferta_asiganda)
 
         add_to_db(user)
         flash("Usuario creado correctamente. Por favor inicie sesión con su usuario")
@@ -150,6 +152,55 @@ def crearOfertas():
             add_to_db(oferta)
             flash("Oferta creada correctamente.")
         return render_template('crearOfertas.html')
+
+@app.route('/asignarOfertas', methods=["GET", "POST"])
+@login_required
+@restricted_access_toAlumn
+def asignarOfertas():
+    ofertas_nuevas = get_ofertas_nuevas()
+    alumnos_sinOfertas = get_alumn_sinOfertas()
+    if session.get('logged_in'):
+        if request.method == 'POST':
+            alumno = request.form.get('alumnos')
+            oferta_id = request.form.get('ofertas')
+            person = update_alumno(get_user_tableSkill_id(alumno))
+            person.ofert_asignada = 1
+            #Creamos oferta asignada
+            oferta_nueva = update_ofertaNueva(oferta_id)
+
+            id_reg = get_ofer_id()
+            alumnoID_reg = get_user_tableSkill_id(alumno)
+            empresaID_reg = oferta_nueva.empresa_id
+            nombre_emp_reg = oferta_nueva.empresa_nombre
+            job_tittle_reg = oferta_nueva.job_tittle
+            ciudad_reg = oferta_nueva.ciudad
+            grado_reg = oferta_nueva.grado
+            nota_media_reg = oferta_nueva.nota_media
+            ingles_reg = oferta_nueva.ingles
+            aleman_reg = oferta_nueva.aleman
+            frances_reg = oferta_nueva.frances
+            trabajo_equipo_reg = oferta_nueva.trabajo_equipo
+            comunicacion_reg = oferta_nueva.comunicacion
+            matematicas_reg = oferta_nueva.matematicas
+            estadistica_reg = oferta_nueva.estadistica
+            gestion_proyectos_reg = oferta_nueva.gestion_proyectos
+            sostenibilidad_reg = oferta_nueva.sostenibilidad
+            big_data_reg = oferta_nueva.big_data
+            progra_reg = oferta_nueva.programacion
+
+            oferta = OfertaAsignada(job_id=id_reg, alumno_id=alumnoID_reg ,empresa_id=empresaID_reg, empresa_nombre=nombre_emp_reg,
+                                 job_tittle=job_tittle_reg, ciudad=ciudad_reg, grado=grado_reg, nota_media=nota_media_reg, ingles=ingles_reg,
+                                 aleman=aleman_reg, frances=frances_reg, trabajo_equipo=trabajo_equipo_reg,
+                                 comunicacion=comunicacion_reg, matematicas=matematicas_reg,
+                                 estadistica=estadistica_reg, gestion_proyectos=gestion_proyectos_reg,
+                                 sostenibilidad=sostenibilidad_reg, big_data=big_data_reg, programacion=progra_reg)
+            add_to_db(oferta)
+            get_eliminarOfertaNueva(oferta_nueva.job_id)
+
+            db.session.commit()
+            flash("Oferta asignada con éxito!")
+
+    return render_template('asignarOfertas.html', ofertas_nuevas=ofertas_nuevas, alumnos_sinOfertas=alumnos_sinOfertas)
 
 @app.route('/mostrar_skills')
 @login_required
@@ -319,7 +370,9 @@ def survey():
                 person.python = python_reg
                 db.session.commit()
                 flash("Skills modificadas!")
+
         return render_template('survey.html')
+
 
 
 @app.route("/logout")
