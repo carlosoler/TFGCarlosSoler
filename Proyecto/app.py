@@ -12,7 +12,7 @@ from model.model import db, get_user_id, Alumno, get_users, add_to_db, get_user_
     get_user_tableSkill_id, get_all_skills_foruser, get_empresa_id, Empresa, get_skills_foruser, update_skills, get_emp, \
     get_users, get_alumn, get_ofer_id, get_empId_byOffer, get_empName, get_alumnos, get_ofertas, \
     get_id_by_user, OfertaNueva, get_ofertas_nuevas, get_alumn_sinOfertas, update_alumno, update_ofertaAsignada, \
-    OfertaAsignada, update_ofertaNueva, get_eliminarOfertaNueva
+    OfertaAsignada, update_ofertaNueva, get_eliminarOfertaNueva, get_adm
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:qwerty@localhost:5432/JOBS'
@@ -46,6 +46,16 @@ def restricted_access_toEmp(func):
         alum = get_alumn(username=session['username'])
         if not alum:
             flash('Necesitas tener un alumno para acceder a esta página')
+            return redirect(url_for('home'))
+        return func()
+    return wrappper_restricted_access
+
+def onlyAdmin(func):
+    @wraps(func)
+    def wrappper_restricted_access():
+        adm = get_adm(username=session['username'])
+        if not adm:
+            flash('Necesitas ser un administrador para acceder a esta página')
             return redirect(url_for('home'))
         return func()
     return wrappper_restricted_access
@@ -155,7 +165,7 @@ def crearOfertas():
 
 @app.route('/asignarOfertas', methods=["GET", "POST"])
 @login_required
-@restricted_access_toAlumn
+@onlyAdmin
 def asignarOfertas():
     ofertas_nuevas = get_ofertas_nuevas()
     alumnos_sinOfertas = get_alumn_sinOfertas()
@@ -215,7 +225,7 @@ def mostrar_skills():
 @restricted_access_toAlumn
 def ver_alumnos():
     if session.get('logged_in'):
-        alumnos = get_alumnos()
+        alumnos = get_alumn_sinOfertas()
         return render_template('verAlumnos.html', alumnos=alumnos)
 
 @app.route('/ver_ofertas')
@@ -223,7 +233,7 @@ def ver_alumnos():
 @restricted_access_toEmp
 def ver_ofertas():
     if session.get('logged_in'):
-        ofertas = get_ofertas()
+        ofertas = get_ofertas_nuevas()
         return render_template('verOfertas.html', ofertas=ofertas)
 
 @app.route('/ver_skills_alumnos')
@@ -247,7 +257,8 @@ def perfil():
     if session.get('logged_in'):
         emp = get_emp(username=session['username'])
         alum = get_alumn(username=session['username'])
-        return render_template('perfil.html', username=session['username'], emp=emp, alum=alum)
+        adm = get_adm(username=session['username'])
+        return render_template('perfil.html', username=session['username'], emp=emp, alum=alum, adm=adm)
 
 @app.route('/recomendarOfertas', methods=["GET","POST"])
 @login_required
@@ -381,6 +392,7 @@ def logout():
     session.pop('logged_in', None)
     logout_user()
     return redirect(url_for('main'))
+
 
 if __name__ == '__main__':
     app.run()

@@ -59,10 +59,9 @@
                   <ul class="dropdown arrow-top">
                     <li><a href="{{ url_for('crearOfertas')}}">Crear ofertas</a></li>
                     <li><a href="{{ url_for('ver_alumnos')}}">Ver alumnos</a></li>
-                    <li><a href="#">XXX</a></li>
                   </ul>
                 </li>
-                <li><a href="contact.html"><span>Contact</span></a></li>
+                <li><a href="{{ url_for('asignarOfertas') }}">Asignar Ofertas</a></li>
                 <li><a href="{{ url_for('chat')}}" onClick="window.open('chat','Chat','resizable,height=750,width=400'); return false;"><span>Chat</span></a></li>
                 <li><a href="{{ url_for('perfil')}}"><span>Perfil</span></a></li>
                 <li><a href="{{ url_for('logout')}}"><span>Cerrar Sesión</span></a></li>

@@ -4,13 +4,16 @@ db = SQLAlchemy()
 
 
 def get_users(username):
-    return db.session.query(Alumno).filter_by(username=username).first() or db.session.query(Empresa).filter_by(username=username).first()
+    return db.session.query(Alumno).filter_by(username=username).first() or db.session.query(Empresa).filter_by(username=username).first() or db.session.query(Admin).filter_by(username=username).first()
 
 def get_alumn(username):
     return db.session.query(Alumno).filter_by(username=username).first()
 
 def get_emp(username):
     return db.session.query(Empresa).filter_by(username=username).first()
+
+def get_adm(username):
+    return db.session.query(Admin).filter_by(username=username).first()
 
 def get_user_id():
     return db.session.query(Alumno.alumno_id).order_by(Alumno.alumno_id.desc()).first().alumno_id + 1
@@ -342,4 +345,27 @@ class OfertaNueva(db.Model):
 
     def get_id(self):
         return str(self.job_id)
+
+class Admin(db.Model):
+    __tablename__ = 'admin'
+    admin_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    username = db.Column(db.String, unique=True)
+    password = db.Column(db.String)
+
+    def __init__(self, admin_id, username, password):
+        self.admin_id = admin_id
+        self.username = username
+        self.password = password
+
+    def is_active(self):
+        return True
+
+    def is_authenticated(self):
+        return True
+
+    def is_anonymous(self):
+        return False
+
+    def get_id(self):
+        return str(self.admin_id)
 

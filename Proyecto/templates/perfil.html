@@ -51,10 +51,9 @@
                   <ul class="dropdown arrow-top">
                     <li><a href="{{ url_for('crearOfertas')}}">Crear ofertas</a></li>
                     <li><a href="{{ url_for('ver_alumnos')}}">Ver alumnos</a></li>
-                    <li><a href="#">XXX</a></li>
                   </ul>
                 </li>
-                <li><a href="contact.html"><span>Contact</span></a></li>
+                <li><a href="{{ url_for('asignarOfertas') }}">Asignar Ofertas</a></li>
                 <li><a href="{{ url_for('chat')}}" onClick="window.open('chat','Chat','resizable,height=750,width=400'); return false;"><span>Chat</span></a></li>
                 <li><a href="{{ url_for('perfil')}}"><span>Perfil</span></a></li>
                 <li><a href="{{ url_for('logout')}}"><span>Cerrar Sesión</span></a></li>
@@ -76,13 +75,15 @@
     <p>
         <div id="boxperfil">
             <div class ="imagenPerfil">
-                <img src="{{ url_for('static', filename='images/perfil.jpg') }}" />
+                <img src="{{ url_for('static', filename='images/perfil.jpg') }}" alt="" />
             </div>
             <h1> <br>Bienvenido, <b> {{ username }} </b></h1>
             {% if emp %}
                 <h1><br>Tu tipo de cuenta: Empresa</h1>
             {% elif alum %}
                 <h1><br>Tu tipo de cuenta: Alumno</h1>
+            {% elif adm %}
+                <h1><br>Tu tipo de cuenta: Administrador</h1>
             {% endif %}
         </div>
     </p>
