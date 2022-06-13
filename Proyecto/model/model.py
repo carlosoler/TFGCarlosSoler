@@ -72,6 +72,9 @@ def get_ofertas_nuevas():
 def get_alumn_sinOfertas():
     return db.session.query(Alumno).order_by(Alumno.alumno_id.desc()).filter_by(ofert_asignada=0)
 
+def get_alumn_sinOfertasByUsername(username):
+    return db.session.query(Alumno).order_by(Alumno.alumno_id.desc()).filter_by(ofert_asignada=0, username=username).first()
+
 def get_eliminarOfertaNueva(job_id):
     return db.session.query(OfertaNueva).filter_by(job_id=job_id).delete()
 

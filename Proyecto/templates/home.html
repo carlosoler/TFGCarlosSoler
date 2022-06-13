@@ -63,7 +63,13 @@
                     <li><a href="{{ url_for('ver_alumnos')}}">Ver alumnos</a></li>
                   </ul>
                 </li>
-                <li><a href="{{ url_for('asignarOfertas') }}">Asignar Ofertas</a></li>
+                <li class="has-children">
+                  <a href=""><span>Admin</span></a>
+                  <ul class="dropdown arrow-top">
+                    <li><a href="{{ url_for('asignarOfertas') }}">Asignar Ofertas</a></li>
+                    <li><a href="{{ url_for('similitudOfertasNuevas')}}">Calcular similitud ofertas nuevas</a></li>
+                  </ul>
+                </li>
                 <li><a href="{{ url_for('chat')}}" onClick="window.open('chat','Chat','resizable,height=750,width=400'); return false;"><span>Chat</span></a></li>
                 <li><a href="{{ url_for('perfil')}}"><span>Perfil</span></a></li>
                 <li><a href="{{ url_for('logout')}}"><span>Cerrar Sesión</span></a></li>

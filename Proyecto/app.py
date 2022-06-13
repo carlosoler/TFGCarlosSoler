@@ -12,7 +12,7 @@ from model.model import db, get_user_id, Alumno, get_users, add_to_db, get_user_
     get_user_tableSkill_id, get_all_skills_foruser, get_empresa_id, Empresa, get_skills_foruser, update_skills, get_emp, \
     get_users, get_alumn, get_ofer_id, get_empId_byOffer, get_empName, get_alumnos, get_ofertas, \
     get_id_by_user, OfertaNueva, get_ofertas_nuevas, get_alumn_sinOfertas, update_alumno, update_ofertaAsignada, \
-    OfertaAsignada, update_ofertaNueva, get_eliminarOfertaNueva, get_adm
+    OfertaAsignada, update_ofertaNueva, get_eliminarOfertaNueva, get_adm, get_alumn_sinOfertasByUsername
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:qwerty@localhost:5432/JOBS'
@@ -46,6 +46,16 @@ def restricted_access_toEmp(func):
         alum = get_alumn(username=session['username'])
         if not alum:
             flash('Necesitas tener un alumno para acceder a esta página')
+            return redirect(url_for('home'))
+        return func()
+    return wrappper_restricted_access
+
+def restricted_access_toAlumnConOferta(func):
+    @wraps(func)
+    def wrappper_restricted_access():
+        alum = get_alumn_sinOfertasByUsername(username=session['username'])
+        if not alum:
+            flash('Este nombre de usuario tiene ya una oferta asignada')
             return redirect(url_for('home'))
         return func()
     return wrappper_restricted_access
@@ -262,17 +272,26 @@ def perfil():
 
 @app.route('/recomendarOfertas', methods=["GET","POST"])
 @login_required
-@restricted_access_toEmp
+@restricted_access_toAlumnConOferta
 def recomendarOfertas():
     if session.get('logged_in'):
-        id = get_id_by_user(session['username'])
+        #id = get_id_by_user(session['username'])
         if request.method == 'POST':
-            r = requests.post('http://127.0.0.1:8001/recomendar.ofertas', params={'codigoalumno': id})
+            r = requests.post('http://127.0.0.1:4982/recomendacion_alumno_nuevo', params={'alumnonuevo': 71})
             ejemplo = r.json()
-            return render_template('recomendarOfertas.html', username=session['username'], ejemplo=ejemplo, id=id)
-        return render_template('recomendarOfertas.html', username=session['username'], id=id)
+            return render_template('recomendarOfertas.html', username=session['username'], ejemplo=ejemplo)
+        return render_template('recomendarOfertas.html', username=session['username'])
 
-
+@app.route('/similitudOfertasNuevas', methods=["GET","POST"])
+@login_required
+@onlyAdmin
+def similitudOfertasNuevas():
+    if session.get('logged_in'):
+        if request.method == 'POST':
+            r = requests.post('http://127.0.0.1:4982/ofertas_nuevas', params={'a': 71, 'b': 80})
+            ejemplo = r.json()
+            return render_template('similitudOfertasNuevas.html', username=session['username'], ejemplo=ejemplo)
+        return render_template('similitudOfertasNuevas.html', username=session['username'])
 
 @app.route('/survey', methods=["GET", "POST"])
 @login_required
@@ -383,7 +402,6 @@ def survey():
                 flash("Skills modificadas!")
 
         return render_template('survey.html')
-
 
 
 @app.route("/logout")

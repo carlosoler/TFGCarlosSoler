@@ -22,7 +22,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/verAlumn/util.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/verAlumn/main.css') }}">
 
-    <title>Recomendador</title>
+
+    <title>Calcular Simulitud Ofertas Nuevas</title>
   </head>
   <body>
 
@@ -83,36 +84,35 @@
     </header>
 
     <div class="hero" style="background-image: url('static/images/hero_1.jpg');"></div>
-    <h1>Recomendador</h1>
+    <h1>Calcular Simulitud Ofertas Nuevas</h1>
         <form method="post">
             <input type="submit" value="Enviar este formulario" />
         </form>
 
     <div class="limiter">
-        <div class="container-table100">
-            <div class="wrap-table100">
-                <div class="table100 ver1 m-b-110">
-                    <div class="table100-head">
-                        <table>
-                            <thead>
-                                <tr class="row100 head">
-                                    <th class="cell100 column1">Nombre Empresa </th>
-                                    <th class="cell100 column2">Titulo trabajo</th>
-                                    <th class="cell100 column3">Ciudad</th>
-                                </tr>
-                            </thead>
-                        </table>
-                    </div>
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100 ver1 m-b-110">
+					<div class="table100-head">
+						<table>
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column1">Job id </th>
+									<th class="cell100 column2">Vecino</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+
 					<div class="table100-body js-pscroll">
 						<table>
 							<tbody>
-                                {% for items in ejemplo %}
-                                    <tr class="row100 body">
-                                        <td class="cell100 column1">{{ items.empresa_nombre }}</td>
-                                        <td class="cell100 column2">{{ items.job_tittle }}</td>
-                                        <td class="cell100 column3">{{ items.ciudad }}</td>
-                                    </tr>
-                                {% endfor %}
+                            {% for item in ejemplo %}
+								<tr class="row100 body">
+									<td class="cell100 column1">{{ item.job_id }}</td>
+									<td class="cell100 column2">{{ item.vecinos }}</td>
+								</tr>
+                            {% endfor %}
 							</tbody>
 						</table>
 					</div>
