@@ -11,33 +11,13 @@
 <form id="form">
     <input id="input" autocomplete="off" autofocus="on" oninput="isTyping()">
     <button>Enviar</button>
+    <center><button type="button" class="btn btn-danger" onclick=leave_room()>Leave this Chat</button></center>
 </form>
 </body>
 <script src="{{ url_for('static', filename= '/socket.io/socket.io.js') }}"></script>
-<script type="text/javascript">
-    const socket = io();
-    const form = document.getElementById("form");
-    const input = document.getElementById("input");
-    const list = document.getElementById("messages");
-    form.addEventListener('submit', function(e){
-        e.preventDefault();
-        if(input.value){
-            socket.emit('chat message', input.value);
-            input.value = "";
-        }
-    });
-    socket.on('chat message', function(msg){
-        const item = document.createElement('li');
-        item.textContent = msg;
-        list.appendChild(item);
-    });
-    socket.on('is_online', function(username) {
-        const item = document.createElement('li');
-        item.textContent = username;
-        list.appendChild(item);
-    });
-    var username = ' <%= userChat %>'
-    socket.emit('username', username);
+<script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+<script type="text/javascript" charset="utf-8">
 </script>
 </html>
 
