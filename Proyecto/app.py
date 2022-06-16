@@ -15,7 +15,8 @@ from model.model import db, get_user_id, Alumno, get_users, add_to_db, get_user_
     get_users, get_alumn, get_ofer_id, get_empId_byOffer, get_empName, get_alumnos, get_ofertas, \
     get_id_by_user, OfertaNueva, get_ofertas_nuevas, get_alumn_sinOfertas, update_alumno, update_ofertaAsignada, \
     OfertaAsignada, update_ofertaNueva, get_eliminarOfertaNueva, get_adm, get_alumn_sinOfertasByUsername, \
-    OfertaNuevaSchema, get_empId_byNameEmpresa, AlumnoSchema, AlumnoSchemaSinPass, EmpresaSchemaSinPass, EmpresaSchema
+    OfertaNuevaSchema, get_empId_byNameEmpresa, AlumnoSchema, AlumnoSchemaSinPass, EmpresaSchemaSinPass, EmpresaSchema, \
+    SkillsSchema, get_Skill_id_by_alumno_id
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:qwerty@localhost:5432/JOBS'
@@ -304,108 +305,102 @@ def similitudOfertasNuevas():
 def survey():
     if session.get('logged_in'):
         if request.method == 'POST':
-            id_user_session = get_user_tableSkill_id(session['username'])
-            id_reg = get_tableSkill_id()
-            alumno_id_reg = get_user_tableSkill_id(session['username'])
-            grado_reg = request.form.get('grado')
-            nota_media_reg = request.form.get('nota_media')
-            ingles_reg = request.form.get('ingles_level')
-            aleman_reg = request.form.get('aleman_level')
-            frances_reg = request.form.get('frances_level')
-            capacidad_analitica_reg = request.form.get('capAnalitica_level')
-            trabajo_equipo_reg = request.form.get('trabajoEquipo_level')
-            comunicacion_reg = request.form.get('comunicacion_level')
-            pensamiento_critico_reg = request.form.get('pensamientoCritico_level')
-            inovacion_reg = request.form.get('innovacion_level')
-            liderazgo_reg = request.form.get('liderazgo_level')
-            decision_making_reg = request.form.get('tomaDecisiones_level')
-            problem_solving_reg = request.form.get('solucionProblemas_level')
-            marketing_reg = request.form.get('marketing_level')
-            e_commerce_reg = request.form.get('ecommerce_level')
-            diseno_grafico_reg = request.form.get('disenoGrafico_level')
-            matematicas_reg = request.form.get('matematicas_level')
-            estadistica_reg = request.form.get('estadistica_level')
-            gestion_proyectos_reg = request.form.get('gestionProyectos_level')
-            redes_sociales_reg = request.form.get('redesSociales_level')
-            sostenibilidad_reg = request.form.get('sostenibilidad_level')
-            inteligencia_artificial_reg = request.form.get('inteligenciaArtificial_level')
-            big_data_reg = request.form.get('bigData_level')
-            machine_learning_reg = request.form.get('machineLearning_level')
-            analisis_datos_reg = request.form.get('analisisDatos_level')
-            bases_datos_reg = request.form.get('basesDatos_level')
-            cloud_reg = request.form.get('cloud_level')
-            intenet_of_things_reg = request.form.get('iot_level')
-            networks_reg = request.form.get('redes_level')
-            sistemas_operativos_reg = request.form.get('sistemasOperativos_level')
-            web_desarrollo_reg = request.form.get('desarrolloWeb_level')
-            web_diseno_reg = request.form.get('disenoWeb_level')
-            r_reg = request.form.get('r_level')
-            java_reg = request.form.get('java_level')
-            pascal_reg = request.form.get('pascal_level')
-            python_reg = request.form.get('python_level')
-            if not id_user_session:
-                skills = Skill(id=id_reg, alumno_id=alumno_id_reg, grado=grado_reg, nota_media=nota_media_reg,
-                               ingles=ingles_reg, aleman=aleman_reg, frances=frances_reg,
-                               capacidad_analitica=capacidad_analitica_reg,
-                               trabajo_equipo=trabajo_equipo_reg, comunicacion=comunicacion_reg,
-                               pensamiento_critico=pensamiento_critico_reg,
-                               inovacion=inovacion_reg, liderazgo=liderazgo_reg, decision_making=decision_making_reg,
-                               problem_solving=problem_solving_reg,
-                               marketing=marketing_reg, e_commerce=e_commerce_reg, diseno_grafico=diseno_grafico_reg,
-                               matematicas=matematicas_reg,
-                               estadistica=estadistica_reg, gestion_proyectos=gestion_proyectos_reg,
-                               redes_sociales=redes_sociales_reg, sostenibilidad=sostenibilidad_reg,
-                               inteligencia_artificial=inteligencia_artificial_reg, big_data=big_data_reg,
-                               machine_learning=machine_learning_reg,
-                               analisis_datos=analisis_datos_reg, bases_datos=bases_datos_reg, cloud=cloud_reg,
-                               intenet_of_things=intenet_of_things_reg,
-                               networks=networks_reg, sistemas_operativos=sistemas_operativos_reg,
-                               web_desarrollo=web_desarrollo_reg,
-                               web_diseno=web_diseno_reg, r=r_reg, java=java_reg, pascal=pascal_reg, python=python_reg)
+            usuario = session['username']
+            #id_user_session = get_user_tableSkill_id(session['username'])
+            skill = {
+                "id": get_tableSkill_id(),
+                "alumno_id": get_user_tableSkill_id(session['username']),
+                "grado": request.form.get('grado'),
+                "nota_media": request.form.get('nota_media'),
+                "ingles": request.form.get('ingles_level'),
+                "aleman": request.form.get('aleman_level'),
+                "frances": request.form.get('frances_level'),
+                "capacidad_analitica": request.form.get('capAnalitica_level'),
+                "trabajo_equipo": request.form.get('trabajoEquipo_level'),
+                "comunicacion": request.form.get('comunicacion_level'),
+                "pensamiento_critico": request.form.get('pensamientoCritico_level'),
+                "inovacion": request.form.get('innovacion_level'),
+                "liderazgo": request.form.get('liderazgo_level'),
+                "decision_making": request.form.get('tomaDecisiones_level'),
+                "problem_solving": request.form.get('solucionProblemas_level'),
+                "marketing": request.form.get('marketing_level'),
+                "e_commerce": request.form.get('ecommerce_level'),
+                "diseno_grafico": request.form.get('disenoGrafico_level'),
+                "matematicas": request.form.get('matematicas_level'),
+                "estadistica": request.form.get('estadistica_level'),
+                "gestion_proyectos": request.form.get('gestionProyectos_level'),
+                "redes_sociales": request.form.get('redesSociales_level'),
+                "sostenibilidad": request.form.get('sostenibilidad_level'),
+                "inteligencia_artificial": request.form.get('inteligenciaArtificial_level'),
+                "big_data": request.form.get('bigData_level'),
+                "machine_learning": request.form.get('machineLearning_level'),
+                "analisis_datos": request.form.get('analisisDatos_level'),
+                "bases_datos": request.form.get('basesDatos_level'),
+                "cloud": request.form.get('cloud_level'),
+                "intenet_of_things": request.form.get('iot_level'),
+                "networks": request.form.get('redes_level'),
+                "sistemas_operativos": request.form.get('sistemasOperativos_level'),
+                "web_desarrollo": request.form.get('desarrolloWeb_level'),
+                "web_diseno": request.form.get('disenoWeb_level'),
+                "r": request.form.get('r_level'),
+                "java": request.form.get('java_level'),
+                "pascal": request.form.get('pascal_level'),
+                "python": request.form.get('python_level'),
+            }
+            requests.post('http://127.0.0.1:5000/skills/%s' % usuario, json=skill)
+            db.session.commit()
+            flash("Skills creadas")
+        return render_template('survey.html')
 
-                add_to_db(skills)
-                flash("Skills creadas!")
-            else:
-                person = update_skills(get_user_tableSkill_id(session['username']))
-                person.grado = grado_reg
-                person.nota_media = nota_media_reg
-                person.ingles = ingles_reg
-                person.aleman = aleman_reg
-                person.frances = frances_reg
-                person.capacidad_analitica = capacidad_analitica_reg
-                person.trabajo_equipo = trabajo_equipo_reg
-                person.comunicacion = comunicacion_reg
-                person.pensamiento_critico = pensamiento_critico_reg
-                person.inovacion = inovacion_reg
-                person.liderazgo = liderazgo_reg
-                person.decision_making = decision_making_reg
-                person.problem_solving = problem_solving_reg
-                person.marketing = marketing_reg
-                person.e_commerce = e_commerce_reg
-                person.diseno_grafico = diseno_grafico_reg
-                person.matematicas = matematicas_reg
-                person.estadistica = estadistica_reg
-                person.gestion_proyectos = gestion_proyectos_reg
-                person.redes_sociales = redes_sociales_reg
-                person.sostenibilidad = sostenibilidad_reg
-                person.inteligencia_artificial = inteligencia_artificial_reg
-                person.big_data = big_data_reg
-                person.machine_learning = machine_learning_reg
-                person.analisis_datos = analisis_datos_reg
-                person.bases_datos = bases_datos_reg
-                person.cloud = cloud_reg
-                person.intenet_of_things = intenet_of_things_reg
-                person.networks = networks_reg
-                person.sistemas_operativos = sistemas_operativos_reg
-                person.web_desarrollo = web_desarrollo_reg
-                person.web_diseno = web_diseno_reg
-                person.r = r_reg
-                person.java = java_reg
-                person.pascal = pascal_reg
-                person.python = python_reg
-                db.session.commit()
-                flash("Skills modificadas!")
-
+@app.route('/survey_modificado', methods=["GET", "POST"])
+@login_required
+@restricted_access_toEmp
+def survey_mod():
+    if session.get('logged_in'):
+        if request.method == 'POST':
+            usuario = session['username']
+            #id_user_session = get_user_tableSkill_id(session['username'])
+            skill_mod = {
+                "grado": request.form.get('grado'),
+                "nota_media": request.form.get('nota_media'),
+                "ingles": request.form.get('ingles_level'),
+                "aleman": request.form.get('aleman_level'),
+                "frances": request.form.get('frances_level'),
+                "capacidad_analitica": request.form.get('capAnalitica_level'),
+                "trabajo_equipo": request.form.get('trabajoEquipo_level'),
+                "comunicacion": request.form.get('comunicacion_level'),
+                "pensamiento_critico": request.form.get('pensamientoCritico_level'),
+                "inovacion": request.form.get('innovacion_level'),
+                "liderazgo": request.form.get('liderazgo_level'),
+                "decision_making": request.form.get('tomaDecisiones_level'),
+                "problem_solving": request.form.get('solucionProblemas_level'),
+                "marketing": request.form.get('marketing_level'),
+                "e_commerce": request.form.get('ecommerce_level'),
+                "diseno_grafico": request.form.get('disenoGrafico_level'),
+                "matematicas": request.form.get('matematicas_level'),
+                "estadistica": request.form.get('estadistica_level'),
+                "gestion_proyectos": request.form.get('gestionProyectos_level'),
+                "redes_sociales": request.form.get('redesSociales_level'),
+                "sostenibilidad": request.form.get('sostenibilidad_level'),
+                "inteligencia_artificial": request.form.get('inteligenciaArtificial_level'),
+                "big_data": request.form.get('bigData_level'),
+                "machine_learning": request.form.get('machineLearning_level'),
+                "analisis_datos": request.form.get('analisisDatos_level'),
+                "bases_datos": request.form.get('basesDatos_level'),
+                "cloud": request.form.get('cloud_level'),
+                "intenet_of_things": request.form.get('iot_level'),
+                "networks": request.form.get('redes_level'),
+                "sistemas_operativos": request.form.get('sistemasOperativos_level'),
+                "web_desarrollo": request.form.get('desarrolloWeb_level'),
+                "web_diseno": request.form.get('disenoWeb_level'),
+                "r": request.form.get('r_level'),
+                "java": request.form.get('java_level'),
+                "pascal": request.form.get('pascal_level'),
+                "python": request.form.get('python_level'),
+            }
+            requests.put('http://127.0.0.1:5000/skills/%s' % usuario, json=skill_mod)
+            db.session.commit()
+            flash("Skills modificadas")
         return render_template('survey.html')
 
 #END-POINTS ofertas nuevas
@@ -482,8 +477,11 @@ def crear_alumno_nuevo():
 @app.route('/alumnos/<int:alumno_id>', methods = ['DELETE'])
 def borrar_alumno(alumno_id):
     alumno_borrar = Alumno.get_by_id(alumno_id)
+    #borrar_skills(get_user_by_id(alumno_id))
+    #id = get_Skill_id_by_alumno_id(alumno_id)
+    #skills_borrar = Skill.get_by_id(id)
+    #skills_borrar.delete()
     alumno_borrar.delete()
-
     return jsonify({"message": "Alumno borrado correctamente"}), 204
 
 #END-POINTS empresas
@@ -519,6 +517,93 @@ def borrar_empresa(empresa_id):
 
     return jsonify({"message": "Empresa borrada correctamente"}), 204
 
+#END-POINTS skills
+
+@app.route('/skills/<string:username>', methods = ['GET'])
+def get_skills_by_alumno_id(username):
+    id_user_session = get_user_tableSkill_id(username)
+    id = get_Skill_id_by_alumno_id(id_user_session)
+    skills = Skill.get_by_id(id)
+    serializer = SkillsSchema()
+    data = serializer.dump(skills)
+    return jsonify(data)
+
+@app.route('/skills/<string:username>', methods = ['POST'])
+def crear_skill_nueva(username):
+    id_user_session = get_user_tableSkill_id(username)
+    data = request.get_json()
+    skill = Skill(id= get_tableSkill_id(), alumno_id= id_user_session, grado= data.get("grado"), nota_media = data.get("nota_media"),
+                  ingles= data.get("ingles"), aleman= data.get("aleman"), frances= data.get("frances"), capacidad_analitica= data.get("capacidad_analitica"),
+                  trabajo_equipo= data.get("trabajo_equipo"), comunicacion= data.get("comunicacion"), pensamiento_critico= data.get("pensamiento_critico"),
+                  inovacion= data.get("inovacion"), liderazgo= data.get("liderazgo"), decision_making= data.get("decision_making"),
+                  problem_solving= data.get("problem_solving"), marketing= data.get("marketing"), e_commerce= data.get("e_commerce"), diseno_grafico= data.get("diseno_grafico"),
+                  matematicas= data.get("matematicas"), estadistica= data.get("estadistica"), gestion_proyectos= data.get("gestion_proyectos"), redes_sociales= data.get("redes_sociales"),
+                  sostenibilidad= data.get("sostenibilidad"), inteligencia_artificial= data.get("inteligencia_artificial"), big_data= data.get("big_data"), machine_learning= data.get("machine_learning"),
+                  analisis_datos= data.get("analisis_datos"), bases_datos= data.get("bases_datos"), cloud = data.get("cloud"), intenet_of_things= data.get("intenet_of_things"),
+                  networks= data.get("networks"), sistemas_operativos= data.get("sistemas_operativos"), web_desarrollo= data.get("web_desarrollo"),
+                  web_diseno= data.get("web_diseno"), r= data.get("r"), java= data.get("java"), pascal= data.get("pascal"), python= data.get("python")
+                  )
+    skill.save()
+    serializer = SkillsSchema()
+    data = serializer.dump(skill)
+    return jsonify(data), 201
+
+@app.route('/skills/<string:username>', methods = ['PUT'])
+def modificar_skills_nueva(username):
+    id_user_session = get_user_tableSkill_id(username)
+    id = get_Skill_id_by_alumno_id(id_user_session)
+    skill_modificar = Skill.get_by_id(id)
+    data = request.get_json()
+    skill_modificar.grado = data.get('grado')
+    skill_modificar.nota_media = data.get('nota_media')
+    skill_modificar.ingles = data.get('ingles')
+    skill_modificar.aleman = data.get('aleman')
+    skill_modificar.frances = data.get('frances')
+    skill_modificar.capacidad_analitica = data.get('capacidad_analitica')
+    skill_modificar.trabajo_equipo = data.get('trabajo_equipo')
+    skill_modificar.comunicacion = data.get('comunicacion')
+    skill_modificar.pensamiento_critico = data.get('pensamiento_critico')
+    skill_modificar.inovacion = data.get('inovacion')
+    skill_modificar.liderazgo = data.get('liderazgo')
+    skill_modificar.decision_making = data.get('decision_making')
+    skill_modificar.problem_solving = data.get('problem_solving')
+    skill_modificar.marketing = data.get('marketing')
+    skill_modificar.e_commerce = data.get('e_commerce')
+    skill_modificar.diseno_grafico = data.get('diseno_grafico')
+    skill_modificar.matematicas = data.get('matematicas')
+    skill_modificar.estadistica = data.get('estadistica')
+    skill_modificar.gestion_proyectos = data.get('gestion_proyectos')
+    skill_modificar.redes_sociales = data.get('redes_sociales')
+    skill_modificar.sostenibilidad = data.get('sostenibilidad')
+    skill_modificar.inteligencia_artificial = data.get('inteligencia_artificial')
+    skill_modificar.big_data = data.get('big_data')
+    skill_modificar.machine_learning = data.get('machine_learning')
+    skill_modificar.analisis_datos = data.get('analisis_datos')
+    skill_modificar.bases_datos = data.get('bases_datos')
+    skill_modificar.cloud = data.get('cloud')
+    skill_modificar.intenet_of_things = data.get('intenet_of_things')
+    skill_modificar.networks = data.get('networks')
+    skill_modificar.sistemas_operativos = data.get('sistemas_operativos')
+    skill_modificar.web_desarrollo = data.get('web_desarrollo')
+    skill_modificar.web_diseno = data.get('web_diseno')
+    skill_modificar.r = data.get('r')
+    skill_modificar.java = data.get('java')
+    skill_modificar.pascal = data.get('pascal')
+    skill_modificar.python = data.get('python')
+
+    db.session.commit()
+    serializer = SkillsSchema()
+    skill_data = serializer.dump(skill_modificar)
+    return jsonify(skill_data), 200
+
+@app.route('/skills/<string:username>', methods = ['DELETE'])
+def borrar_skills(username):
+    id_user_session = get_user_tableSkill_id(username)
+    id = get_Skill_id_by_alumno_id(id_user_session)
+    skills_borrar = Skill.get_by_id(id)
+    skills_borrar.delete()
+    return jsonify({"message": "Skills borradas correctamente"}), 204
+
 @app.route("/logout")
 @login_required
 def logout():
@@ -534,6 +619,9 @@ def not_found(error):
 def internal_server(error):
     return jsonify({"message": "Ha habido un problema. Vuelva a intentarlo por favor"}), 500
 
+@app.errorhandler(405)
+def internal_server(error):
+    return jsonify({"message": "Este método no está permitido"}), 405
 
 if __name__ == '__main__':
     app.run()

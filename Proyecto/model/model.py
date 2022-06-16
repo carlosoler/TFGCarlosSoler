@@ -35,6 +35,9 @@ def get_tableSkill_id():
 def get_user_tableSkill_id(username):
     return db.session.query(Alumno.alumno_id).order_by(Alumno.alumno_id.desc()).filter_by(username=username).first().alumno_id
 
+def get_Skill_id_by_alumno_id(alumno_id):
+    return db.session.query(Skill.id).order_by(Skill.id.desc()).filter_by(alumno_id=alumno_id).first().id
+
 def get_all_skills_foruser(id):
     return db.session.query(Skill).order_by(Skill.id.desc()).filter_by(alumno_id=id)
 
@@ -252,6 +255,67 @@ class Skill(db.Model):
 
     def is_anonymous(self):
         return False
+
+    @classmethod
+    def get_all(cls):
+        return cls.query.all()
+
+    @classmethod
+    def get_by_id(cls, id):
+        return cls.query.get_or_404(id)
+
+    @classmethod
+    def get_by_alumnoID(cls, alumno_id):
+        return cls.query.get_or_404
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+
+class SkillsSchema(Schema):
+    id = fields.Integer()
+    alumno_id = fields.Integer()
+    grado = fields.Integer()
+    nota_media = fields.Integer()
+    ingles = fields.Integer()
+    aleman = fields.Integer()
+    frances = fields.Integer()
+    capacidad_analitica = fields.Integer()
+    trabajo_equipo = fields.Integer()
+    comunicacion = fields.Integer()
+    pensamiento_critico = fields.Integer()
+    inovacion = fields.Integer()
+    liderazgo = fields.Integer()
+    decision_making = fields.Integer()
+    problem_solving = fields.Integer()
+    marketing = fields.Integer()
+    e_commerce = fields.Integer()
+    diseno_grafico = fields.Integer()
+    matematicas = fields.Integer()
+    estadistica = fields.Integer()
+    gestion_proyectos = fields.Integer()
+    redes_sociales = fields.Integer()
+    sostenibilidad = fields.Integer()
+    inteligencia_artificial = fields.Integer()
+    big_data = fields.Integer()
+    machine_learning = fields.Integer()
+    analisis_datos = fields.Integer()
+    bases_datos = fields.Integer()
+    cloud = fields.Integer()
+    intenet_of_things = fields.Integer()
+    networks = fields.Integer()
+    sistemas_operativos =fields.Integer()
+    web_desarrollo = fields.Integer()
+    web_diseno = fields.Integer()
+    r = fields.Integer()
+    java = fields.Integer()
+    pascal = fields.Integer()
+    python = fields.Integer()
+
 
 class Empresa(db.Model):
     __tablename__ = 'empresas'
