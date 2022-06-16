@@ -181,7 +181,8 @@ def crearOfertas():
 @login_required
 @onlyAdmin
 def asignarOfertas():
-    ofertas_nuevas = get_ofertas_nuevas()
+    r = requests.get('http://127.0.0.1:5000/ofertas_nuevas')
+    ofertas_nuevas = r.json()
     alumnos_sinOfertas = get_alumn_sinOfertas()
     if session.get('logged_in'):
         if request.method == 'POST':
@@ -414,6 +415,13 @@ def survey():
 def get_ofertas_nuevas():
     oferta_nueva = OfertaNueva.get_all()
     serializer = OfertaNuevaSchema(many=True)
+    data = serializer.dump(oferta_nueva)
+    return jsonify(data)
+
+@app.route('/ofertas_nuevas/<int:job_id>', methods = ['GET'])
+def get_ofertas_nuevas_by_id(job_id):
+    oferta_nueva = OfertaNueva.get_by_id(job_id)
+    serializer = OfertaNuevaSchema()
     data = serializer.dump(oferta_nueva)
     return jsonify(data)
 
