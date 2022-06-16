@@ -15,7 +15,7 @@ from model.model import db, get_user_id, Alumno, get_users, add_to_db, get_user_
     get_users, get_alumn, get_ofer_id, get_empId_byOffer, get_empName, get_alumnos, get_ofertas, \
     get_id_by_user, OfertaNueva, get_ofertas_nuevas, get_alumn_sinOfertas, update_alumno, update_ofertaAsignada, \
     OfertaAsignada, update_ofertaNueva, get_eliminarOfertaNueva, get_adm, get_alumn_sinOfertasByUsername, \
-    OfertaNuevaSchema, get_empId_byNameEmpresa, AlumnoSchema, AlumnoSchemaSinPass
+    OfertaNuevaSchema, get_empId_byNameEmpresa, AlumnoSchema, AlumnoSchemaSinPass, EmpresaSchemaSinPass, EmpresaSchema
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:qwerty@localhost:5432/JOBS'
@@ -107,7 +107,6 @@ def registro_usuario():
                     "telefono": request.form.get('tel'),
                     "username": request.form.get('username')
                 }
-
         requests.post('http://127.0.0.1:5000/alumnos', json=user)
         flash("Usuario creado correctamente. Por favor inicie sesión con su usuario")
     return render_template('registroUsuario.html')
@@ -115,15 +114,15 @@ def registro_usuario():
 @app.route('/resgistroEmpresa', methods=["GET", "POST"])
 def registro_empresa():
     if request.method == 'POST':
-        id_reg = get_empresa_id()
-        nombreUsuario_emp_reg = request.form.get('username')
-        contrasena_emp_reg = request.form.get('pass')
-        nombre_emp_reg = request.form.get('nombre')
-        telefono_reg = request.form.get('tel')
-        email_reg = request.form.get('email')
-        emp = Empresa(empresa_id=id_reg, username=nombreUsuario_emp_reg, password=contrasena_emp_reg,
-                      empresa_nombre=nombre_emp_reg, telefono=telefono_reg, email=email_reg)
-        add_to_db(emp)
+        empresa = {
+            "empresa_id": get_empresa_id(),
+            "username": request.form.get('username'),
+            "password": request.form.get('pass'),
+            "empresa_nombre":  request.form.get('nombre'),
+            "telefono": request.form.get('tel'),
+            "email": request.form.get('email')
+        }
+        requests.post('http://127.0.0.1:5000/empresas', json=empresa)
         flash("Empresa creada correctamente. Por favor inicie sesión con su usuario")
     return render_template('registroEmpresa.html')
 
@@ -486,6 +485,39 @@ def borrar_alumno(alumno_id):
     alumno_borrar.delete()
 
     return jsonify({"message": "Alumno borrado correctamente"}), 204
+
+#END-POINTS empresas
+
+@app.route('/empresas', methods = ['GET'])
+def get_empresas():
+    empresas = Empresa.get_all()
+    serializer = EmpresaSchemaSinPass(many=True)
+    data = serializer.dump(empresas)
+    return jsonify(data)
+
+@app.route('/empresas/<int:empresa_id>', methods = ['GET'])
+def get_empresas_by_id(empresa_id):
+    empresas = Empresa.get_by_id(empresa_id)
+    serializer = EmpresaSchemaSinPass()
+    data = serializer.dump(empresas)
+    return jsonify(data)
+
+@app.route('/empresas', methods = ['POST'])
+def crear_empresa_nueva():
+    data = request.get_json()
+    empresa = Empresa(empresa_id=get_empresa_id(), username=data.get("username"), password=data.get("password"),
+                      empresa_nombre=data.get("empresa_nombre"), telefono=data.get("telefono"), email=data.get("email"))
+    empresa.save()
+    serializer = EmpresaSchema()
+    data = serializer.dump(empresa)
+    return jsonify(data), 201
+
+@app.route('/empresas/<int:empresa_id>', methods = ['DELETE'])
+def borrar_empresa(empresa_id):
+    empresa_borrar = Empresa.get_by_id(empresa_id)
+    empresa_borrar.delete()
+
+    return jsonify({"message": "Empresa borrada correctamente"}), 204
 
 @app.route("/logout")
 @login_required

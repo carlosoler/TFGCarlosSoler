@@ -282,6 +282,38 @@ class Empresa(db.Model):
     def get_id(self):
         return str(self.empresa_id)
 
+    @classmethod
+    def get_all(cls):
+        return cls.query.all()
+
+    @classmethod
+    def get_by_id(cls, job_id):
+        return cls.query.get_or_404(job_id)
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+
+class EmpresaSchema(Schema):
+    empresa_id = fields.Integer()
+    username = fields.String()
+    password = fields.String()
+    empresa_nombre = fields.String()
+    telefono = fields.String()
+    email = fields.String()
+
+class EmpresaSchemaSinPass(Schema):
+    empresa_id = fields.Integer()
+    username = fields.String()
+    empresa_nombre = fields.String()
+    telefono = fields.String()
+    email = fields.String()
+
+
 class OfertaAsignada(db.Model):
     __tablename__ = 'ofertas_asignadas'
     job_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
