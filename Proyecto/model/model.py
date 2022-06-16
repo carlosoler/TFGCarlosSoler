@@ -121,6 +121,42 @@ class Alumno(db.Model):
     def get_id(self):
         return str(self.alumno_id)
 
+    @classmethod
+    def get_all(cls):
+        return cls.query.all()
+
+    @classmethod
+    def get_by_id(cls, alumno_id):
+        return cls.query.get_or_404(alumno_id)
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+
+
+class AlumnoSchema(Schema):
+    alumno_id = fields.Integer()
+    username = fields.String()
+    password = fields.String()
+    nombre = fields.String()
+    apellido = fields.String()
+    telefono = fields.String()
+    email = fields.String()
+    ofert_asignada = fields.Integer()
+
+class AlumnoSchemaSinPass(Schema):
+    alumno_id = fields.Integer()
+    username = fields.String()
+    nombre = fields.String()
+    apellido = fields.String()
+    telefono = fields.String()
+    email = fields.String()
+    ofert_asignada = fields.Integer()
+
 
 class Skill(db.Model):
     __tablename__ = 'skills'
@@ -363,6 +399,7 @@ class OfertaNueva(db.Model):
     def delete(self):
         db.session.delete(self)
         db.session.commit()
+
 
 class OfertaNuevaSchema(Schema):
     job_id = fields.Integer()

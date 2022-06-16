@@ -15,7 +15,7 @@ from model.model import db, get_user_id, Alumno, get_users, add_to_db, get_user_
     get_users, get_alumn, get_ofer_id, get_empId_byOffer, get_empName, get_alumnos, get_ofertas, \
     get_id_by_user, OfertaNueva, get_ofertas_nuevas, get_alumn_sinOfertas, update_alumno, update_ofertaAsignada, \
     OfertaAsignada, update_ofertaNueva, get_eliminarOfertaNueva, get_adm, get_alumn_sinOfertasByUsername, \
-    OfertaNuevaSchema, get_empId_byNameEmpresa
+    OfertaNuevaSchema, get_empId_byNameEmpresa, AlumnoSchema, AlumnoSchemaSinPass
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:qwerty@localhost:5432/JOBS'
@@ -97,18 +97,18 @@ def main():
 @app.route('/resgistroUsuario', methods=["GET", "POST"])
 def registro_usuario():
     if request.method == 'POST':
-        id_reg = get_user_id()
-        nombreUsuario_reg = request.form.get('username')
-        nombre_reg = request.form.get('nombre')
-        apellido_reg = request.form.get('apellido')
-        contrasena_reg = request.form.get('pass')
-        telefono_reg = request.form.get('tel')
-        email_reg = request.form.get('email')
-        oferta_asiganda = 0
-        user = Alumno(alumno_id=id_reg, username=nombreUsuario_reg, password=contrasena_reg, nombre=nombre_reg,
-                      apellido=apellido_reg, telefono=telefono_reg, email=email_reg, ofert_asignada=oferta_asiganda)
+        user = {
+                    "alumno_id": get_user_id(),
+                    "apellido": request.form.get('apellido'),
+                    "email": request.form.get('email'),
+                    "nombre": request.form.get('nombre'),
+                    "ofert_asignada": 0,
+                    "password": request.form.get('pass'),
+                    "telefono": request.form.get('tel'),
+                    "username": request.form.get('username')
+                }
 
-        add_to_db(user)
+        requests.post('http://127.0.0.1:5000/alumnos', json=user)
         flash("Usuario creado correctamente. Por favor inicie sesión con su usuario")
     return render_template('registroUsuario.html')
 
@@ -133,13 +133,13 @@ def home():
     if session.get('logged_in'):
         return render_template('home.html')
 
-@app.route('/alumnos')
+@app.route('/alumnosView') #Quitar
 @login_required
 def alumnos():
     if session.get('logged_in'):
         return render_template('alumnos.html')
 
-@app.route('/empresas')
+@app.route('/empresasView') #Quitar
 @login_required
 def empresas():
     if session.get('logged_in'):
@@ -151,29 +151,28 @@ def empresas():
 def crearOfertas():
     if session.get('logged_in'):
         if request.method == 'POST':
-            id_reg = get_ofer_id()
-            id_emp_reg = get_empId_byOffer(session['username'])
-            nombre_emp_reg = get_empName(session['username'])
-            job_tittle_reg = request.form.get('title_job')
-            ciudad_reg = request.form.get('city')
-            grado_reg = request.form.get('grado')
-            nota_media_reg = request.form.get('nota_media')
-            ingles_reg = request.form.get('ingles_level')
-            aleman_reg = request.form.get('aleman_level')
-            frances_reg = request.form.get('frances_level')
-            trabajo_equipo_reg = request.form.get('trabajoEquipo_level')
-            comunicacion_reg = request.form.get('comunicacion_level')
-            matematicas_reg = request.form.get('matematicas_level')
-            estadistica_reg = request.form.get('estadistica_level')
-            gestion_proyectos_reg = request.form.get('gestionProyectos_level')
-            sostenibilidad_reg = request.form.get('sostenibilidad_level')
-            big_data_reg = request.form.get('bigData_level')
-            progra_reg = request.form.get('progra_level')
-            oferta = OfertaNueva(job_id=id_reg, empresa_id=id_emp_reg, empresa_nombre=nombre_emp_reg, job_tittle=job_tittle_reg,
-                          ciudad=ciudad_reg, grado=grado_reg, nota_media=nota_media_reg, ingles=ingles_reg, aleman=aleman_reg, frances=frances_reg, trabajo_equipo=trabajo_equipo_reg,
-                          comunicacion=comunicacion_reg, matematicas=matematicas_reg, estadistica=estadistica_reg, gestion_proyectos=gestion_proyectos_reg,
-                          sostenibilidad=sostenibilidad_reg, big_data=big_data_reg, programacion=progra_reg)
-            oferta.save()
+            oferta = {
+                        "job_id": get_ofer_id(),
+                        "empresa_id": get_empId_byOffer(session['username']),
+                        "empresa_nombre": get_empName(session['username']),
+                        "job_tittle": request.form.get('title_job'),
+                        "ciudad": request.form.get('city'),
+                        "grado": request.form.get('grado'),
+                        "nota_media": request.form.get('nota_media'),
+                        "ingles": request.form.get('ingles_level'),
+                        "aleman": request.form.get('aleman_level'),
+                        "frances": request.form.get('frances_level'),
+                        "trabajo_equipo": request.form.get('trabajoEquipo_level'),
+                        "comunicacion": request.form.get('comunicacion_level'),
+                        "matematicas": request.form.get('matematicas_level'),
+                        "estadistica": request.form.get('estadistica_level'),
+                        "gestion_proyectos": request.form.get('gestionProyectos_level'),
+                        "sostenibilidad": request.form.get('sostenibilidad_level'),
+                        "big_data": request.form.get('bigData_level'),
+                        "programacion": request.form.get('progra_level')
+            }
+
+            requests.post('http://127.0.0.1:5000/ofertas_nuevas', json=oferta)
             flash("Oferta creada correctamente.")
         return render_template('crearOfertas.html')
 
@@ -240,7 +239,8 @@ def mostrar_skills():
 @restricted_access_toAlumn
 def ver_alumnos():
     if session.get('logged_in'):
-        alumnos = get_alumn_sinOfertas()
+        r = requests.get('http://127.0.0.1:5000/alumnosSinOferta')
+        alumnos = r.json()
         return render_template('verAlumnos.html', alumnos=alumnos)
 
 @app.route('/ver_ofertas')
@@ -409,7 +409,7 @@ def survey():
 
         return render_template('survey.html')
 
-#END-POINTS crear oferta nueva
+#END-POINTS ofertas nuevas
 
 @app.route('/ofertas_nuevas', methods = ['GET'])
 def get_ofertas_nuevas():
@@ -447,6 +447,45 @@ def borrar_oferta_nueva(job_id):
 
     return jsonify({"message": "Oferta nueva borrada correctamente"}), 204
 
+#END-POINTS alumnos
+
+@app.route('/alumnos', methods = ['GET'])
+def get_alumnos():
+    alumnos = Alumno.get_all()
+    serializer = AlumnoSchemaSinPass(many=True)
+    data = serializer.dump(alumnos)
+    return jsonify(data)
+
+@app.route('/alumnosSinOferta', methods = ['GET'])
+def get_alumnos_sin_Oferta():
+    alumnos = get_alumn_sinOfertas()
+    serializer = AlumnoSchemaSinPass(many=True)
+    data = serializer.dump(alumnos)
+    return jsonify(data)
+
+@app.route('/alumnos/<int:alumno_id>', methods = ['GET'])
+def get_alumnos_by_id(alumno_id):
+    alumnos = Alumno.get_by_id(alumno_id)
+    serializer = AlumnoSchemaSinPass()
+    data = serializer.dump(alumnos)
+    return jsonify(data)
+
+@app.route('/alumnos', methods = ['POST'])
+def crear_alumno_nuevo():
+    data = request.get_json()
+    user = Alumno(alumno_id=get_user_id(), username=data.get("username"), password=data.get("password"), nombre=data.get("nombre"),
+                  apellido=data.get("apellido"), telefono=data.get("telefono"), email=data.get("email"), ofert_asignada= 0)
+    user.save()
+    serializer = AlumnoSchema()
+    data = serializer.dump(user)
+    return jsonify(data), 201
+
+@app.route('/alumnos/<int:alumno_id>', methods = ['DELETE'])
+def borrar_alumno(alumno_id):
+    alumno_borrar = Alumno.get_by_id(alumno_id)
+    alumno_borrar.delete()
+
+    return jsonify({"message": "Alumno borrado correctamente"}), 204
 
 @app.route("/logout")
 @login_required
@@ -454,6 +493,14 @@ def logout():
     session.pop('logged_in', None)
     logout_user()
     return redirect(url_for('main'))
+
+@app.errorhandler(404)
+def not_found(error):
+    return jsonify({"message":"Recurso no encontrado"}), 404
+
+@app.errorhandler(500)
+def internal_server(error):
+    return jsonify({"message": "Ha habido un problema. Vuelva a intentarlo por favor"}), 500
 
 
 if __name__ == '__main__':
