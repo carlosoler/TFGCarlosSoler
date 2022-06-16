@@ -14,7 +14,8 @@ from model.model import db, get_user_id, Alumno, get_users, add_to_db, get_user_
     get_user_tableSkill_id, get_all_skills_foruser, get_empresa_id, Empresa, get_skills_foruser, update_skills, get_emp, \
     get_users, get_alumn, get_ofer_id, get_empId_byOffer, get_empName, get_alumnos, get_ofertas, \
     get_id_by_user, OfertaNueva, get_ofertas_nuevas, get_alumn_sinOfertas, update_alumno, update_ofertaAsignada, \
-    OfertaAsignada, update_ofertaNueva, get_eliminarOfertaNueva, get_adm, get_alumn_sinOfertasByUsername
+    OfertaAsignada, update_ofertaNueva, get_eliminarOfertaNueva, get_adm, get_alumn_sinOfertasByUsername, \
+    OfertaNuevaSchema, get_empId_byNameEmpresa
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:qwerty@localhost:5432/JOBS'
@@ -172,7 +173,7 @@ def crearOfertas():
                           ciudad=ciudad_reg, grado=grado_reg, nota_media=nota_media_reg, ingles=ingles_reg, aleman=aleman_reg, frances=frances_reg, trabajo_equipo=trabajo_equipo_reg,
                           comunicacion=comunicacion_reg, matematicas=matematicas_reg, estadistica=estadistica_reg, gestion_proyectos=gestion_proyectos_reg,
                           sostenibilidad=sostenibilidad_reg, big_data=big_data_reg, programacion=progra_reg)
-            add_to_db(oferta)
+            oferta.save()
             flash("Oferta creada correctamente.")
         return render_template('crearOfertas.html')
 
@@ -246,7 +247,8 @@ def ver_alumnos():
 @restricted_access_toEmp
 def ver_ofertas():
     if session.get('logged_in'):
-        ofertas = get_ofertas_nuevas()
+        r = requests.get('http://127.0.0.1:5000/ofertas_nuevas')
+        ofertas = r.json()
         return render_template('verOfertas.html', ofertas=ofertas)
 
 @app.route('/ver_skills_alumnos')
@@ -405,6 +407,37 @@ def survey():
                 flash("Skills modificadas!")
 
         return render_template('survey.html')
+
+#END-POINTS crear oferta nueva
+
+@app.route('/ofertas_nuevas', methods = ['GET'])
+def get_ofertas_nuevas():
+    oferta_nueva = OfertaNueva.get_all()
+    serializer = OfertaNuevaSchema(many=True)
+    data = serializer.dump(oferta_nueva)
+    return jsonify(data)
+
+@app.route('/ofertas_nuevas', methods = ['POST'])
+def crear_oferta_nueva():
+    data = request.get_json()
+    nuevaOferta = OfertaNueva(job_id=get_ofer_id(), empresa_id=get_empId_byNameEmpresa(data.get("empresa_nombre")), empresa_nombre=data.get("empresa_nombre"),
+        job_tittle=data.get("job_tittle"), ciudad=data.get("ciudad"), grado=data.get("grado"), nota_media=data.get("nota_media"),
+        ingles=data.get("ingles"), aleman=data.get("aleman"), frances=data.get("frances"),
+        trabajo_equipo=data.get("trabajo_equipo"), comunicacion=data.get("comunicacion"), matematicas=data.get("matematicas"),
+        estadistica=data.get("estadistica"), gestion_proyectos=data.get("gestion_proyectos"), sostenibilidad=data.get("sostenibilidad"),
+        big_data=data.get("big_data"), programacion=data.get("programacion"))
+
+    nuevaOferta.save()
+    serializer = OfertaNuevaSchema()
+    data = serializer.dump(nuevaOferta)
+    return jsonify(data), 201
+
+@app.route('/ofertas_nuevas/<int:job_id>', methods = ['DELETE'])
+def borrar_oferta_nueva(job_id):
+    oferta_borrar = OfertaNueva.get_by_id(job_id)
+    oferta_borrar.delete()
+
+    return jsonify({"message": "Oferta nueva borrada correctamente"}), 204
 
 
 @app.route("/logout")

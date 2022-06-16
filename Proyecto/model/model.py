@@ -1,5 +1,6 @@
 import jsonify as jsonify
 from flask_sqlalchemy import SQLAlchemy
+from marshmallow import Schema, fields
 
 db = SQLAlchemy()
 
@@ -57,6 +58,9 @@ def get_ofer_id():
 
 def get_empId_byOffer(username):
     return db.session.query(Empresa.empresa_id).order_by(Empresa.empresa_id.desc()).filter_by(username=username).first().empresa_id
+
+def get_empId_byNameEmpresa(empresa_nombre):
+    return db.session.query(Empresa.empresa_id).order_by(Empresa.empresa_id.desc()).filter_by(empresa_nombre=empresa_nombre).first().empresa_id
 
 def get_empName(username):
     return db.session.query(Empresa.empresa_nombre).order_by(Empresa.empresa_id.desc()).filter_by(username=username).first().empresa_nombre
@@ -344,11 +348,41 @@ class OfertaNueva(db.Model):
     def is_authenticated(self):
         return True
 
-    def is_anonymous(self):
-        return False
+    @classmethod
+    def get_all(cls):
+        return cls.query.all()
 
-    def get_id(self):
-        return str(self.job_id)
+    @classmethod
+    def get_by_id(cls, job_id):
+        return cls.query.get_or_404(job_id)
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+
+class OfertaNuevaSchema(Schema):
+    job_id = fields.Integer()
+    empresa_id = fields.Integer()
+    empresa_nombre = fields.String()
+    job_tittle = fields.String()
+    ciudad = fields.String()
+    grado = fields.Integer()
+    nota_media = fields.Integer()
+    ingles = fields.Integer()
+    aleman = fields.Integer()
+    frances = fields.Integer()
+    trabajo_equipo = fields.Integer()
+    comunicacion = fields.Integer()
+    matematicas = fields.Integer()
+    estadistica = fields.Integer()
+    gestion_proyectos = fields.Integer()
+    sostenibilidad = fields.Integer()
+    big_data = fields.Integer()
+    programacion = fields.Integer()
 
 class Admin(db.Model):
     __tablename__ = 'admin'
