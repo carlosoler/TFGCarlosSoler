@@ -41,22 +41,28 @@
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li ><a href="{{ url_for('home')}}"><span>Home</span></a></li>
                 <li class="has-children">
-                  <a href="{{ url_for('alumnos')}}"><span>Alumnos</span></a>
+                  <a href="href={{ url_for('home')}}"><span>Alumnos</span></a>
                   <ul class="dropdown arrow-top">
-                    <li><a href="{{ url_for('survey')}}">Añadir/Modificar Skills</a></li>
+                    <li><a href="{{ url_for('survey')}}">Añadir/Modficar Skills</a></li>
                     <li><a href="{{ url_for('mostrar_skills')}}">Mostrar mi CV</a></li>
                     <li><a href="{{ url_for('ver_ofertas')}}">Ver ofertas</a></li>
                     <li><a href="{{ url_for('recomendarOfertas')}}">Recomendacion</a></li>
                   </ul>
                 </li>
                 <li class="has-children">
-                  <a href="{{ url_for('empresas')}}"><span>Empresas</span></a>
+                  <a href="href={{ url_for('home')}}"><span>Empresas</span></a>
                   <ul class="dropdown arrow-top">
                     <li><a href="{{ url_for('crearOfertas')}}">Crear ofertas</a></li>
                     <li><a href="{{ url_for('ver_alumnos')}}">Ver alumnos</a></li>
                   </ul>
                 </li>
-                <li><a href="{{ url_for('asignarOfertas') }}">Asignar Ofertas</a></li>
+                <li class="has-children">
+                  <a href=""><span>Admin</span></a>
+                  <ul class="dropdown arrow-top">
+                    <li><a href="{{ url_for('asignarOfertas') }}">Asignar Ofertas</a></li>
+                    <li><a href="{{ url_for('similitudOfertasNuevas')}}">Calcular similitud ofertas nuevas</a></li>
+                  </ul>
+                </li>
                 <li><a href="{{ url_for('chat')}}" onClick="window.open('chat','Chat','resizable,height=750,width=400'); return false;"><span>Chat</span></a></li>
                 <li><a href="{{ url_for('perfil')}}"><span>Perfil</span></a></li>
                 <li><a href="{{ url_for('logout')}}"><span>Cerrar Sesión</span></a></li>
