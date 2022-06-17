@@ -29,6 +29,9 @@ def get_user_by_id(alumno_id):
 def get_id_by_user(username):
     return db.session.query(Alumno.alumno_id).filter_by(username=username).order_by(Alumno.alumno_id.desc()).first().alumno_id
 
+def get_SkillID_by_alumno_id(alumno_id):
+    return db.session.query(Skill.id).filter_by(alumno_id=alumno_id).order_by(Skill.id.desc()).first()
+
 def get_tableSkill_id():
     return db.session.query(Skill.id).order_by(Skill.id.desc()).first().id + 1
 
@@ -37,6 +40,9 @@ def get_user_tableSkill_id(username):
 
 def get_Skill_id_by_alumno_id(alumno_id):
     return db.session.query(Skill.id).order_by(Skill.id.desc()).filter_by(alumno_id=alumno_id).first().id
+
+def get_Skills_by_alumno_id(alumno_id):
+    return db.session.query(Skill).order_by(Skill.id.desc()).filter_by(alumno_id=alumno_id).first()
 
 def get_all_skills_foruser(id):
     return db.session.query(Skill).order_by(Skill.id.desc()).filter_by(alumno_id=id)
@@ -263,10 +269,6 @@ class Skill(db.Model):
     @classmethod
     def get_by_id(cls, id):
         return cls.query.get_or_404(id)
-
-    @classmethod
-    def get_by_alumnoID(cls, alumno_id):
-        return cls.query.get_or_404
 
     def save(self):
         db.session.add(self)

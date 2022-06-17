@@ -16,7 +16,7 @@ from model.model import db, get_user_id, Alumno, get_users, add_to_db, get_user_
     get_id_by_user, OfertaNueva, get_ofertas_nuevas, get_alumn_sinOfertas, update_alumno, update_ofertaAsignada, \
     OfertaAsignada, update_ofertaNueva, get_eliminarOfertaNueva, get_adm, get_alumn_sinOfertasByUsername, \
     OfertaNuevaSchema, get_empId_byNameEmpresa, AlumnoSchema, AlumnoSchemaSinPass, EmpresaSchemaSinPass, EmpresaSchema, \
-    SkillsSchema, get_Skill_id_by_alumno_id
+    SkillsSchema, get_Skill_id_by_alumno_id, get_Skills_by_alumno_id, get_SkillID_by_alumno_id
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:qwerty@localhost:5432/JOBS'
@@ -306,10 +306,9 @@ def survey():
     if session.get('logged_in'):
         if request.method == 'POST':
             usuario = session['username']
-            #id_user_session = get_user_tableSkill_id(session['username'])
+            id_user_session = get_user_tableSkill_id(session['username'])
+            alumno_id_skill = get_Skills_by_alumno_id(id_user_session)
             skill = {
-                "id": get_tableSkill_id(),
-                "alumno_id": get_user_tableSkill_id(session['username']),
                 "grado": request.form.get('grado'),
                 "nota_media": request.form.get('nota_media'),
                 "ingles": request.form.get('ingles_level'),
@@ -347,60 +346,14 @@ def survey():
                 "pascal": request.form.get('pascal_level'),
                 "python": request.form.get('python_level'),
             }
-            requests.post('http://127.0.0.1:5000/skills/%s' % usuario, json=skill)
-            db.session.commit()
-            flash("Skills creadas")
-        return render_template('survey.html')
-
-@app.route('/survey_modificado', methods=["GET", "POST"])
-@login_required
-@restricted_access_toEmp
-def survey_mod():
-    if session.get('logged_in'):
-        if request.method == 'POST':
-            usuario = session['username']
-            #id_user_session = get_user_tableSkill_id(session['username'])
-            skill_mod = {
-                "grado": request.form.get('grado'),
-                "nota_media": request.form.get('nota_media'),
-                "ingles": request.form.get('ingles_level'),
-                "aleman": request.form.get('aleman_level'),
-                "frances": request.form.get('frances_level'),
-                "capacidad_analitica": request.form.get('capAnalitica_level'),
-                "trabajo_equipo": request.form.get('trabajoEquipo_level'),
-                "comunicacion": request.form.get('comunicacion_level'),
-                "pensamiento_critico": request.form.get('pensamientoCritico_level'),
-                "inovacion": request.form.get('innovacion_level'),
-                "liderazgo": request.form.get('liderazgo_level'),
-                "decision_making": request.form.get('tomaDecisiones_level'),
-                "problem_solving": request.form.get('solucionProblemas_level'),
-                "marketing": request.form.get('marketing_level'),
-                "e_commerce": request.form.get('ecommerce_level'),
-                "diseno_grafico": request.form.get('disenoGrafico_level'),
-                "matematicas": request.form.get('matematicas_level'),
-                "estadistica": request.form.get('estadistica_level'),
-                "gestion_proyectos": request.form.get('gestionProyectos_level'),
-                "redes_sociales": request.form.get('redesSociales_level'),
-                "sostenibilidad": request.form.get('sostenibilidad_level'),
-                "inteligencia_artificial": request.form.get('inteligenciaArtificial_level'),
-                "big_data": request.form.get('bigData_level'),
-                "machine_learning": request.form.get('machineLearning_level'),
-                "analisis_datos": request.form.get('analisisDatos_level'),
-                "bases_datos": request.form.get('basesDatos_level'),
-                "cloud": request.form.get('cloud_level'),
-                "intenet_of_things": request.form.get('iot_level'),
-                "networks": request.form.get('redes_level'),
-                "sistemas_operativos": request.form.get('sistemasOperativos_level'),
-                "web_desarrollo": request.form.get('desarrolloWeb_level'),
-                "web_diseno": request.form.get('disenoWeb_level'),
-                "r": request.form.get('r_level'),
-                "java": request.form.get('java_level'),
-                "pascal": request.form.get('pascal_level'),
-                "python": request.form.get('python_level'),
-            }
-            requests.put('http://127.0.0.1:5000/skills/%s' % usuario, json=skill_mod)
-            db.session.commit()
-            flash("Skills modificadas")
+            if not alumno_id_skill:
+                requests.post('http://127.0.0.1:5000/skills/%s' % usuario, json=skill)
+                db.session.commit()
+                flash("Skills creadas")
+            else:
+                requests.put('http://127.0.0.1:5000/skills/%s' % usuario, json=skill)
+                db.session.commit()
+                flash("Skills Modificadas")
         return render_template('survey.html')
 
 #END-POINTS ofertas nuevas
@@ -474,13 +427,9 @@ def crear_alumno_nuevo():
     data = serializer.dump(user)
     return jsonify(data), 201
 
-@app.route('/alumnos/<int:alumno_id>', methods = ['DELETE'])
+@app.route('/alumnos/<int:alumno_id>', methods = ['DELETE']) #Solo borra si no tiene skills asociadas, habria que borrar las skills primero
 def borrar_alumno(alumno_id):
     alumno_borrar = Alumno.get_by_id(alumno_id)
-    #borrar_skills(get_user_by_id(alumno_id))
-    #id = get_Skill_id_by_alumno_id(alumno_id)
-    #skills_borrar = Skill.get_by_id(id)
-    #skills_borrar.delete()
     alumno_borrar.delete()
     return jsonify({"message": "Alumno borrado correctamente"}), 204
 
@@ -522,8 +471,8 @@ def borrar_empresa(empresa_id):
 @app.route('/skills/<string:username>', methods = ['GET'])
 def get_skills_by_alumno_id(username):
     id_user_session = get_user_tableSkill_id(username)
-    id = get_Skill_id_by_alumno_id(id_user_session)
-    skills = Skill.get_by_id(id)
+    skill_id = get_SkillID_by_alumno_id(id_user_session)
+    skills = Skill.get_by_id(skill_id)
     serializer = SkillsSchema()
     data = serializer.dump(skills)
     return jsonify(data)
@@ -551,8 +500,8 @@ def crear_skill_nueva(username):
 @app.route('/skills/<string:username>', methods = ['PUT'])
 def modificar_skills_nueva(username):
     id_user_session = get_user_tableSkill_id(username)
-    id = get_Skill_id_by_alumno_id(id_user_session)
-    skill_modificar = Skill.get_by_id(id)
+    skill_id = get_SkillID_by_alumno_id(id_user_session)
+    skill_modificar = Skill.get_by_id(skill_id)
     data = request.get_json()
     skill_modificar.grado = data.get('grado')
     skill_modificar.nota_media = data.get('nota_media')
@@ -599,8 +548,8 @@ def modificar_skills_nueva(username):
 @app.route('/skills/<string:username>', methods = ['DELETE'])
 def borrar_skills(username):
     id_user_session = get_user_tableSkill_id(username)
-    id = get_Skill_id_by_alumno_id(id_user_session)
-    skills_borrar = Skill.get_by_id(id)
+    id_skill = get_Skill_id_by_alumno_id(id_user_session)
+    skills_borrar = Skill.get_by_id(id_skill)
     skills_borrar.delete()
     return jsonify({"message": "Skills borradas correctamente"}), 204
 
