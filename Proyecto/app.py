@@ -16,7 +16,8 @@ from model.model import db, get_user_id, Alumno, get_users, add_to_db, get_user_
     get_id_by_user, OfertaNueva, get_ofertas_nuevas, get_alumn_sinOfertas, update_alumno, update_ofertaAsignada, \
     OfertaAsignada, update_ofertaNueva, get_eliminarOfertaNueva, get_adm, get_alumn_sinOfertasByUsername, \
     OfertaNuevaSchema, get_empId_byNameEmpresa, AlumnoSchema, AlumnoSchemaSinPass, EmpresaSchemaSinPass, EmpresaSchema, \
-    SkillsSchema, get_Skill_id_by_alumno_id, get_Skills_by_alumno_id, get_SkillID_by_alumno_id
+    SkillsSchema, get_Skill_id_by_alumno_id, get_Skills_by_alumno_id, get_SkillID_by_alumno_id, OfertaAsignadaSchema, \
+    get_oferAsignada_id
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:qwerty@localhost:5432/JOBS'
@@ -133,18 +134,6 @@ def home():
     if session.get('logged_in'):
         return render_template('home.html')
 
-@app.route('/alumnosView') #Quitar
-@login_required
-def alumnos():
-    if session.get('logged_in'):
-        return render_template('alumnos.html')
-
-@app.route('/empresasView') #Quitar
-@login_required
-def empresas():
-    if session.get('logged_in'):
-        return render_template('empresas.html')
-
 @app.route('/crearOfertas', methods=["GET", "POST"])
 @login_required
 @restricted_access_toAlumn
@@ -187,39 +176,42 @@ def asignarOfertas():
         if request.method == 'POST':
             alumno = request.form.get('alumnos')
             oferta_id = request.form.get('ofertas')
-            person = update_alumno(get_user_tableSkill_id(alumno))
-            person.ofert_asignada = 1
+            alumno_id_mod = get_id_by_user(alumno)
+
+            #Cambiamos el valor de oferta asignada a 1
+            mod_oferta_asignada = {
+                "ofert_asignada": 1
+            }
+            requests.put('http://127.0.0.1:5000/alumnos/%d' % alumno_id_mod, json=mod_oferta_asignada)
+
             #Creamos oferta asignada
-            oferta_nueva = update_ofertaNueva(oferta_id)
+            oferta_nueva = requests.get('http://127.0.0.1:5000/ofertas_nuevas/%s' % oferta_id)
+            oferta_nueva_js = oferta_nueva.json()
 
-            id_reg = get_ofer_id()
-            alumnoID_reg = get_user_tableSkill_id(alumno)
-            empresaID_reg = oferta_nueva.empresa_id
-            nombre_emp_reg = oferta_nueva.empresa_nombre
-            job_tittle_reg = oferta_nueva.job_tittle
-            ciudad_reg = oferta_nueva.ciudad
-            grado_reg = oferta_nueva.grado
-            nota_media_reg = oferta_nueva.nota_media
-            ingles_reg = oferta_nueva.ingles
-            aleman_reg = oferta_nueva.aleman
-            frances_reg = oferta_nueva.frances
-            trabajo_equipo_reg = oferta_nueva.trabajo_equipo
-            comunicacion_reg = oferta_nueva.comunicacion
-            matematicas_reg = oferta_nueva.matematicas
-            estadistica_reg = oferta_nueva.estadistica
-            gestion_proyectos_reg = oferta_nueva.gestion_proyectos
-            sostenibilidad_reg = oferta_nueva.sostenibilidad
-            big_data_reg = oferta_nueva.big_data
-            progra_reg = oferta_nueva.programacion
+            ofertaAsig = {
+                "job_id": get_oferAsignada_id(),
+                "alumno_id": alumno_id_mod,
+                "empresa_id": oferta_nueva_js['empresa_id'],
+                "empresa_nombre": oferta_nueva_js['empresa_nombre'],
+                "job_tittle": oferta_nueva_js['job_tittle'],
+                "ciudad": oferta_nueva_js['ciudad'],
+                "grado": oferta_nueva_js['grado'],
+                "nota_media": oferta_nueva_js['nota_media'],
+                "ingles": oferta_nueva_js['ingles'],
+                "aleman": oferta_nueva_js['aleman'],
+                "frances": oferta_nueva_js['frances'],
+                "trabajo_equipo": oferta_nueva_js['trabajo_equipo'],
+                "comunicacion": oferta_nueva_js['comunicacion'],
+                "matematicas": oferta_nueva_js['matematicas'],
+                "estadistica": oferta_nueva_js['estadistica'],
+                "gestion_proyectos": oferta_nueva_js['gestion_proyectos'],
+                "sostenibilidad": oferta_nueva_js['sostenibilidad'],
+                "big_data": oferta_nueva_js['big_data'],
+                "programacion": oferta_nueva_js['programacion']
+            }
+            requests.post('http://127.0.0.1:5000/ofertas_asignadas', json=ofertaAsig)
 
-            oferta = OfertaAsignada(job_id=id_reg, alumno_id=alumnoID_reg ,empresa_id=empresaID_reg, empresa_nombre=nombre_emp_reg,
-                                 job_tittle=job_tittle_reg, ciudad=ciudad_reg, grado=grado_reg, nota_media=nota_media_reg, ingles=ingles_reg,
-                                 aleman=aleman_reg, frances=frances_reg, trabajo_equipo=trabajo_equipo_reg,
-                                 comunicacion=comunicacion_reg, matematicas=matematicas_reg,
-                                 estadistica=estadistica_reg, gestion_proyectos=gestion_proyectos_reg,
-                                 sostenibilidad=sostenibilidad_reg, big_data=big_data_reg, programacion=progra_reg)
-            add_to_db(oferta)
-            get_eliminarOfertaNueva(oferta_nueva.job_id)
+            requests.delete('http://127.0.0.1:5000/ofertas_nuevas/%s' % oferta_id)
 
             db.session.commit()
             flash("Oferta asignada con éxito!")
@@ -427,6 +419,16 @@ def crear_alumno_nuevo():
     data = serializer.dump(user)
     return jsonify(data), 201
 
+@app.route('/alumnos/<int:alumno_id>', methods = ['PUT'])
+def modificar_alumno(alumno_id):
+    alumno_modificar = Alumno.get_by_id(alumno_id)
+    data = request.get_json()
+    alumno_modificar.ofert_asignada = data.get('ofert_asignada')
+    db.session.commit()
+    serializer = AlumnoSchema()
+    skill_data = serializer.dump(alumno_modificar)
+    return jsonify(skill_data), 200
+
 @app.route('/alumnos/<int:alumno_id>', methods = ['DELETE']) #Solo borra si no tiene skills asociadas, habria que borrar las skills primero
 def borrar_alumno(alumno_id):
     alumno_borrar = Alumno.get_by_id(alumno_id)
@@ -552,6 +554,31 @@ def borrar_skills(username):
     skills_borrar = Skill.get_by_id(id_skill)
     skills_borrar.delete()
     return jsonify({"message": "Skills borradas correctamente"}), 204
+
+#END-POINTS ofertas asignadas
+
+@app.route('/ofertas_asignadas', methods = ['GET'])
+def get_ofertas_asignadas():
+    oferta_asignada = OfertaAsignada.get_all()
+    serializer = OfertaAsignadaSchema(many=True)
+    data = serializer.dump(oferta_asignada)
+    return jsonify(data)
+
+@app.route('/ofertas_asignadas', methods = ['POST'])
+def crear_oferta_asignada_nueva():
+    data = request.get_json()
+    nuevaOfertaAsignada = OfertaAsignada(job_id=get_oferAsignada_id(),alumno_id = data.get("alumno_id"), empresa_id=get_empId_byNameEmpresa(data.get("empresa_nombre")), empresa_nombre=data.get("empresa_nombre"),
+        job_tittle=data.get("job_tittle"), ciudad=data.get("ciudad"), grado=data.get("grado"), nota_media=data.get("nota_media"),
+        ingles=data.get("ingles"), aleman=data.get("aleman"), frances=data.get("frances"),
+        trabajo_equipo=data.get("trabajo_equipo"), comunicacion=data.get("comunicacion"), matematicas=data.get("matematicas"),
+        estadistica=data.get("estadistica"), gestion_proyectos=data.get("gestion_proyectos"), sostenibilidad=data.get("sostenibilidad"),
+        big_data=data.get("big_data"), programacion=data.get("programacion"))
+
+    nuevaOfertaAsignada.save()
+    serializer = OfertaAsignadaSchema()
+    data = serializer.dump(nuevaOfertaAsignada)
+    return jsonify(data), 201
+
 
 @app.route("/logout")
 @login_required
