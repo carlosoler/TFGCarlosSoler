@@ -589,7 +589,7 @@ def logout():
 
 @app.errorhandler(404)
 def not_found(error):
-    return jsonify({"message":"Recurso no encontrado"}), 404
+    return jsonify({"message": "Recurso no encontrado"}), 404
 
 @app.errorhandler(500)
 def internal_server(error):
