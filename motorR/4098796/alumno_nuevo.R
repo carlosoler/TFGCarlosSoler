@@ -2,7 +2,7 @@
 # date: junio, 2022
 
 # Limpio el workspace
-# rm(list = ls())
+#rm(list = ls())
 
 # Cambio el directorio de trabajo
 # setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
@@ -31,22 +31,40 @@ options(scipen=999)
 
 #* @post /recomendacion_alumno_nuevo
 recomendacion_alumno_nuevo <- function(alumnonuevo) {
+  #GET alumno nuevo
+  username = 'pedrito'
+  uri = 'http://127.0.0.1:5000/skills/'
+  uri_get = paste(uri, username, sep="")
+  curl_uri <- curl_fetch_memory(uri_get)
+  xxx <- jsonlite::prettify(rawToChar(curl_uri$content))
+  jjj <- fromJSON(xxx)
+  df_xxx <- as.data.frame(jjj)
   
   # Cargo los datos
   alumnos_antiguos<-read.xlsx("alumnos_antiguos.xlsx")
-  alumno_nuevo<-read.xlsx("alumno_nuevo.xlsx")
+  alumno_nuevo<- df_xxx
   vecinos_ofertas_nuevas<-read.xlsx("vecinos_ofertas_nuevas.xlsx")
   ofertas_nuevas<-read.xlsx("ofertas_nuevas.xlsx")
+  
+  # Parto de alumnos y elimino las columnas con info de los alumnos primera columna (me quedo solo con las skills)
+  alumnos_antiguos<-dplyr::select(alumnos_antiguos, -alumno_id, -username,-password, -nombre, -apellido, -telefono, -email)
+  alumno_nuevo<-dplyr::select(alumno_nuevo, -alumno_id, -id)
+  
+  #Ordeno alumno nuevo
+  alumno_nuevo <- alumno_nuevo[,c(14, 25, 15, 1, 12, 5, 34, 7, 27, 16, 20, 8, 28, 22, 10, 9, 23, 11, 13, 31, 33, 17, 4, 21, 2, 3, 6, 18, 24, 32, 35, 36, 30, 19, 26, 29 )]
+  
+  # Renombro las columnas de alumnosnuevos como las de alumnosantiguos
+  colnames(alumno_nuevo) <- colnames(alumnos_antiguos)
+  
   # Uno el alumno_nuevo con los alumnos_antiguos
   alumnos<-rbind(alumnos_antiguos,alumno_nuevo)
-  # Parto de alumnos y elimino las columnas con info de los alumnos primera columna (me quedo solo con las skills)
-  alumnos1<-dplyr::select(alumnos, -alumno_id, -username,-password, -nombre, -apellido, -telefono, -email)
+  
   # Transpongo alumnos1(71x36) y obtengo alumnos2 (36x71)
-  alumnos2 <- t(alumnos1)
+  alumnos2 <- t(alumnos)
   # Convierto alumnos2 en un DF
   alumnos2<-data.frame(alumnos2)
   # Renombro las columnas de alumnos2 como las de alumnos
-  colnames(alumnos2) <- alumnos[,1]
+  colnames(alumnos2) <- rownames(alumnos)
   # Utilizo el coseno que es una medida de similaridad cuando no hay nulos
   calculoCoseno <- function(x,y){
     coseno <- sum(x*y) / (sqrt(sum(x*x)) * sqrt(sum(y*y)))
@@ -85,7 +103,7 @@ recomendacion_alumno_nuevo <- function(alumnonuevo) {
   # Elimino V2
   vecinos<-dplyr::select(vecinos, -V2)
   # Identifico vecinos alumno71
-  vecinos71<-vecinos[vecinos$alumno_id == alumnonuevo,]
+  vecinos71<-vecinos[vecinos$alumno_id == 71,]
   # Elimino alumno_id
   vecinos71<-dplyr::select(vecinos71, -alumno_id)
   # Traspongo vecinos71
