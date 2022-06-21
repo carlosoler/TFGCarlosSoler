@@ -22,6 +22,8 @@ library(Matrix)
 library(funModeling)
 library(openxlsx)
 library(rjson)
+library(curl)
+library(jsonlite)
 
 # Quito la notación científica
 options(scipen=999)
@@ -32,7 +34,7 @@ options(scipen=999)
 #* @post /recomendacion_alumno_nuevo
 recomendacion_alumno_nuevo <- function(alumnonuevo) {
   #GET alumno nuevo
-  username = 'pedrito'
+  username = alumnonuevo
   uri = 'http://127.0.0.1:5000/skills/'
   uri_get = paste(uri, username, sep="")
   curl_uri <- curl_fetch_memory(uri_get)
