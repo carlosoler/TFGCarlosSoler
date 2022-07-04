@@ -1,6 +1,7 @@
 import jsonify as jsonify
 from flask_sqlalchemy import SQLAlchemy
 from marshmallow import Schema, fields
+from sqlalchemy.sql import exists
 
 db = SQLAlchemy()
 
@@ -30,43 +31,37 @@ def get_id_by_user(username):
     return db.session.query(Alumno.alumno_id).filter_by(username=username).order_by(Alumno.alumno_id.desc()).first().alumno_id
 
 def get_SkillID_by_alumno_id(alumno_id):
-    return db.session.query(Skill.id).filter_by(alumno_id=alumno_id).order_by(Skill.id.desc()).first()
+    return db.session.query(CV.id).filter_by(alumno_id=alumno_id).order_by(CV.id.desc()).first()
 
 def get_tableSkill_id():
-    return db.session.query(Skill.id).order_by(Skill.id.desc()).first().id + 1
+    return db.session.query(CV.id).order_by(CV.id.desc()).first().id + 1
 
 def get_user_tableSkill_id(username):
     return db.session.query(Alumno.alumno_id).order_by(Alumno.alumno_id.desc()).filter_by(username=username).first().alumno_id
 
 def get_Skill_id_by_alumno_id(alumno_id):
-    return db.session.query(Skill.id).order_by(Skill.id.desc()).filter_by(alumno_id=alumno_id).first().id
+    return db.session.query(CV.id).order_by(CV.id.desc()).filter_by(alumno_id=alumno_id).first().id
 
 def get_Skills_by_alumno_id(alumno_id):
-    return db.session.query(Skill).order_by(Skill.id.desc()).filter_by(alumno_id=alumno_id).first()
+    return db.session.query(CV).order_by(CV.id.desc()).filter_by(alumno_id=alumno_id).first()
 
 def get_all_skills_foruser(id):
-    return db.session.query(Skill).order_by(Skill.id.desc()).filter_by(alumno_id=id)
+    return db.session.query(CV).order_by(CV.id.desc()).filter_by(alumno_id=id)
 
 def get_skills_foruser(alumno_id):
-    return Skill.query.get(alumno_id)
+    return CV.query.get(alumno_id)
 
 def update_skills(alumno_id):
-    return Skill.query.filter_by(alumno_id = alumno_id).first()
+    return CV.query.filter_by(alumno_id = alumno_id).first()
 
 def update_alumno(alumno_id):
     return Alumno.query.filter_by(alumno_id = alumno_id).first()
 
-def update_ofertaNueva(job_id):
-    return OfertaNueva.query.filter_by(job_id = job_id).first()
-
-def update_ofertaAsignada(job_id):
-    return OfertaAsignada.query.filter_by(job_id = job_id).first()
+'''def update_oferta(job_id):
+    return Ofertas.query.filter_by(job_id = job_id).first()'''
 
 def get_ofer_id():
-    return db.session.query(OfertaNueva.job_id).order_by(OfertaNueva.job_id.desc()).first().job_id + 1
-
-def get_oferAsignada_id():
-    return db.session.query(OfertaAsignada.job_id).order_by(OfertaAsignada.job_id.desc()).first().job_id + 1
+    return db.session.query(Ofertas.job_id).order_by(Ofertas.job_id.desc()).first().job_id + 1
 
 def get_empId_byOffer(username):
     return db.session.query(Empresa.empresa_id).order_by(Empresa.empresa_id.desc()).filter_by(username=username).first().empresa_id
@@ -74,26 +69,37 @@ def get_empId_byOffer(username):
 def get_empId_byNameEmpresa(empresa_nombre):
     return db.session.query(Empresa.empresa_id).order_by(Empresa.empresa_id.desc()).filter_by(empresa_nombre=empresa_nombre).first().empresa_id
 
+def get_empNombre_byid(empresa_id):
+    return db.session.query(Empresa.empresa_nombre).order_by(Empresa.empresa_id.desc()).filter_by(empresa_id=empresa_id).first().empresa_nombre
+
+
+def get_ofertas_by_emp_id(empresa_id):
+    return db.session.query(Ofertas).order_by(Ofertas.job_id.desc()).filter_by(empresa_id=empresa_id)
+
+def get_ofertasid_by_emp_id(empresa_id):
+    return db.session.query(Ofertas.job_id).filter_by(empresa_id=empresa_id).order_by(Ofertas.job_id.desc())
+
 def get_empName(username):
     return db.session.query(Empresa.empresa_nombre).order_by(Empresa.empresa_id.desc()).filter_by(username=username).first().empresa_nombre
 
 def get_alumnos():
     return db.session.query(Alumno).order_by(Alumno.alumno_id.desc())
 
-def get_ofertas():
-    return db.session.query(OfertaAsignada).order_by(OfertaAsignada.job_id.desc())
+'''def get_ofertas():
+    return db.session.query(Ofertas).order_by(Ofertas.job_id.desc())'''
 
-def get_ofertas_nuevas():
-    return db.session.query(OfertaNueva).order_by(OfertaNueva.job_id.desc())
-
-def get_alumn_sinOfertas():
-    return db.session.query(Alumno).order_by(Alumno.alumno_id.desc()).filter_by(ofert_asignada=0)
+def get_ofertasSinAsignar():
+    return db.session.query(Ofertas).order_by(Ofertas.job_id.desc()).filter_by(estado='SIN ASIGNAR')
 
 def get_alumn_sinOfertasByUsername(username):
     return db.session.query(Alumno).order_by(Alumno.alumno_id.desc()).filter_by(ofert_asignada=0, username=username).first()
 
-def get_eliminarOfertaNueva(job_id):
-    return db.session.query(OfertaNueva).filter_by(job_id=job_id).delete()
+def get_alum_sin_ofertas():
+    stmt = exists().where(Alumno.alumno_id == Ofertas.alumno_id)
+    return db.session.query(Alumno).filter(~stmt)
+
+'''def get_eliminarOfertas(job_id):
+    return db.session.query(Ofertas).filter_by(job_id=job_id).delete()'''
 
 def add_to_db(e):
     db.session.add(e)
@@ -102,14 +108,13 @@ def add_to_db(e):
 
 class Alumno(db.Model):
     __tablename__ = 'alumnos'
-    alumno_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    alumno_id = db.Column(db.Integer, primary_key=True, nullable=False)
     username = db.Column(db.String, unique=True)
     password = db.Column(db.String)
     nombre = db.Column(db.String)
     apellido = db.Column(db.String)
     telefono = db.Column(db.String, unique=True)
     email = db.Column(db.String, unique=True)
-    ofert_asignada = db.Column(db.Integer)
 
     def __init__(self, alumno_id, username, password, nombre, apellido, telefono, email, ofert_asignada):
         self.alumno_id = alumno_id
@@ -119,7 +124,6 @@ class Alumno(db.Model):
         self.apellido = apellido
         self.telefono = telefono
         self.email = email
-        self.ofert_asignada = ofert_asignada
 
     def is_active(self):
         return True
@@ -158,7 +162,6 @@ class AlumnoSchema(Schema):
     apellido = fields.String()
     telefono = fields.String()
     email = fields.String()
-    ofert_asignada = fields.Integer()
 
 class AlumnoSchemaSinPass(Schema):
     alumno_id = fields.Integer()
@@ -167,12 +170,11 @@ class AlumnoSchemaSinPass(Schema):
     apellido = fields.String()
     telefono = fields.String()
     email = fields.String()
-    ofert_asignada = fields.Integer()
 
 
-class Skill(db.Model):
-    __tablename__ = 'skills'
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+class CV(db.Model):
+    __tablename__ = 'cv'
+    id = db.Column(db.Integer, primary_key=True, nullable=False)
     alumno_id = db.Column(db.Integer, db.ForeignKey('alumnos.alumno_id'), unique=True)
     grado = db.Column(db.Integer)
     nota_media = db.Column(db.Integer)
@@ -281,7 +283,7 @@ class Skill(db.Model):
         db.session.delete(self)
         db.session.commit()
 
-class SkillsSchema(Schema):
+class CVSchema(Schema):
     id = fields.Integer()
     alumno_id = fields.Integer()
     grado = fields.Integer()
@@ -322,9 +324,105 @@ class SkillsSchema(Schema):
     python = fields.Integer()
 
 
+class Ofertas(db.Model):
+    __tablename__ = 'ofertas'
+    job_id = db.Column(db.Integer, primary_key=True, nullable=False)
+    alumno_id = db.Column(db.Integer, db.ForeignKey('alumnos.alumno_id'), unique=True)
+    empresa_id = db.Column(db.Integer, db.ForeignKey('empresas.empresa_id'))
+    empresa_nombre = db.Column(db.String)
+    job_tittle = db.Column(db.String)
+    ciudad = db.Column(db.String)
+    grado = db.Column(db.Integer)
+    nota_media = db.Column(db.Integer)
+    ingles = db.Column(db.Integer)
+    aleman = db.Column(db.Integer)
+    frances = db.Column(db.Integer)
+    trabajo_equipo = db.Column(db.Integer)
+    comunicacion = db.Column(db.Integer)
+    matematicas = db.Column(db.Integer)
+    estadistica = db.Column(db.Integer)
+    gestion_proyectos = db.Column(db.Integer)
+    sostenibilidad = db.Column(db.Integer)
+    big_data = db.Column(db.Integer)
+    programacion = db.Column(db.Integer)
+    estado = db.Column(db.String)
+
+    def __init__(self, job_id, alumno_id, empresa_id, empresa_nombre, job_tittle, ciudad, grado, nota_media, ingles, aleman, frances,
+                 trabajo_equipo, comunicacion, matematicas, estadistica, gestion_proyectos, sostenibilidad,
+                 big_data, programacion, estado):
+
+        self.job_id = job_id
+        self.alumno_id = alumno_id
+        self.empresa_id = empresa_id
+        self.empresa_nombre = empresa_nombre
+        self.job_tittle = job_tittle
+        self.ciudad = ciudad
+        self.grado = grado
+        self.nota_media = nota_media
+        self.ingles = ingles
+        self.aleman = aleman
+        self.frances = frances
+        self.trabajo_equipo = trabajo_equipo
+        self.comunicacion = comunicacion
+        self.matematicas = matematicas
+        self.estadistica = estadistica
+        self.gestion_proyectos = gestion_proyectos
+        self.sostenibilidad = sostenibilidad
+        self.big_data = big_data
+        self.programacion = programacion
+        self.estado = estado
+
+    def is_active(self):
+        return True
+
+    def is_authenticated(self):
+        return True
+
+    def is_anonymous(self):
+        return False
+
+    @classmethod
+    def get_all(cls):
+        return cls.query.all()
+
+    @classmethod
+    def get_by_id(cls, job_id):
+        return cls.query.get_or_404(job_id)
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+
+class OfertasSchema(Schema):
+    job_id = fields.Integer()
+    alumno_id = fields.Integer()
+    empresa_id = fields.Integer()
+    empresa_nombre = fields.String()
+    job_tittle = fields.String()
+    ciudad = fields.String()
+    grado = fields.Integer()
+    nota_media = fields.Integer()
+    ingles = fields.Integer()
+    aleman = fields.Integer()
+    frances = fields.Integer()
+    trabajo_equipo = fields.Integer()
+    comunicacion = fields.Integer()
+    matematicas = fields.Integer()
+    estadistica = fields.Integer()
+    gestion_proyectos = fields.Integer()
+    sostenibilidad = fields.Integer()
+    big_data = fields.Integer()
+    programacion = fields.Integer()
+    estado = fields.String()
+
+
 class Empresa(db.Model):
     __tablename__ = 'empresas'
-    empresa_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    empresa_id = db.Column(db.Integer, primary_key=True, nullable=False)
     username = db.Column(db.String, unique=True)
     password = db.Column(db.String)
     empresa_nombre = db.Column(db.String)
@@ -383,186 +481,9 @@ class EmpresaSchemaSinPass(Schema):
     email = fields.String()
 
 
-class OfertaAsignada(db.Model):
-    __tablename__ = 'ofertas_asignadas'
-    job_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    alumno_id = db.Column(db.Integer, db.ForeignKey('alumnos.alumno_id'), unique=True)
-    empresa_id = db.Column(db.Integer, db.ForeignKey('empresas.empresa_id'))
-    empresa_nombre = db.Column(db.String)
-    job_tittle = db.Column(db.String)
-    ciudad = db.Column(db.String)
-    grado = db.Column(db.Integer)
-    nota_media = db.Column(db.Integer)
-    ingles = db.Column(db.Integer)
-    aleman = db.Column(db.Integer)
-    frances = db.Column(db.Integer)
-    trabajo_equipo = db.Column(db.Integer)
-    comunicacion = db.Column(db.Integer)
-    matematicas = db.Column(db.Integer)
-    estadistica = db.Column(db.Integer)
-    gestion_proyectos = db.Column(db.Integer)
-    sostenibilidad = db.Column(db.Integer)
-    big_data = db.Column(db.Integer)
-    programacion = db.Column(db.Integer)
-
-    def __init__(self, job_id, alumno_id, empresa_id, empresa_nombre, job_tittle, ciudad, grado, nota_media, ingles, aleman, frances, trabajo_equipo, comunicacion, matematicas, estadistica, gestion_proyectos, sostenibilidad, big_data, programacion):
-        self.job_id = job_id
-        self.alumno_id = alumno_id
-        self.empresa_id = empresa_id
-        self.empresa_nombre = empresa_nombre
-        self.job_tittle = job_tittle
-        self.ciudad = ciudad
-        self.grado = grado
-        self.nota_media = nota_media
-        self.ingles = ingles
-        self.aleman = aleman
-        self.frances = frances
-        self.trabajo_equipo = trabajo_equipo
-        self.comunicacion = comunicacion
-        self.matematicas = matematicas
-        self.estadistica = estadistica
-        self.gestion_proyectos = gestion_proyectos
-        self.sostenibilidad = sostenibilidad
-        self.big_data = big_data
-        self.programacion = programacion
-
-    def is_active(self):
-        return True
-
-    def is_authenticated(self):
-        return True
-
-    def is_anonymous(self):
-        return False
-
-    def get_id(self):
-        return str(self.job_id)
-
-    @classmethod
-    def get_all(cls):
-        return cls.query.all()
-
-    @classmethod
-    def get_by_id(cls, job_id):
-        return cls.query.get_or_404(job_id)
-
-    def save(self):
-        db.session.add(self)
-        db.session.commit()
-
-    def delete(self):
-        db.session.delete(self)
-        db.session.commit()
-
-class OfertaAsignadaSchema(Schema):
-    job_id = fields.Integer()
-    alumno_id = fields.Integer()
-    empresa_id = fields.Integer()
-    empresa_nombre = fields.String()
-    job_tittle = fields.String()
-    ciudad = fields.String()
-    grado = fields.Integer()
-    nota_media = fields.Integer()
-    ingles = fields.Integer()
-    aleman = fields.Integer()
-    frances = fields.Integer()
-    trabajo_equipo = fields.Integer()
-    comunicacion = fields.Integer()
-    matematicas = fields.Integer()
-    estadistica = fields.Integer()
-    gestion_proyectos = fields.Integer()
-    sostenibilidad = fields.Integer()
-    big_data = fields.Integer()
-    programacion = fields.Integer()
-
-
-class OfertaNueva(db.Model):
-    __tablename__ = 'ofertas_nuevas'
-    job_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    empresa_id = db.Column(db.Integer, db.ForeignKey('empresas.empresa_id'))
-    empresa_nombre = db.Column(db.String)
-    job_tittle = db.Column(db.String)
-    ciudad = db.Column(db.String)
-    grado = db.Column(db.Integer)
-    nota_media = db.Column(db.Integer)
-    ingles = db.Column(db.Integer)
-    aleman = db.Column(db.Integer)
-    frances = db.Column(db.Integer)
-    trabajo_equipo = db.Column(db.Integer)
-    comunicacion = db.Column(db.Integer)
-    matematicas = db.Column(db.Integer)
-    estadistica = db.Column(db.Integer)
-    gestion_proyectos = db.Column(db.Integer)
-    sostenibilidad = db.Column(db.Integer)
-    big_data = db.Column(db.Integer)
-    programacion = db.Column(db.Integer)
-
-    def __init__(self, job_id, empresa_id, empresa_nombre, job_tittle, ciudad, grado, nota_media, ingles, aleman, frances, trabajo_equipo, comunicacion, matematicas, estadistica, gestion_proyectos, sostenibilidad, big_data, programacion):
-        self.job_id = job_id
-        self.empresa_id = empresa_id
-        self.empresa_nombre = empresa_nombre
-        self.job_tittle = job_tittle
-        self.ciudad = ciudad
-        self.grado = grado
-        self.nota_media = nota_media
-        self.ingles = ingles
-        self.aleman = aleman
-        self.frances = frances
-        self.trabajo_equipo = trabajo_equipo
-        self.comunicacion = comunicacion
-        self.matematicas = matematicas
-        self.estadistica = estadistica
-        self.gestion_proyectos = gestion_proyectos
-        self.sostenibilidad = sostenibilidad
-        self.big_data = big_data
-        self.programacion = programacion
-
-    def is_active(self):
-        return True
-
-    def is_authenticated(self):
-        return True
-
-    @classmethod
-    def get_all(cls):
-        return cls.query.all()
-
-    @classmethod
-    def get_by_id(cls, job_id):
-        return cls.query.get_or_404(job_id)
-
-    def save(self):
-        db.session.add(self)
-        db.session.commit()
-
-    def delete(self):
-        db.session.delete(self)
-        db.session.commit()
-
-
-class OfertaNuevaSchema(Schema):
-    job_id = fields.Integer()
-    empresa_id = fields.Integer()
-    empresa_nombre = fields.String()
-    job_tittle = fields.String()
-    ciudad = fields.String()
-    grado = fields.Integer()
-    nota_media = fields.Integer()
-    ingles = fields.Integer()
-    aleman = fields.Integer()
-    frances = fields.Integer()
-    trabajo_equipo = fields.Integer()
-    comunicacion = fields.Integer()
-    matematicas = fields.Integer()
-    estadistica = fields.Integer()
-    gestion_proyectos = fields.Integer()
-    sostenibilidad = fields.Integer()
-    big_data = fields.Integer()
-    programacion = fields.Integer()
-
 class Admin(db.Model):
     __tablename__ = 'admin'
-    admin_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    admin_id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String, unique=True)
     password = db.Column(db.String)
 
@@ -582,4 +503,5 @@ class Admin(db.Model):
 
     def get_id(self):
         return str(self.admin_id)
+
 
