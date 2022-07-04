@@ -15,7 +15,7 @@ from model.model import db, get_user_id, Alumno, get_user_by_id, CV, get_tableSk
     get_empId_byNameEmpresa, AlumnoSchema, AlumnoSchemaSinPass, EmpresaSchemaSinPass, EmpresaSchema, \
     CVSchema, get_Skill_id_by_alumno_id, get_Skills_by_alumno_id, get_SkillID_by_alumno_id, Ofertas, OfertasSchema, \
     get_ofer_id, get_ofertas_by_emp_id, get_ofertasid_by_emp_id, get_empNombre_byid, get_ofertasSinAsignar, \
-    get_alum_sin_ofertas
+    get_alum_sin_ofertas, get_oferta_by_empID_jobID
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:qwerty@localhost:5432/JOBS'
@@ -556,23 +556,26 @@ def crear_ofertas_by_empresaid(empresa_id):
     data = serializer.dump(nuevaOferta)
     return jsonify(data), 201
 
-@app.route('/empresas/ofertas/<string:id>', methods = ['GET'])
-def get_ofertas_by_empresaid_job_id(id):
-    oferta = Ofertas.get_by_id(id)
+@app.route('/empresas/<string:empresa_id>/ofertas/<string:job_id>', methods = ['GET'])
+def get_ofertas_by_empresaid_job_id(empresa_id, job_id):
+    oferta = get_oferta_by_empID_jobID(empresa_id, job_id)
     serializer = OfertasSchema()
     data = serializer.dump(oferta)
-    return jsonify(data)
+    if data == {}:
+        return jsonify({"mensaje": "La oferta introducida no existe o no esta asignada a la empresa"})
+    else:
+        return jsonify(data)
 
-@app.route('/empresas/ofertas/<string:id>', methods = ['PUT'])
-def mod_ofertas_by_empresaid_job_id(id):
-    ofert_mod = Ofertas.get_by_id(id)
+@app.route('/empresas/<string:empresa_id>/ofertas/<string:job_id>', methods = ['PUT'])
+def mod_ofertas_by_empresaid_job_id(empresa_id, job_id):
+    oferta_mod = get_oferta_by_empID_jobID(empresa_id, job_id)
     data = request.get_json()
-    ofert_mod.alumno_id = data.get('alumno_id')
-    ofert_mod.estado = 'ASIGNADA'
+    oferta_mod.alumno_id = data.get('alumno_id')
+    oferta_mod.estado = 'ASIGNADA'
 
     db.session.commit()
     serializer = OfertasSchema()
-    oferta_data = serializer.dump(ofert_mod)
+    oferta_data = serializer.dump(oferta_mod)
     return jsonify(oferta_data), 200
 
 '''@app.route('/empresas/<int:empresa_id>', methods = ['DELETE'])
@@ -585,15 +588,15 @@ def borrar_empresa(empresa_id):
 
 @app.errorhandler(404)
 def not_found(error):
-    return jsonify({"message": "Recurso no encontrado"}), 404
+    return jsonify({"mensaje": "Recurso no encontrado"}), 404
 
 @app.errorhandler(500)
 def internal_server(error):
-    return jsonify({"message": "Ha habido un problema. Vuelva a intentarlo por favor"}), 500
+    return jsonify({"mensaje": "Ha habido un problema. Vuelva a intentarlo por favor"}), 500
 
 @app.errorhandler(405)
 def internal_server(error):
-    return jsonify({"message": "Este método no está permitido"}), 405
+    return jsonify({"mensaje": "Este método no está permitido"}), 405
 
 if __name__ == '__main__':
-    app.run(port=5000)
+    app.run(host='0.0.0.0', port=5000)

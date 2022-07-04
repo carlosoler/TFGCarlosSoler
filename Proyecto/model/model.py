@@ -76,6 +76,9 @@ def get_empNombre_byid(empresa_id):
 def get_ofertas_by_emp_id(empresa_id):
     return db.session.query(Ofertas).order_by(Ofertas.job_id.desc()).filter_by(empresa_id=empresa_id)
 
+def get_oferta_by_empID_jobID(empresa_id, job_id):
+    return db.session.query(Ofertas).order_by(Ofertas.job_id.desc()).filter_by(empresa_id=empresa_id, job_id=job_id).first()
+
 def get_ofertasid_by_emp_id(empresa_id):
     return db.session.query(Ofertas.job_id).filter_by(empresa_id=empresa_id).order_by(Ofertas.job_id.desc())
 

@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/TFGCarlosSoler.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TFGCarlosSoler.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Proyecto/back/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/model/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Proyecto/back/app.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Proyecto/back/migrations/README" beforeDir="false" />
@@ -18,9 +19,7 @@
       <change beforePath="$PROJECT_DIR$/Proyecto/back/migrations/versions/__init__.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Proyecto/back/migrations/versions/cede0e56a32e_.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Proyecto/back/model/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/back/model/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/model/model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Proyecto/front/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/app2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Proyecto/front/static/css/chat.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/css/chat.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Proyecto/front/static/css/home/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/css/home/bootstrap.min.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Proyecto/front/static/css/home/bootstrap.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/css/home/bootstrap.min.css.map" afterDir="false" />
@@ -234,6 +233,7 @@
       <change beforePath="$PROJECT_DIR$/Proyecto/front/templates/verAlumnos.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/verAlumnos.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Proyecto/front/templates/verOfertas.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/verOfertas.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Proyecto/front/templates/ver_skill_alumnos.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/ver_skill_alumnos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/model/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/model/model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Proyecto/venv_TFG.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/venv_TFG.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -330,7 +330,7 @@
       <option name="presentableId" value="Default" />
       <updated>1648403232545</updated>
       <workItem from="1648403234027" duration="10000" />
-      <workItem from="1656329697723" duration="17287000" />
+      <workItem from="1656329697723" duration="20496000" />
     </task>
     <servers />
   </component>
@@ -349,7 +349,7 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/TFGCarlosSoler$back.coverage" NAME="programa Coverage Results" MODIFIED="1656440246023" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/" />
+    <SUITE FILE_PATH="coverage/TFGCarlosSoler$back.coverage" NAME="programa Coverage Results" MODIFIED="1656955996289" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/" />
     <SUITE FILE_PATH="coverage/TFGCarlosSoler$front.coverage" NAME="front Coverage Results" MODIFIED="1656347690021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/front" />
   </component>
 </project>
