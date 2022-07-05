@@ -11,11 +11,10 @@ import requests
 from model.model import db, get_user_id, Alumno, get_user_by_id, CV, get_tableSkill_id, \
     get_user_tableSkill_id, get_all_skills_foruser, get_empresa_id, Empresa, get_emp, \
     get_users, get_alumn, get_empId_byOffer, get_empName, get_id_by_user, get_adm, \
-    get_alumn_sinOfertasByUsername, \
     get_empId_byNameEmpresa, AlumnoSchema, AlumnoSchemaSinPass, EmpresaSchemaSinPass, EmpresaSchema, \
     CVSchema, get_Skill_id_by_alumno_id, get_Skills_by_alumno_id, get_SkillID_by_alumno_id, Ofertas, OfertasSchema, \
     get_ofer_id, get_ofertas_by_emp_id, get_ofertasid_by_emp_id, get_empNombre_byid, get_ofertasSinAsignar, \
-    get_alum_sin_ofertas, get_oferta_by_empID_jobID
+    get_alum_sin_ofertas, get_oferta_by_empID_jobID, get_EmpresaID_by_job_id
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:qwerty@localhost:5432/JOBS'
@@ -54,15 +53,15 @@ def restricted_access_toEmp(func):
         return func()
     return wrappper_restricted_access
 
-def restricted_access_toAlumnConOferta(func):
+'''def restricted_access_toAlumnConOferta(func):
     @wraps(func)
     def wrappper_restricted_access():
-        alum = get_alumn_sinOfertasByUsername(username=session['username'])
+        alum = get_alum_sin_ofertasByUsername(username=session['username'])
         if not alum:
             flash('Este nombre de usuario tiene ya una oferta asignada')
             return redirect(url_for('home'))
         return func()
-    return wrappper_restricted_access
+    return wrappper_restricted_access'''
 
 def onlyAdmin(func):
     @wraps(func)
@@ -102,7 +101,6 @@ def registro_usuario():
                     "apellido": request.form.get('apellido'),
                     "email": request.form.get('email'),
                     "nombre": request.form.get('nombre'),
-                    "ofert_asignada": 0,
                     "password": request.form.get('pass'),
                     "telefono": request.form.get('tel'),
                     "username": request.form.get('username')
@@ -174,12 +172,11 @@ def asignarOfertas():
     ofertas_nuevas = ofert_sinAsig.json()
     alumno_sinOfer = requests.get('http://127.0.0.1:5000/alumnos', params={'oferta': 'NO'})
     alumnos_sinOfertas = alumno_sinOfer.json()
-    #ofertas_nuevas = get_ofertasSinAsignar()
-    #alumnos_sinOfertas = get_alum_sin_ofertas()
     if session.get('logged_in'):
         if request.method == 'POST':
             alumno = request.form.get('alumnos')
             oferta_id = request.form.get('ofertas')
+            empresa_id = get_EmpresaID_by_job_id(oferta_id)
             alumno_id = get_id_by_user(alumno)
 
             mod_oferta = {
@@ -187,7 +184,7 @@ def asignarOfertas():
                 "estado": 'ASIGNADA'
             }
 
-            requests.put('http://localhost:5000/empresas/ofertas/%s' % oferta_id, json=mod_oferta)
+            requests.put('http://localhost:5000/empresas/%s/ofertas/%s' % (empresa_id, oferta_id), json=mod_oferta)
 
             db.session.commit()
             flash("Oferta asignada con éxito!")
@@ -248,13 +245,13 @@ def perfil():
 
 @app.route('/recomendarOfertas', methods=["GET","POST"])
 @login_required
-@restricted_access_toAlumnConOferta
+#@restricted_access_toAlumnConOferta
 def recomendarOfertas():
     if session.get('logged_in'):
-        #id = get_id_by_user(session['username'])
+        id = get_id_by_user(session['username'])
         if request.method == 'POST':
             #r = requests.post('http://127.0.0.1:3097/prueba_json', json=json_alum)
-            r = requests.post('http://127.0.0.1:5253/recomendacion_alumno_nuevo', params={'alumnonuevo': session['username']})
+            r = requests.post('http://127.0.0.1:8015/recomendacion_alumno_nuevo', params={'id_alum': id})
             ejemplo = r.json()
             print(ejemplo)
             return render_template('recomendarOfertas.html', username=session['username'], ejemplo=ejemplo)
@@ -266,7 +263,7 @@ def recomendarOfertas():
 def similitudOfertasNuevas():
     if session.get('logged_in'):
         if request.method == 'POST':
-            r = requests.post('http://127.0.0.1:4982/ofertas_nuevas', params={'a': 71, 'b': 80})
+            r = requests.post('http://127.0.0.1:8015/ofertas_nuevas', params={'a': 71, 'b': 80})
             ejemplo = r.json()
             return render_template('similitudOfertasNuevas.html', username=session['username'], ejemplo=ejemplo)
         return render_template('similitudOfertasNuevas.html', username=session['username'])
@@ -412,7 +409,7 @@ def get_alumnos_by_id(alumno_id):
 def crear_alumno_nuevo():
     data = request.get_json()
     user = Alumno(alumno_id=get_user_id(), username=data.get("username"), password=data.get("password"), nombre=data.get("nombre"),
-                  apellido=data.get("apellido"), telefono=data.get("telefono"), email=data.get("email"), ofert_asignada= 0)
+                  apellido=data.get("apellido"), telefono=data.get("telefono"), email=data.get("email"))
     user.save()
     serializer = AlumnoSchema()
     data = serializer.dump(user)

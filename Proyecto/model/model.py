@@ -33,6 +33,9 @@ def get_id_by_user(username):
 def get_SkillID_by_alumno_id(alumno_id):
     return db.session.query(CV.id).filter_by(alumno_id=alumno_id).order_by(CV.id.desc()).first()
 
+def get_EmpresaID_by_job_id(job_id):
+    return db.session.query(Ofertas.empresa_id).filter_by(job_id=job_id).order_by(Ofertas.job_id.desc()).first().empresa_id
+
 def get_tableSkill_id():
     return db.session.query(CV.id).order_by(CV.id.desc()).first().id + 1
 
@@ -94,9 +97,6 @@ def get_alumnos():
 def get_ofertasSinAsignar():
     return db.session.query(Ofertas).order_by(Ofertas.job_id.desc()).filter_by(estado='SIN ASIGNAR')
 
-def get_alumn_sinOfertasByUsername(username):
-    return db.session.query(Alumno).order_by(Alumno.alumno_id.desc()).filter_by(ofert_asignada=0, username=username).first()
-
 def get_alum_sin_ofertas():
     stmt = exists().where(Alumno.alumno_id == Ofertas.alumno_id)
     return db.session.query(Alumno).filter(~stmt)
@@ -119,7 +119,7 @@ class Alumno(db.Model):
     telefono = db.Column(db.String, unique=True)
     email = db.Column(db.String, unique=True)
 
-    def __init__(self, alumno_id, username, password, nombre, apellido, telefono, email, ofert_asignada):
+    def __init__(self, alumno_id, username, password, nombre, apellido, telefono, email):
         self.alumno_id = alumno_id
         self.username = username
         self.password = password
