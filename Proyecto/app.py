@@ -170,10 +170,12 @@ def crearOfertas():
 @login_required
 @onlyAdmin
 def asignarOfertas():
-    #r = requests.get('http://127.0.0.1:5000/ofertas_nuevas')
-    #ofertas_nuevas = r.json()
-    ofertas_nuevas = get_ofertasSinAsignar()
-    alumnos_sinOfertas = get_alum_sin_ofertas()
+    ofert_sinAsig = requests.get('http://127.0.0.1:5000/ofertas', params={'estado': 'SIN ASIGNAR'})
+    ofertas_nuevas = ofert_sinAsig.json()
+    alumno_sinOfer = requests.get('http://127.0.0.1:5000/alumnos', params={'oferta': 'NO'})
+    alumnos_sinOfertas = alumno_sinOfer.json()
+    #ofertas_nuevas = get_ofertasSinAsignar()
+    #alumnos_sinOfertas = get_alum_sin_ofertas()
     if session.get('logged_in'):
         if request.method == 'POST':
             alumno = request.form.get('alumnos')
@@ -337,10 +339,19 @@ def logout():
 
 @app.route('/ofertas', methods = ['GET'])
 def get_ofertas():
-    oferta = Ofertas.get_all()
-    serializer = OfertasSchema(many=True)
-    data = serializer.dump(oferta)
-    return jsonify(data)
+    estado = request.args.get("estado")
+    if not estado:
+        oferta = Ofertas.get_all()
+        serializer = OfertasSchema(many=True)
+        data = serializer.dump(oferta)
+        return jsonify(data)
+    elif estado == "SIN ASIGNAR":
+        oferta = get_ofertasSinAsignar()
+        serializer = OfertasSchema(many=True)
+        data = serializer.dump(oferta)
+        return jsonify(data)
+    else:
+        return jsonify({"mensaje": "No se encuentra la oferta que busca"})
 
 @app.route('/ofertas_nuevas/<int:job_id>', methods = ['GET'])
 def get_ofertas_by_id(job_id):
@@ -375,10 +386,19 @@ def borrar_oferta_nueva(job_id):
 
 @app.route('/alumnos', methods = ['GET'])
 def get_alumnos():
-    alumnos = Alumno.get_all()
-    serializer = AlumnoSchemaSinPass(many=True)
-    data = serializer.dump(alumnos)
-    return jsonify(data)
+    oferta = request.args.get("oferta")
+    if not oferta:
+        alumnos = Alumno.get_all()
+        serializer = AlumnoSchemaSinPass(many=True)
+        data = serializer.dump(alumnos)
+        return jsonify(data)
+    elif oferta == "NO":
+        alumnos = get_alum_sin_ofertas()
+        serializer = AlumnoSchemaSinPass(many=True)
+        data = serializer.dump(alumnos)
+        return jsonify(data)
+    else:
+        return jsonify({"mensaje": "No se encuentra el alumno que busca"})
 
 
 @app.route('/alumnos/<int:alumno_id>', methods = ['GET'])
