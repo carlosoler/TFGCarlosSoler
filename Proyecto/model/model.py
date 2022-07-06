@@ -75,7 +75,6 @@ def get_empId_byNameEmpresa(empresa_nombre):
 def get_empNombre_byid(empresa_id):
     return db.session.query(Empresa.empresa_nombre).order_by(Empresa.empresa_id.desc()).filter_by(empresa_id=empresa_id).first().empresa_nombre
 
-
 def get_ofertas_by_emp_id(empresa_id):
     return db.session.query(Ofertas).order_by(Ofertas.job_id.desc()).filter_by(empresa_id=empresa_id)
 
@@ -101,6 +100,10 @@ def get_alum_sin_ofertas():
     stmt = exists().where(Alumno.alumno_id == Ofertas.alumno_id)
     return db.session.query(Alumno).filter(~stmt)
 
+def comprobar_oferta_alum(alum_id):
+    stmt = exists().where(alum_id == Ofertas.alumno_id)
+    return db.session.query(Alumno).filter(stmt)
+
 '''def get_eliminarOfertas(job_id):
     return db.session.query(Ofertas).filter_by(job_id=job_id).delete()'''
 
@@ -119,8 +122,8 @@ class Alumno(db.Model):
     telefono = db.Column(db.String, unique=True)
     email = db.Column(db.String, unique=True)
 
-    def __init__(self, alumno_id, username, password, nombre, apellido, telefono, email):
-        self.alumno_id = alumno_id
+    def __init__(self, username, password, nombre, apellido, telefono, email):
+        self.alumno_id = get_user_id()
         self.username = username
         self.password = password
         self.nombre = nombre
@@ -432,8 +435,8 @@ class Empresa(db.Model):
     telefono = db.Column(db.String, unique=True)
     email = db.Column(db.String, unique=True)
 
-    def __init__(self, empresa_id, username, password, empresa_nombre, telefono, email):
-        self.empresa_id = empresa_id
+    def __init__(self, username, password, empresa_nombre, telefono, email):
+        self.empresa_id = get_empresa_id()
         self.username = username
         self.password = password
         self.empresa_nombre = empresa_nombre

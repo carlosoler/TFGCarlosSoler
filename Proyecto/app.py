@@ -14,7 +14,7 @@ from model.model import db, get_user_id, Alumno, get_user_by_id, CV, get_tableSk
     get_empId_byNameEmpresa, AlumnoSchema, AlumnoSchemaSinPass, EmpresaSchemaSinPass, EmpresaSchema, \
     CVSchema, get_Skill_id_by_alumno_id, get_Skills_by_alumno_id, get_SkillID_by_alumno_id, Ofertas, OfertasSchema, \
     get_ofer_id, get_ofertas_by_emp_id, get_ofertasid_by_emp_id, get_empNombre_byid, get_ofertasSinAsignar, \
-    get_alum_sin_ofertas, get_oferta_by_empID_jobID, get_EmpresaID_by_job_id
+    get_alum_sin_ofertas, get_oferta_by_empID_jobID, get_EmpresaID_by_job_id, comprobar_oferta_alum
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:qwerty@localhost:5432/JOBS'
@@ -56,7 +56,9 @@ def restricted_access_toEmp(func):
 '''def restricted_access_toAlumnConOferta(func):
     @wraps(func)
     def wrappper_restricted_access():
-        alum = get_alum_sin_ofertasByUsername(username=session['username'])
+        alum = comprobar_oferta_alum(get_id_by_user(session['username']))
+        print(get_id_by_user(session['username']))
+        print(alum)
         if not alum:
             flash('Este nombre de usuario tiene ya una oferta asignada')
             return redirect(url_for('home'))
@@ -97,7 +99,6 @@ def main():
 def registro_usuario():
     if request.method == 'POST':
         user = {
-                    "alumno_id": get_user_id(),
                     "apellido": request.form.get('apellido'),
                     "email": request.form.get('email'),
                     "nombre": request.form.get('nombre'),
@@ -113,7 +114,6 @@ def registro_usuario():
 def registro_empresa():
     if request.method == 'POST':
         empresa = {
-            "empresa_id": get_empresa_id(),
             "username": request.form.get('username'),
             "password": request.form.get('pass'),
             "empresa_nombre":  request.form.get('nombre'),
@@ -408,7 +408,7 @@ def get_alumnos_by_id(alumno_id):
 @app.route('/alumnos', methods = ['POST'])
 def crear_alumno_nuevo():
     data = request.get_json()
-    user = Alumno(alumno_id=get_user_id(), username=data.get("username"), password=data.get("password"), nombre=data.get("nombre"),
+    user = Alumno(username=data.get("username"), password=data.get("password"), nombre=data.get("nombre"),
                   apellido=data.get("apellido"), telefono=data.get("telefono"), email=data.get("email"))
     user.save()
     serializer = AlumnoSchema()
@@ -535,7 +535,7 @@ def get_empresas_by_id(empresa_id):
 @app.route('/empresas', methods = ['POST'])
 def crear_empresa_nueva():
     data = request.get_json()
-    empresa = Empresa(empresa_id=get_empresa_id(), username=data.get("username"), password=data.get("password"),
+    empresa = Empresa(username=data.get("username"), password=data.get("password"),
                       empresa_nombre=data.get("empresa_nombre"), telefono=data.get("telefono"), email=data.get("email"))
     empresa.save()
     serializer = EmpresaSchema()
