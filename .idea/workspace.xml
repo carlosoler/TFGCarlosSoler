@@ -5,236 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03aeef67-12c3-434c-b4d3-429b4ce5868e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/TFGCarlosSoler.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TFGCarlosSoler.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Proyecto/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/back/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/model/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/back/app.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/back/migrations/README" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/back/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/back/migrations/alembic.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/back/migrations/env.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/back/migrations/script.py.mako" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/back/migrations/versions/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/back/migrations/versions/cede0e56a32e_.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/back/model/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/css/chat.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/css/chat.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/css/home/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/css/home/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/css/home/bootstrap.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/css/home/bootstrap.min.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/css/home/bootstrap/_media.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/css/home/bootstrap/_media.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/css/home/bootstrap/mixins/_box-shadow.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/css/home/bootstrap/mixins/_box-shadow.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/css/home/bootstrap/mixins/_reset-text.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/css/home/bootstrap/mixins/_reset-text.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/css/home/owl.carousel.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/css/home/owl.carousel.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/css/home/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/css/home/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/css/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/css/mostrarSkills/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/css/mostrarSkills/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/css/mostrarSkills/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/css/mostrarSkills/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/css/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/css/register.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/css/registro.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/css/registro.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/css/survey.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/css/survey.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/css/util.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/css/util.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/css/verAlumn/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/css/verAlumn/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/css/verAlumn/util.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/css/verAlumn/util.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/Lato/Lato-Black.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/Lato/Lato-Black.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/Lato/Lato-BlackItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/Lato/Lato-BlackItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/Lato/Lato-Bold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/Lato/Lato-Bold.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/Lato/Lato-BoldItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/Lato/Lato-BoldItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/Lato/Lato-Hairline.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/Lato/Lato-Hairline.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/Lato/Lato-HairlineItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/Lato/Lato-HairlineItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/Lato/Lato-Italic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/Lato/Lato-Italic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/Lato/Lato-Light.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/Lato/Lato-Light.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/Lato/Lato-LightItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/Lato/Lato-LightItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/Lato/Lato-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/Lato/Lato-Regular.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/Lato/OFL.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/Lato/OFL.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/OpenSans/OpenSans-Bold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/OpenSans/OpenSans-Bold.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/OpenSans/OpenSans-BoldItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/OpenSans/OpenSans-BoldItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/OpenSans/OpenSans-ExtraBold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/OpenSans/OpenSans-ExtraBold.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/OpenSans/OpenSans-ExtraBoldItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/OpenSans/OpenSans-ExtraBoldItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/OpenSans/OpenSans-Italic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/OpenSans/OpenSans-Italic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/OpenSans/OpenSans-Light.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/OpenSans/OpenSans-Light.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/OpenSans/OpenSans-LightItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/OpenSans/OpenSans-LightItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/OpenSans/OpenSans-Regular.otf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/OpenSans/OpenSans-Regular.otf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/OpenSans/OpenSans-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/OpenSans/OpenSans-Regular.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/OpenSans/OpenSans-SemiBold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/OpenSans/OpenSans-SemiBold.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/OpenSans/OpenSans-SemiBoldItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/OpenSans/OpenSans-SemiBoldItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/HELP-US-OUT.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/HELP-US-OUT.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/css/font-awesome.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/css/font-awesome.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/fonts/FontAwesome.otf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/fonts/FontAwesome.otf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.eot" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/less/animated.less" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/less/animated.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/less/bordered-pulled.less" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/less/bordered-pulled.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/less/core.less" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/less/core.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/less/fixed-width.less" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/less/fixed-width.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/less/font-awesome.less" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/less/font-awesome.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/less/icons.less" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/less/icons.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/less/larger.less" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/less/larger.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/less/list.less" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/less/list.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/less/mixins.less" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/less/mixins.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/less/path.less" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/less/path.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/less/rotated-flipped.less" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/less/rotated-flipped.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/less/screen-reader.less" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/less/screen-reader.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/less/stacked.less" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/less/stacked.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/less/variables.less" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/less/variables.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/scss/_animated.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/scss/_animated.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/scss/_bordered-pulled.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/scss/_bordered-pulled.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/scss/_core.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/scss/_core.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/scss/_fixed-width.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/scss/_fixed-width.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/scss/_icons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/scss/_icons.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/scss/_larger.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/scss/_larger.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/scss/_list.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/scss/_list.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/scss/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/scss/_mixins.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/scss/_path.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/scss/_path.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/scss/_rotated-flipped.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/scss/_rotated-flipped.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/scss/_screen-reader.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/scss/_screen-reader.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/scss/_stacked.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/scss/_stacked.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/scss/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/scss/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/font-awesome-4.7.0/scss/font-awesome.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/font-awesome-4.7.0/scss/font-awesome.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/icomoon/demo-files/demo.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/icomoon/demo-files/demo.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/icomoon/demo-files/demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/icomoon/demo-files/demo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/icomoon/demo.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/icomoon/demo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/icomoon/fonts/icomoon.eot" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/icomoon/fonts/icomoon.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/icomoon/fonts/icomoon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/icomoon/fonts/icomoon.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/icomoon/fonts/icomoon.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/icomoon/fonts/icomoon.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/icomoon/fonts/icomoon.woff" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/icomoon/fonts/icomoon.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/icomoon/selection.json" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/icomoon/selection.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/icomoon/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/icomoon/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/iconic/css/material-design-iconic-font.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/iconic/css/material-design-iconic-font.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/iconic/css/material-design-iconic-font.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/iconic/css/material-design-iconic-font.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/iconic/fonts/Material-Design-Iconic-Font.eot" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/iconic/fonts/Material-Design-Iconic-Font.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/iconic/fonts/Material-Design-Iconic-Font.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/iconic/fonts/Material-Design-Iconic-Font.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/iconic/fonts/Material-Design-Iconic-Font.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/iconic/fonts/Material-Design-Iconic-Font.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/iconic/fonts/Material-Design-Iconic-Font.woff" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/iconic/fonts/Material-Design-Iconic-Font.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/iconic/fonts/Material-Design-Iconic-Font.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/iconic/fonts/Material-Design-Iconic-Font.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/material-icon/css/material-design-iconic-font.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/material-icon/css/material-design-iconic-font.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/material-icon/css/material-design-iconic-font.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/material-icon/css/material-design-iconic-font.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/material-icon/fonts/Material-Design-Iconic-Font.eot" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/material-icon/fonts/Material-Design-Iconic-Font.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/material-icon/fonts/Material-Design-Iconic-Font.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/material-icon/fonts/Material-Design-Iconic-Font.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/material-icon/fonts/Material-Design-Iconic-Font.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/material-icon/fonts/Material-Design-Iconic-Font.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/material-icon/fonts/Material-Design-Iconic-Font.woff" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/material-icon/fonts/Material-Design-Iconic-Font.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/material-icon/fonts/Material-Design-Iconic-Font.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/material-icon/fonts/Material-Design-Iconic-Font.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/montserrat/Montserrat-Black.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/montserrat/Montserrat-Black.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/montserrat/Montserrat-BlackItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/montserrat/Montserrat-BlackItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/montserrat/Montserrat-Bold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/montserrat/Montserrat-Bold.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/montserrat/Montserrat-BoldItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/montserrat/Montserrat-BoldItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/montserrat/Montserrat-ExtraBold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/montserrat/Montserrat-ExtraBold.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/montserrat/Montserrat-ExtraBoldItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/montserrat/Montserrat-ExtraBoldItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/montserrat/Montserrat-ExtraLight.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/montserrat/Montserrat-ExtraLight.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/montserrat/Montserrat-ExtraLightItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/montserrat/Montserrat-ExtraLightItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/montserrat/Montserrat-Italic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/montserrat/Montserrat-Italic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/montserrat/Montserrat-Light.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/montserrat/Montserrat-Light.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/montserrat/Montserrat-LightItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/montserrat/Montserrat-LightItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/montserrat/Montserrat-Medium.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/montserrat/Montserrat-Medium.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/montserrat/Montserrat-MediumItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/montserrat/Montserrat-MediumItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/montserrat/Montserrat-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/montserrat/Montserrat-Regular.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/montserrat/Montserrat-SemiBold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/montserrat/Montserrat-SemiBold.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/montserrat/Montserrat-SemiBoldItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/montserrat/Montserrat-SemiBoldItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/montserrat/Montserrat-Thin.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/montserrat/Montserrat-Thin.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/montserrat/Montserrat-ThinItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/montserrat/Montserrat-ThinItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/montserrat/OFL.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/montserrat/OFL.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/poppins/Poppins-Black.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/poppins/Poppins-Black.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/poppins/Poppins-BlackItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/poppins/Poppins-BlackItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/poppins/Poppins-Bold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/poppins/Poppins-Bold.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/poppins/Poppins-BoldItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/poppins/Poppins-BoldItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/poppins/Poppins-ExtraBold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/poppins/Poppins-ExtraBold.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/poppins/Poppins-ExtraBoldItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/poppins/Poppins-ExtraBoldItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/poppins/Poppins-ExtraLight.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/poppins/Poppins-ExtraLight.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/poppins/Poppins-ExtraLightItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/poppins/Poppins-ExtraLightItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/poppins/Poppins-Italic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/poppins/Poppins-Italic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/poppins/Poppins-Light.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/poppins/Poppins-Light.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/poppins/Poppins-LightItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/poppins/Poppins-LightItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/poppins/Poppins-Medium.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/poppins/Poppins-Medium.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/poppins/Poppins-MediumItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/poppins/Poppins-MediumItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/poppins/Poppins-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/poppins/Poppins-Regular.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/poppins/Poppins-SemiBold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/poppins/Poppins-SemiBold.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/poppins/Poppins-SemiBoldItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/poppins/Poppins-SemiBoldItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/poppins/Poppins-Thin.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/poppins/Poppins-Thin.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/fonts/poppins/Poppins-ThinItalic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/fonts/poppins/Poppins-ThinItalic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/images/bg-01.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/images/bg-01.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/images/hero_1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/images/hero_1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/images/icons/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/images/icons/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/images/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/images/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/images/perfil.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/images/perfil.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/images/signup-image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/images/signup-image.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/js/home/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/js/home/bootstrap.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/js/home/jquery-3.3.1.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/js/home/jquery-3.3.1.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/js/home/jquery.sticky.js" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/js/home/jquery.sticky.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/js/home/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/js/home/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/js/home/owl.carousel.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/js/home/owl.carousel.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/js/home/popper.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/js/home/popper.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/js/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/js/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/js/register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/js/survey.js" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/js/survey.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/js/validationpsw.js" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/js/validationpsw.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/scss/common/extend.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/scss/common/extend.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/scss/common/fonts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/scss/common/fonts.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/scss/common/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/scss/common/global.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/scss/common/minxi.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/scss/common/minxi.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/scss/common/variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/scss/common/variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/scss/layouts/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/scss/layouts/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/scss/layouts/responsive.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/scss/layouts/responsive.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/scss/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/scss/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/animate/animate.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/animate/animate.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/animsition/css/animsition.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/animsition/css/animsition.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/animsition/css/animsition.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/animsition/css/animsition.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/animsition/js/animsition.js" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/animsition/js/animsition.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/animsition/js/animsition.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/animsition/js/animsition.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/bootstrap/css/bootstrap-grid.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/bootstrap/css/bootstrap-grid.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/bootstrap/css/bootstrap-grid.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/bootstrap/css/bootstrap-grid.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/bootstrap/css/bootstrap-grid.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/bootstrap/css/bootstrap-grid.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/bootstrap/css/bootstrap-grid.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/bootstrap/css/bootstrap-grid.min.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/bootstrap/css/bootstrap-reboot.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/bootstrap/css/bootstrap-reboot.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/bootstrap/css/bootstrap-reboot.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/bootstrap/css/bootstrap-reboot.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/bootstrap/css/bootstrap-reboot.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/bootstrap/css/bootstrap-reboot.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/bootstrap/css/bootstrap-reboot.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/bootstrap/css/bootstrap-reboot.min.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/bootstrap/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/bootstrap/css/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/bootstrap/css/bootstrap.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/bootstrap/css/bootstrap.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/bootstrap/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/bootstrap/css/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/bootstrap/css/bootstrap.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/bootstrap/css/bootstrap.min.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/bootstrap/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/bootstrap/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/bootstrap/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/bootstrap/js/bootstrap.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/bootstrap/js/popper.js" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/bootstrap/js/popper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/bootstrap/js/popper.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/bootstrap/js/popper.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/bootstrap/js/tooltip.js" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/bootstrap/js/tooltip.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/countdowntime/countdowntime.js" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/countdowntime/countdowntime.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/css-hamburgers/hamburgers.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/css-hamburgers/hamburgers.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/css-hamburgers/hamburgers.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/css-hamburgers/hamburgers.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/daterangepicker/daterangepicker.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/daterangepicker/daterangepicker.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/daterangepicker/daterangepicker.js" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/daterangepicker/daterangepicker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/daterangepicker/moment.js" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/daterangepicker/moment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/daterangepicker/moment.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/daterangepicker/moment.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/jquery/jquery-3.2.1.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/jquery/jquery-3.2.1.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/jquery/jquery-ui.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/jquery/jquery-ui.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/jquery/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/jquery/jquery.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/perfect-scrollbar/perfect-scrollbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/perfect-scrollbar/perfect-scrollbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/perfect-scrollbar/perfect-scrollbar.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/perfect-scrollbar/perfect-scrollbar.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/select2/select2.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/select2/select2.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/select2/select2.js" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/select2/select2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/select2/select2.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/select2/select2.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/static/vendor/select2/select2.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/vendor/select2/select2.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/templates/asignarOfertas.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/asignarOfertas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/templates/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/chat.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/templates/crearOfertas.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/crearOfertas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/templates/registroEmpresa.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/registroEmpresa.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/templates/registroUsuario.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/registroUsuario.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/front/templates/survey.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/survey.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/model/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/model/model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/mostrar_skills.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/mostrar_skills.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/perfil.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/perfil.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/recomendarOfertas.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/recomendarOfertas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/similitudOfertasNuevas.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/similitudOfertasNuevas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/verAlumnos.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/verAlumnos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/verOfertas.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/verOfertas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/ver_skill_alumnos.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/ver_skill_alumnos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/venv_TFG.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/venv_TFG.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -270,18 +42,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PythonContentEntriesConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Proyecto" />
@@ -330,7 +102,8 @@
       <option name="presentableId" value="Default" />
       <updated>1648403232545</updated>
       <workItem from="1648403234027" duration="10000" />
-      <workItem from="1656329697723" duration="28885000" />
+      <workItem from="1656329697723" duration="30923000" />
+      <workItem from="1658773892830" duration="227000" />
     </task>
     <servers />
   </component>
@@ -349,7 +122,7 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/TFGCarlosSoler$back.coverage" NAME="programa Coverage Results" MODIFIED="1657121940567" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/" />
+    <SUITE FILE_PATH="coverage/TFGCarlosSoler$back.coverage" NAME="programa Coverage Results" MODIFIED="1657201505306" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/" />
     <SUITE FILE_PATH="coverage/TFGCarlosSoler$front.coverage" NAME="front Coverage Results" MODIFIED="1656347690021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/front" />
   </component>
 </project>

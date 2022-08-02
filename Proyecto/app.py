@@ -204,9 +204,9 @@ def mostrar_skills():
 @restricted_access_toAlumn
 def ver_alumnos():
     if session.get('logged_in'):
-        #r = requests.get('http://127.0.0.1:5000/alumnosSinOferta')
-        #alumnos = r.json()
-        alumnos_sinOfertas = get_alum_sin_ofertas()
+        alumno_sinOfer = requests.get('http://127.0.0.1:5000/alumnos', params={'oferta': 'NO'})
+        alumnos_sinOfertas = alumno_sinOfer.json()
+        #alumnos_sinOfertas = get_alum_sin_ofertas()
         return render_template('verAlumnos.html', alumnos=alumnos_sinOfertas)
 
 @app.route('/ver_ofertas')
@@ -214,9 +214,9 @@ def ver_alumnos():
 @restricted_access_toEmp
 def ver_ofertas():
     if session.get('logged_in'):
-        #r = requests.get('http://127.0.0.1:5000/ofertas_nuevas')
-        #ofertas = r.json()
-        ofertas_nuevas = get_ofertasSinAsignar()
+        ofert_sinAsig = requests.get('http://127.0.0.1:5000/ofertas', params={'estado': 'SIN ASIGNAR'})
+        ofertas_nuevas = ofert_sinAsig.json()
+        #ofertas_nuevas = get_ofertasSinAsignar()
         return render_template('verOfertas.html', ofertas=ofertas_nuevas)
 
 @app.route('/ver_skills_alumnos')
@@ -253,7 +253,6 @@ def recomendarOfertas():
             #r = requests.post('http://127.0.0.1:3097/prueba_json', json=json_alum)
             r = requests.post('http://127.0.0.1:8015/recomendacion_alumno_nuevo', params={'id_alum': id})
             ejemplo = r.json()
-            print(ejemplo)
             return render_template('recomendarOfertas.html', username=session['username'], ejemplo=ejemplo)
         return render_template('recomendarOfertas.html', username=session['username'])
 
