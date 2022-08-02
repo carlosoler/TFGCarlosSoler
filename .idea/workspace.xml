@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03aeef67-12c3-434c-b4d3-429b4ce5868e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/gisi-tfg-csoler-memoria-curso-2022 (vLimpio).docx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/gisi-tfg-csoler-memoria-curso-2022 (vLimpio).docx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,6 +103,7 @@
       <workItem from="1648403234027" duration="10000" />
       <workItem from="1656329697723" duration="30923000" />
       <workItem from="1658773892830" duration="227000" />
+      <workItem from="1659444561732" duration="494000" />
     </task>
     <servers />
   </component>
@@ -123,6 +123,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TFGCarlosSoler$back.coverage" NAME="programa Coverage Results" MODIFIED="1657201505306" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/" />
+    <SUITE FILE_PATH="coverage/TFGCarlosSoler$programa.coverage" NAME="programa Coverage Results" MODIFIED="1659444670790" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/" />
     <SUITE FILE_PATH="coverage/TFGCarlosSoler$front.coverage" NAME="front Coverage Results" MODIFIED="1656347690021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/front" />
   </component>
 </project>
