@@ -14,7 +14,7 @@ from model.model import db, get_user_id, Alumno, get_user_by_id, CV, get_tableSk
     get_empId_byNameEmpresa, AlumnoSchema, AlumnoSchemaSinPass, EmpresaSchemaSinPass, EmpresaSchema, \
     CVSchema, get_Skill_id_by_alumno_id, get_Skills_by_alumno_id, get_SkillID_by_alumno_id, Ofertas, OfertasSchema, \
     get_ofer_id, get_ofertas_by_emp_id, get_ofertasid_by_emp_id, get_empNombre_byid, get_ofertasSinAsignar, \
-    get_alum_sin_ofertas, get_oferta_by_empID_jobID, get_EmpresaID_by_job_id, comprobar_oferta_alum
+    get_alum_sin_ofertas, get_oferta_by_empID_jobID, get_EmpresaID_by_job_id, comprobar_oferta_alum, get_empID_username
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:qwerty@localhost:5432/JOBS'
@@ -164,6 +164,45 @@ def crearOfertas():
             flash("Oferta creada correctamente.")
         return render_template('crearOfertas.html')
 
+@app.route('/mod_alumno', methods=["GET", "POST"])
+@login_required
+@restricted_access_toEmp
+def modificar_alumnos():
+    if session.get('logged_in'):
+        if request.method == 'POST':
+            usuario = session['username']
+            id_user_session = get_user_tableSkill_id(session['username'])
+            user = {
+                "apellido": request.form.get('apellido'),
+                "email": request.form.get('email'),
+                "nombre": request.form.get('nombre'),
+                "password": request.form.get('pass'),
+                "telefono": request.form.get('tel'),
+                "username": request.form.get('username')
+            }
+            requests.put('http://127.0.0.1:5000/alumnos/%s' % id_user_session, json=user)
+            db.session.commit()
+            flash("Alumno modificado")
+        return render_template('modificarAlumno.html')
+
+@app.route('/mod_alumno', methods=["GET", "POST"])
+@login_required
+@restricted_access_toEmp
+def modificar_empresas():
+    if session.get('logged_in'):
+        if request.method == 'POST':
+            usuario = session['username']
+            id_user_session = get_empID_username(session['username'])
+            user = {
+                "email": request.form.get('email'),
+                "empresa_nombre": request.form.get('empresa_nombre'),
+                "telefono": request.form.get('tel')
+            }
+            requests.put('http://127.0.0.1:5000/empresas/%s' % id_user_session, json=user)
+            db.session.commit()
+            flash("Empresa modificada")
+        return render_template('modificarEmpresa.html')
+
 @app.route('/asignarOfertas', methods=["GET", "POST"])
 @login_required
 @onlyAdmin
@@ -227,12 +266,6 @@ def ver_skills_alumnos():
         usuario = request.args.get('username')
         lista_skills = get_all_skills_foruser(get_user_tableSkill_id(usuario))
         return render_template('ver_skill_alumnos.html', lista_skills=lista_skills, username=usuario)
-
-@app.route('/chat')
-@login_required
-def chat():
-    if session.get('logged_in'):
-        return render_template('chat.html')
 
 @app.route('/perfil')
 @login_required
@@ -331,32 +364,9 @@ def logout():
     logout_user()
     return redirect(url_for('main'))
 
-#END-POINTS ofertas
+#END-POINTS
 
-@app.route('/ofertas', methods = ['GET'])
-def get_ofertas():
-    estado = request.args.get("estado")
-    if not estado:
-        oferta = Ofertas.get_all()
-        serializer = OfertasSchema(many=True)
-        data = serializer.dump(oferta)
-        return jsonify(data)
-    elif estado == "SIN ASIGNAR":
-        oferta = get_ofertasSinAsignar()
-        serializer = OfertasSchema(many=True)
-        data = serializer.dump(oferta)
-        return jsonify(data)
-    else:
-        return jsonify({"mensaje": "No se encuentra la oferta que busca"})
-
-@app.route('/ofertas_nuevas/<int:job_id>', methods = ['GET'])
-def get_ofertas_by_id(job_id):
-    oferta = Ofertas.get_by_id(job_id)
-    serializer = OfertasSchema()
-    data = serializer.dump(oferta)
-    return jsonify(data)
-
-@app.route('/ofertas', methods = ['POST'])
+'''@app.route('/ofertas', methods = ['POST'])
 def crear_oferta():
     data = request.get_json()
     nuevaOferta = Ofertas(job_id=get_ofer_id(), empresa_id=get_empId_byNameEmpresa(data.get("empresa_nombre")), empresa_nombre=data.get("empresa_nombre"),
@@ -376,7 +386,7 @@ def borrar_oferta_nueva(job_id):
     oferta_borrar = Ofertas.get_by_id(job_id)
     oferta_borrar.delete()
 
-    return jsonify({"message": "Oferta borrada correctamente"}), 204
+    return jsonify({"message": "Oferta borrada correctamente"}), 204'''
 
 #END-POINTS alumnos
 
@@ -404,6 +414,19 @@ def get_alumnos_by_id(alumno_id):
     data = serializer.dump(alumnos)
     return jsonify(data)
 
+@app.route('/alumnos/<int:alumno_id>', methods = ['PUT'])
+def modificar_atr_alumno(alumno_id):
+    alumno_modificar = Alumno.get_by_id(alumno_id)
+    data = request.get_json()
+    alumno_modificar.nombre = data.get('nombre')
+    alumno_modificar.apellido = data.get('apellido')
+    alumno_modificar.email = data.get('email')
+    alumno_modificar.telefono = data.get('telefono')
+    db.session.commit()
+    serializer = AlumnoSchema()
+    mod_alum = serializer.dump(alumno_modificar)
+    return jsonify(mod_alum), 200
+
 @app.route('/alumnos', methods = ['POST'])
 def crear_alumno_nuevo():
     data = request.get_json()
@@ -413,6 +436,15 @@ def crear_alumno_nuevo():
     serializer = AlumnoSchema()
     data = serializer.dump(user)
     return jsonify(data), 201
+
+'''@app.route('/alumnos/<int:alumno_id>', methods = ['DELETE'])
+def borrar_alumno(alumno_id):
+    cv_alumno = get_SkillID_by_alumno_id(alumno_id)
+    cv = CV.get_by_id(cv_alumno)
+    alumno_borrar = Alumno.get_by_id(alumno_id)
+    cv.delete()
+    alumno_borrar.delete()
+    return jsonify({"message": "Alumno borrado correctamente"}), 204'''
 
 @app.route('/alumnos/<string:alumno_id>/CV', methods = ['GET'])
 def get_CV_by_alumno_id(alumno_id):
@@ -454,6 +486,7 @@ def crear_CV_by_alumno_id(alumno_id):
 @app.route('/alumnos/<string:alumno_id>/CV', methods = ['PUT'])
 def modificar_CV_by_alumno_id(alumno_id):
     cv_id = get_SkillID_by_alumno_id(alumno_id)
+
     cv_modificar = CV.get_by_id(cv_id)
     data = request.get_json()
     cv_modificar.grado = data.get('grado')
@@ -499,16 +532,6 @@ def modificar_CV_by_alumno_id(alumno_id):
     return jsonify(cv_data), 200
 
 
-'''@app.route('/alumnos/<int:alumno_id>', methods = ['PUT'])
-def modificar_alumno(alumno_id):
-    alumno_modificar = Alumno.get_by_id(alumno_id)
-    data = request.get_json()
-    alumno_modificar.ofert_asignada = data.get('ofert_asignada')
-    db.session.commit()
-    serializer = AlumnoSchema()
-    skill_data = serializer.dump(alumno_modificar)
-    return jsonify(skill_data), 200'''
-
 '''@app.route('/alumnos/<int:alumno_id>', methods = ['DELETE']) #Solo borra si no tiene skills asociadas, habria que borrar las skills primero
 def borrar_alumno(alumno_id):
     alumno_borrar = Alumno.get_by_id(alumno_id)
@@ -531,6 +554,18 @@ def get_empresas_by_id(empresa_id):
     data = serializer.dump(empresas)
     return jsonify(data)
 
+@app.route('/empresas/<string:empresa_id>', methods = ['PUT'])
+def modificar_atr_empresa(empresa_id):
+    empresa_mod = Empresa.get_by_id(empresa_id)
+    data = request.get_json()
+    empresa_mod.empresa_nombre = data.get('empresa_nombre')
+    empresa_mod.email = data.get('email')
+    empresa_mod.telefono = data.get('telefono')
+    db.session.commit()
+    serializer = EmpresaSchema()
+    mod_emp = serializer.dump(empresa_mod)
+    return jsonify(mod_emp), 200
+
 @app.route('/empresas', methods = ['POST'])
 def crear_empresa_nueva():
     data = request.get_json()
@@ -540,6 +575,29 @@ def crear_empresa_nueva():
     serializer = EmpresaSchema()
     data = serializer.dump(empresa)
     return jsonify(data), 201
+
+@app.route('/empresas/ofertas', methods = ['GET'])
+def get_ofertas():
+    estado = request.args.get("estado")
+    if not estado:
+        oferta = Ofertas.get_all()
+        serializer = OfertasSchema(many=True)
+        data = serializer.dump(oferta)
+        return jsonify(data)
+    elif estado == "SIN ASIGNAR":
+        oferta = get_ofertasSinAsignar()
+        serializer = OfertasSchema(many=True)
+        data = serializer.dump(oferta)
+        return jsonify(data)
+    else:
+        return jsonify({"mensaje": "No se encuentra la oferta que busca"})
+
+@app.route('/ofertas/<string:job_id>', methods = ['GET'])
+def get_ofertas_by_id(job_id):
+    oferta = Ofertas.get_by_id(job_id)
+    serializer = OfertasSchema()
+    data = serializer.dump(oferta)
+    return jsonify(data)
 
 @app.route('/empresas/<string:empresa_id>/ofertas', methods = ['GET'])
 def get_ofertas_by_empresaid(empresa_id):

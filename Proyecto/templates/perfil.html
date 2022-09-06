@@ -44,6 +44,7 @@
                     <li><a href="{{ url_for('mostrar_skills')}}">Mostrar mi CV</a></li>
                     <li><a href="{{ url_for('ver_ofertas')}}">Ver ofertas</a></li>
                     <li><a href="{{ url_for('recomendarOfertas')}}">Recomendacion</a></li>
+                    <li><a href="{{ url_for('modificar_alumnos')}}">Modificar perfil</a></li>
                   </ul>
                 </li>
                 <li class="has-children">
@@ -51,6 +52,7 @@
                   <ul class="dropdown arrow-top">
                     <li><a href="{{ url_for('crearOfertas')}}">Crear ofertas</a></li>
                     <li><a href="{{ url_for('ver_alumnos')}}">Ver alumnos</a></li>
+                    <li><a href="{{ url_for('modificar_empresas')}}">Modificar perfil</a></li>
                   </ul>
                 </li>
                 <li class="has-children">
@@ -60,7 +62,6 @@
                     <li><a href="{{ url_for('similitudOfertasNuevas')}}">Calcular similitud ofertas nuevas</a></li>
                   </ul>
                 </li>
-                <li><a href="{{ url_for('chat')}}" onClick="window.open('chat','Chat','resizable,height=750,width=400'); return false;"><span>Chat</span></a></li>
                 <li><a href="{{ url_for('perfil')}}"><span>Perfil</span></a></li>
                 <li><a href="{{ url_for('logout')}}"><span>Cerrar Sesión</span></a></li>
               </ul>
@@ -90,6 +91,21 @@
                 <h1><br>Tu tipo de cuenta: Alumno</h1>
             {% elif adm %}
                 <h1><br>Tu tipo de cuenta: Administrador</h1>
+            {% endif %}
+            {% if emp %}
+                <h1><br>Tu email es: {{ emp.email }}</h1>
+            {% elif alum %}
+                <h1><br>Tu email es: {{ alum.email }}<</h1>
+            {% endif %}
+            {% if emp %}
+                <h1><br>Tu teléfono es: {{ emp.telefono }}</h1>
+            {% elif alum %}
+                <h1><br>Tu teléfono es: {{ alum.telefono }}</h1>
+            {% endif %}
+            {% if emp %}
+                <h6><br>Si desea cambiar alguno de sus datos acceda a modificar perfil en la seccion de empresas</h6>
+            {% elif alum %}
+                <h6><br>Si desea cambiar alguno de sus datos acceda a modificar perfil en la seccion de alumnos</h6>
             {% endif %}
         </div>
     </p>
