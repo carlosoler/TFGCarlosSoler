@@ -185,7 +185,7 @@ def modificar_alumnos():
             flash("Alumno modificado")
         return render_template('modificarAlumno.html')
 
-@app.route('/mod_alumno', methods=["GET", "POST"])
+@app.route('/mod_emp', methods=["GET", "POST"])
 @login_required
 @restricted_access_toEmp
 def modificar_empresas():
