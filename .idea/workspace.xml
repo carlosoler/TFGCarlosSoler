@@ -7,8 +7,9 @@
     <list default="true" id="03aeef67-12c3-434c-b4d3-429b4ce5868e" name="Changes" comment="Modificar alumos y ofertas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Proyecto/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/perfil.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/perfil.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/gisi-tfg-csoler-memoria-curso-2022 (vLimpio).docx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/gisi-tfg-csoler-memoria-curso-2022 (vLimpio).docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/templates/mostrar_skills.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/mostrar_skills.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/templates/ver_skill_alumnos.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/ver_skill_alumnos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rhistory" beforeDir="false" afterPath="$PROJECT_DIR$/motorR/4098796/.Rhistory" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +87,7 @@
         <option name="IS_IGNORE_MISSING_FILES" value="false" />
         <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
         <ENTRIES>
-          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
         </ENTRIES>
       </EXTENSION>
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Proyecto/app.py" />
@@ -116,6 +117,9 @@
       <workItem from="1662205788008" duration="7832000" />
       <workItem from="1663498681535" duration="541000" />
       <workItem from="1664101576750" duration="3896000" />
+      <workItem from="1665134134701" duration="2315000" />
+      <workItem from="1666892369888" duration="35000" />
+      <workItem from="1673893744975" duration="5183000" />
     </task>
     <task id="LOCAL-00001" summary="Modificar alumos y ofertas">
       <created>1662483292536</created>
@@ -147,7 +151,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TFGCarlosSoler$back.coverage" NAME="programa Coverage Results" MODIFIED="1657201505306" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/" />
-    <SUITE FILE_PATH="coverage/TFGCarlosSoler$programa.coverage" NAME="programa Coverage Results" MODIFIED="1663498694933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/" />
+    <SUITE FILE_PATH="coverage/TFGCarlosSoler$programa.coverage" NAME="programa Coverage Results" MODIFIED="1673959748440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/" />
     <SUITE FILE_PATH="coverage/TFGCarlosSoler$front.coverage" NAME="front Coverage Results" MODIFIED="1656347690021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/front" />
   </component>
 </project>

@@ -235,8 +235,10 @@ def asignarOfertas():
 @restricted_access_toEmp
 def mostrar_skills():
     if session.get('logged_in'):
-        lista_skills = get_all_skills_foruser(get_user_tableSkill_id(session['username']))
-        return render_template('mostrar_skills.html', lista_skills=lista_skills, username=session['username'])
+        alumno_id = get_id_by_user(session['username'])
+        skills = requests.get('http://127.0.0.1:5000/alumnos/%s/CV' % alumno_id)
+        lista_skills = skills.json()
+        return render_template('mostrar_skills.html', skill=lista_skills, username=session['username'])
 
 @app.route('/ver_alumnos')
 @login_required
@@ -264,8 +266,10 @@ def ver_ofertas():
 def ver_skills_alumnos():
     if session.get('logged_in'):
         usuario = request.args.get('username')
-        lista_skills = get_all_skills_foruser(get_user_tableSkill_id(usuario))
-        return render_template('ver_skill_alumnos.html', lista_skills=lista_skills, username=usuario)
+        id_usuario = get_id_by_user(usuario)
+        skills = requests.get('http://127.0.0.1:5000/alumnos/%s/CV' % id_usuario)
+        lista_skills = skills.json()
+        return render_template('mostrar_skills.html', skill=lista_skills, username=usuario)
 
 @app.route('/perfil')
 @login_required
@@ -673,4 +677,4 @@ def internal_server(error):
     return jsonify({"mensaje": "Este método no está permitido"}), 405
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run()

@@ -101,7 +101,6 @@
 						  </thead>
 						  <tbody>
 						    <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">{{ username }}</th>
                               {% if skill.grado == 0 %}
 						        <td>Ingeniería Informatica</td>
@@ -124,8 +123,7 @@
                               {% elif skill.grado == 9 %}
                                 <td>Sociología</td>
                             {% endif %}
-						      <td>{{ skill.nota_media }}</td>
-                            {% endfor %}
+                            <td>{{ skill.nota_media }}</td>
 						    </tr>
 						  </tbody>
 						</table>
@@ -153,7 +151,6 @@
 						  </thead>
 						  <tbody>
 						    <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">Inglés</th>
                               {% if skill.ingles == 0 %}
 						        <td>No aplica</td>
@@ -164,10 +161,8 @@
                               {% elif skill.ingles == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
                           <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">Aleman</th>
                               {% if skill.aleman == 0 %}
 						        <td>No aplica</td>
@@ -178,10 +173,8 @@
                               {% elif skill.aleman == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
                           <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">Francés</th>
                               {% if skill.frances == 0 %}
 						        <td>No aplica</td>
@@ -192,7 +185,6 @@
                               {% elif skill.frances == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
 						  </tbody>
 						</table>
@@ -220,7 +212,6 @@
 						  </thead>
 						  <tbody>
 						    <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">Capacidad analítica</th>
                               {% if skill.capacidad_analitica == 0 %}
 						        <td>No aplica</td>
@@ -231,10 +222,8 @@
                               {% elif skill.capacidad_analitica == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
                           <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">Trabajo en equipo</th>
                               {% if skill.trabajo_equipo == 0 %}
 						        <td>No aplica</td>
@@ -245,10 +234,8 @@
                               {% elif skill.trabajo_equipo == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
                           <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">Comunicación</th>
                               {% if skill.comunicacion == 0 %}
 						        <td>No aplica</td>
@@ -259,10 +246,8 @@
                               {% elif skill.comunicacion == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
                           <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">Pensamiento crítico</th>
                               {% if skill.pensamiento_critico == 0 %}
 						        <td>No aplica</td>
@@ -273,10 +258,8 @@
                               {% elif skill.pensamiento_critico == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
                           <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">Innocación</th>
                               {% if skill.inovacion == 0 %}
 						        <td>No aplica</td>
@@ -287,10 +270,8 @@
                               {% elif skill.inovacion == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
                           <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">Liderazgo</th>
                               {% if skill.liderazgo == 0 %}
 						        <td>No aplica</td>
@@ -301,10 +282,8 @@
                               {% elif skill.liderazgo == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
                           <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">Toma de decisiones</th>
                               {% if skill.decision_making == 0 %}
 						        <td>No aplica</td>
@@ -315,10 +294,8 @@
                               {% elif skill.decision_making == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
                           <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">Solución de problemas</th>
                               {% if skill.problem_solving == 0 %}
 						        <td>No aplica</td>
@@ -329,7 +306,6 @@
                               {% elif skill.problem_solving == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
 						  </tbody>
 						</table>
@@ -357,7 +333,6 @@
 						  </thead>
 						  <tbody>
 						    <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">Marketing</th>
                               {% if skill.marketing == 0 %}
 						        <td>No aplica</td>
@@ -368,10 +343,8 @@
                               {% elif skill.marketing == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
                           <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">E-commerce</th>
                               {% if skill.e_commerce == 0 %}
 						        <td>No aplica</td>
@@ -382,10 +355,8 @@
                               {% elif skill.e_commerce == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
                           <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">Diseño gráfico</th>
                               {% if skill.diseno_grafico == 0 %}
 						        <td>No aplica</td>
@@ -396,10 +367,8 @@
                               {% elif skill.diseno_grafico == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
                           <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">Matemáticas</th>
                               {% if skill.matematicas == 0 %}
 						        <td>No aplica</td>
@@ -410,10 +379,8 @@
                               {% elif skill.matematicas == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
                           <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">Estadítica</th>
                               {% if skill.estadistica == 0 %}
 						        <td>No aplica</td>
@@ -424,10 +391,8 @@
                               {% elif skill.estadistica == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
                           <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">Gestión de proyectos</th>
                               {% if skill.gestion_proyectos == 0 %}
 						        <td>No aplica</td>
@@ -438,10 +403,8 @@
                               {% elif skill.gestion_proyectos == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
                           <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">Redes sociales</th>
                               {% if skill.redes_sociales == 0 %}
 						        <td>No aplica</td>
@@ -452,10 +415,8 @@
                               {% elif skill.redes_sociales == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
                           <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">Sostenibilidad</th>
                               {% if skill.sostenibilidad == 0 %}
 						        <td>No aplica</td>
@@ -466,10 +427,8 @@
                               {% elif skill.sostenibilidad == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
                           <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">Inteligencia Artificial</th>
                               {% if skill.inteligencia_artificial == 0 %}
 						        <td>No aplica</td>
@@ -480,10 +439,8 @@
                               {% elif skill.inteligencia_artificial == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
                           <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">Big Data</th>
                               {% if skill.big_data == 0 %}
 						        <td>No aplica</td>
@@ -494,10 +451,8 @@
                               {% elif skill.big_data == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
                           <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">Machine Learning</th>
                               {% if skill.machine_learning == 0 %}
 						        <td>No aplica</td>
@@ -508,10 +463,8 @@
                               {% elif skill.machine_learning == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
                           <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">Análisis de Datos</th>
                               {% if skill.analisis_datos == 0 %}
 						        <td>No aplica</td>
@@ -522,10 +475,8 @@
                               {% elif skill.analisis_datos == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
                           <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">Bases de Datos</th>
                               {% if skill.bases_datos == 0 %}
 						        <td>No aplica</td>
@@ -536,10 +487,8 @@
                               {% elif skill.bases_datos == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
                           <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">Cloud</th>
                               {% if skill.cloud == 0 %}
 						        <td>No aplica</td>
@@ -550,10 +499,8 @@
                               {% elif skill.cloud == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
                           <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">IoT</th>
                               {% if skill.intenet_of_things == 0 %}
 						        <td>No aplica</td>
@@ -564,10 +511,8 @@
                               {% elif skill.intenet_of_things == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
                           <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">Redes</th>
                               {% if skill.networks == 0 %}
 						        <td>No aplica</td>
@@ -578,10 +523,8 @@
                               {% elif skill.networks == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
                           <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">Sistemas operativos</th>
                               {% if skill.sistemas_operativos == 0 %}
 						        <td>No aplica</td>
@@ -592,10 +535,8 @@
                               {% elif skill.sistemas_operativos == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
                           <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">Desarrollo Web</th>
                               {% if skill.web_desarrollo == 0 %}
 						        <td>No aplica</td>
@@ -606,10 +547,8 @@
                               {% elif skill.web_desarrollo == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
                           <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">Diseño Web</th>
                               {% if skill.web_diseno == 0 %}
 						        <td>No aplica</td>
@@ -620,7 +559,6 @@
                               {% elif skill.web_diseno == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
 						  </tbody>
 						</table>
@@ -648,7 +586,6 @@
 						  </thead>
 						  <tbody>
 						    <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">R</th>
                               {% if skill.r == 0 %}
 						        <td>No aplica</td>
@@ -659,10 +596,8 @@
                               {% elif skill.r == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
                           <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">Java</th>
                               {% if skill.java == 0 %}
 						        <td>No aplica</td>
@@ -673,10 +608,8 @@
                               {% elif skill.java == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
                           <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">Pascal</th>
                               {% if skill.pascal == 0 %}
 						        <td>No aplica</td>
@@ -687,10 +620,8 @@
                               {% elif skill.pascal == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
                           <tr class="alert" role="alert">
-                            {% for skill in lista_skills %}
 						      <th scope="row">Python</th>
                               {% if skill.python == 0 %}
 						        <td>No aplica</td>
@@ -701,7 +632,6 @@
                               {% elif skill.python == 3 %}
                                 <td>Nivel avanzado</td>
                             {% endif %}
-                            {% endfor %}
                           </tr>
 						  </tbody>
 						</table>
