@@ -48,7 +48,7 @@ def restricted_access_toEmp(func):
     def wrappper_restricted_access():
         alum = get_alumn(username=session['username'])
         if not alum:
-            flash('Necesitas tener un alumno para acceder a esta página')
+            flash('Necesitas tener un usuario de Alumno para acceder a esta página')
             return redirect(url_for('home'))
         return func()
     return wrappper_restricted_access
@@ -255,8 +255,9 @@ def ver_alumnos():
 @restricted_access_toEmp
 def ver_ofertas():
     if session.get('logged_in'):
-        ofert_sinAsig = requests.get('http://127.0.0.1:5000/ofertas', params={'estado': 'SIN ASIGNAR'})
+        ofert_sinAsig = requests.get('http://127.0.0.1:5000/empresas/ofertas', params={'estado': 'SIN ASIGNAR'})
         ofertas_nuevas = ofert_sinAsig.json()
+        print(ofertas_nuevas)
         #ofertas_nuevas = get_ofertasSinAsignar()
         return render_template('verOfertas.html', ofertas=ofertas_nuevas)
 
@@ -677,4 +678,4 @@ def internal_server(error):
     return jsonify({"mensaje": "Este método no está permitido"}), 405
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')

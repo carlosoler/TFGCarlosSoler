@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'css/newhome.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'css/home/newhome.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/home/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'fonts/font-awesome-4.7.0/css/font-awesome.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/home/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'fonts/icomoon/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/home/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -34,9 +34,9 @@
 	<div class="main-nav">
 		<div class="container">
 			<nav class="navbar navbar-expand-md navbar-light">
-				<a class="navbar-brand" href="#">
-					JOBS
-				</a>
+                <span class="login100-form-logo">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" class="brand_logo" alt="Logo" width="60" height="60">
+                </span>
 				<div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
                         <li class="nav-item">
