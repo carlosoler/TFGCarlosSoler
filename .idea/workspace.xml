@@ -4,28 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03aeef67-12c3-434c-b4d3-429b4ce5868e" name="Changes" comment="Cambiado plantilla">
-      <change afterPath="$PROJECT_DIR$/Proyecto/static/images/carlos.png" afterDir="false" />
+    <list default="true" id="03aeef67-12c3-434c-b4d3-429b4ce5868e" name="Changes" comment="Cambios varios">
+      <change afterPath="$PROJECT_DIR$/Proyecto/static/js/asig.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Proyecto/static/js/oferta.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Proyecto/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/static/css/home/newhome.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/css/home/newhome.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/migrations/README" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/migrations/alembic.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/migrations/env.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/migrations/script.py.mako" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/migrations/versions/e7bc6c45083b_.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/model/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/model/model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/static/js/survey.js" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/js/survey.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Proyecto/templates/asignarOfertas.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/asignarOfertas.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Proyecto/templates/crearOfertas.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/crearOfertas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/modificarAlumno.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/modificarAlumno.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/modificarEmpresa.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/modificarEmpresa.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/mostrar_skills.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/mostrar_skills.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/perfil.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/perfil.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/recomendarOfertas.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/recomendarOfertas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/registroEmpresa.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/registroEmpresa.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/registroUsuario.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/registroUsuario.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/similitudOfertasNuevas.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/similitudOfertasNuevas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/survey.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/survey.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/verAlumnos.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/verAlumnos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/verOfertas.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/verOfertas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/ver_skill_alumnos.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/ver_skill_alumnos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rhistory" beforeDir="false" afterPath="$PROJECT_DIR$/motorR/4098796/.Rhistory" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/vecinos_ofertas_nuevas.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/motorR/4098796/vecinos_ofertas_nuevas.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +58,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/carlosoler/Documents/GitHub/TFGv2/TFGCarlosSoler/Proyecto/static/images",
+    "last_opened_file_path": "/Users/carlosoler/Documents/GitHub/TFGv2/TFGCarlosSoler/Proyecto/static/js",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -76,6 +68,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Proyecto/static/js" />
       <recent name="$PROJECT_DIR$/Proyecto/static/images" />
       <recent name="$PROJECT_DIR$/Proyecto/static/css/home" />
       <recent name="$PROJECT_DIR$/Proyecto/templates" />
@@ -145,7 +138,7 @@
       <workItem from="1674506186822" duration="538000" />
       <workItem from="1674730185077" duration="421000" />
       <workItem from="1674755344903" duration="682000" />
-      <workItem from="1674844105855" duration="12860000" />
+      <workItem from="1674844105855" duration="16517000" />
     </task>
     <task id="LOCAL-00001" summary="Modificar alumos y ofertas">
       <created>1662483292536</created>
@@ -175,7 +168,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674502373299</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Cambios varios">
+      <created>1674931026199</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1674931026199</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,11 +197,12 @@
     <MESSAGE value="Cambios en REST" />
     <MESSAGE value="Mojorando HTML" />
     <MESSAGE value="Cambiado plantilla" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambiado plantilla" />
+    <MESSAGE value="Cambios varios" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambios varios" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TFGCarlosSoler$back.coverage" NAME="programa Coverage Results" MODIFIED="1657201505306" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/" />
-    <SUITE FILE_PATH="coverage/TFGCarlosSoler$programa.coverage" NAME="programa Coverage Results" MODIFIED="1674930742473" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/" />
+    <SUITE FILE_PATH="coverage/TFGCarlosSoler$programa.coverage" NAME="programa Coverage Results" MODIFIED="1674939286184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/" />
     <SUITE FILE_PATH="coverage/TFGCarlosSoler$front.coverage" NAME="front Coverage Results" MODIFIED="1656347690021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/front" />
   </component>
 </project>

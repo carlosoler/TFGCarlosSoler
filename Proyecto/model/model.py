@@ -355,10 +355,12 @@ class Ofertas(db.Model):
     big_data = db.Column(db.Integer)
     programacion = db.Column(db.Integer)
     estado = db.Column(db.String)
+    telefono = db.Column(db.String)
+    nombre_contacto = db.Column(db.String)
 
     def __init__(self, job_id, alumno_id, empresa_id, empresa_nombre, job_tittle, ciudad, grado, nota_media, ingles, aleman, frances,
                  trabajo_equipo, comunicacion, matematicas, estadistica, gestion_proyectos, sostenibilidad,
-                 big_data, programacion, estado):
+                 big_data, programacion, estado, telefono, nombre_contacto):
 
         self.job_id = job_id
         self.alumno_id = alumno_id
@@ -380,6 +382,8 @@ class Ofertas(db.Model):
         self.big_data = big_data
         self.programacion = programacion
         self.estado = estado
+        self.telefono = telefono
+        self.nombre_contacto = nombre_contacto
 
     def is_active(self):
         return True
@@ -427,6 +431,8 @@ class OfertasSchema(Schema):
     big_data = fields.Integer()
     programacion = fields.Integer()
     estado = fields.String()
+    telefono = fields.String()
+    nombre_contacto = fields.String()
 
 
 class Empresa(db.Model):

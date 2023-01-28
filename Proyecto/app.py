@@ -157,7 +157,9 @@ def crearOfertas():
                         "sostenibilidad": request.form.get('sostenibilidad_level'),
                         "big_data": request.form.get('bigData_level'),
                         "programacion": request.form.get('progra_level'),
-                        "estado": 'SIN ASIGNAR'
+                        "estado": 'SIN ASIGNAR',
+                        "telefono": request.form.get('tel'),
+                        "nombre_contacto": request.form.get('nombre')
             }
 
             requests.post('http://localhost:5000/empresas/%s/ofertas' % id_emp, json=oferta)
@@ -288,7 +290,6 @@ def recomendarOfertas():
     if session.get('logged_in'):
         id = get_id_by_user(session['username'])
         if request.method == 'POST':
-            #r = requests.post('http://127.0.0.1:3097/prueba_json', json=json_alum)
             r = requests.post('http://127.0.0.1:8015/recomendacion_alumno_nuevo', params={'id_alum': id})
             ejemplo = r.json()
             return render_template('recomendarOfertas.html', username=session['username'], ejemplo=ejemplo)
@@ -628,7 +629,8 @@ def crear_ofertas_by_empresaid(empresa_id):
                           matematicas=data.get("matematicas"),
                           estadistica=data.get("estadistica"), gestion_proyectos=data.get("gestion_proyectos"),
                           sostenibilidad=data.get("sostenibilidad"),
-                          big_data=data.get("big_data"), programacion=data.get("programacion"), estado='SIN ASIGNAR')
+                          big_data=data.get("big_data"), programacion=data.get("programacion"), estado='SIN ASIGNAR',
+                          telefono=data.get("telefono"), nombre_contacto=data.get("nombre_contacto"))
 
     nuevaOferta.save()
     serializer = OfertasSchema()

@@ -265,20 +265,6 @@ $(document).ready(function() {
                         message: 'Por favor introduzca su nivel correspondiente'
                     }
                 }
-            },
-            ofertas:{
-                validators: {
-                    notEmpty: {
-                        message: 'Por favor seleccione una oferta'
-                    }
-                }
-            },
-            alumnos:{
-                validators: {
-                    notEmpty: {
-                        message: 'Por favor seleccione un alumno'
-                    }
-                }
             }
         }
     })
