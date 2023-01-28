@@ -34,7 +34,7 @@
 							<a class="nav-link dropdown-toggle">Alumnos</a>
 							<ul class="dropdown-menu">
 								<li class="nav-item">
-									<a href="{{ url_for('survey')}}" class="nav-link">Añadir/Modficar Skills</a>
+									<a href="{{ url_for('survey')}}" class="nav-link">Crear/Modificar CV</a>
 								</li>
 								<li class="nav-item">
 									<a href="{{ url_for('mostrar_skills')}}" class="nav-link">Mostrar mi CV</a>
@@ -107,7 +107,7 @@
         {% if emp %}
             <h1><br>Tu email es: {{ emp.email }}</h1>
         {% elif alum %}
-            <h1><br>Tu email es: {{ alum.email }}<</h1>
+            <h1><br>Tu email es: {{ alum.email }}</h1>
         {% endif %}
         {% if emp %}
             <h1><br>Tu teléfono es: {{ emp.telefono }}</h1>

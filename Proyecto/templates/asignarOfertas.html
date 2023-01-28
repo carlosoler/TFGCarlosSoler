@@ -29,7 +29,9 @@
 
         <form class="well form-horizontal" action=" " method="post" id="survey_form">
             <fieldset>
-
+                <div class="right">
+                    <a class="btn btn-info" type="button" href="{{ url_for('home') }}" role="button">Volver al menu</a>
+                </div>
                 <legend><center><h2><b>Asignar oferta de trabajo</b></h2></center></legend><br>
 
                 <div class="form-group">
@@ -40,7 +42,7 @@
                             <select name="ofertas" class="form-control selectpicker">
                                 <option value="">Selecciona una oferta</option>
                                 {% for oferta in ofertas_nuevas %}
-                                    <option value="{{ oferta.job_id }}">{{ oferta.job_tittle }} en {{ oferta.empresa_nombre }}</option>
+                                    <option value="{{ oferta.job_id }}">{{ oferta.job_tittle }} {{ oferta.empresa_nombre }}</option>
                                 {% endfor %}
                             </select>
                         </div>
@@ -67,7 +69,6 @@
                         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" name="botonRegistro" value="botonCrear" class="btn btn-warning" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAsignar oferta <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
                     </div>
                 </div>
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="{{ url_for('home') }}" class="btn btn-default" style="position: center">Volver al menu</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
             </fieldset>
         </form>
     </div>

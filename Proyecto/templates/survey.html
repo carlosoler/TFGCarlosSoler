@@ -30,9 +30,9 @@
         <form class="well form-horizontal" action=" " method="post" id="survey_form">
             <fieldset>
                 <div class="right">
-                        <a href="{{ url_for('home')}}">Volver al menu</a>
+                    <a class="btn btn-info" type="button" href="{{ url_for('home') }}" role="button">Volver al menu</a>
                 </div>
-                <legend><center><h2><b>Introducir Skills/Competencias</b></h2></center></legend><br>
+                <legend><center><h2><b>Crear o Modificar CV</b></h2></center></legend><br>
                 <legend><h1><b>Grado</b></h1></legend><br>
                 <div class="form-group">
                     <label class="col-md-4 control-label">Grado</label>
@@ -587,17 +587,12 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
                 <div class="form-group">
                     <label class="col-md-4 control-label"></label>
                     <div class="col-md-4"><br>
                         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" name="botonSkills" value="botonCrear" class="btn btn-warning" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCrear CV<span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
                     </div>
                 </div>
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="{{ url_for('home') }}" class="btn btn-default" style="position: center">Volver al menu</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
             </fieldset>
         </form>
     </div>

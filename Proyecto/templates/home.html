@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/home/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/meanmenu.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 </head>
 <body>
 {% block content %}
@@ -46,7 +47,7 @@
 							<a class="nav-link dropdown-toggle">Alumnos</a>
 							<ul class="dropdown-menu">
 								<li class="nav-item">
-									<a href="{{ url_for('survey')}}" class="nav-link">Añadir/Modficar Skills</a>
+									<a href="{{ url_for('survey')}}" class="nav-link">Crear/Modificar CV</a>
 								</li>
 								<li class="nav-item">
 									<a href="{{ url_for('mostrar_skills')}}" class="nav-link">Mostrar mi CV</a>
@@ -107,7 +108,11 @@
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 <h2>Home</h2>
-                <p class="text-muted lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
+                <p class="text-muted lead">Bienvenido a JOBS, el lugar donde encontrarás el mejor trabajo o al mejor empleado.</p>
+                <p class="text-muted lead">XXX</p>
+                <p class="text-muted lead">XXX</p>
+                <p class="text-muted lead">XXX</p>
+                <p class="text-muted lead">XXX</p>
             </div>
         </div>
     </div>
@@ -117,8 +122,33 @@
     <div class="container py-5 text-center">
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <h2>Demo section 2</h2>
-                <p class="text-muted lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
+                <div class="wrapper">
+                    <h1>Our Team</h1>
+                    <div class="our_team">
+                        <div class="team_member">
+                          <div class="member_img">
+                             <img src="{{ url_for('static', filename='images/carlos.png') }}" alt="CEO">
+                            <div class="social_media">
+                               <div class="linkedin item"><a href="https://www.linkedin.com/in/carlos-soler-martin" target="_blank" class="fab fa-linkedin"></a></div>
+                             </div>
+                          </div>
+                          <h3>Carlos Soler</h3>
+                          <h2>CEO</h2>
+                          <p>Estuadiante doble grado en ingenieria informactica y ADE. XXX</p>
+                        </div>
+                        <div class="team_member">
+                          <div class="member_img">
+                             <img src="{{ url_for('static', filename='images/carlos.png') }}" alt="CEO">
+                            <div class="social_media">
+                               <div class="linkedin item"><a href="https://www.linkedin.com/in/carlos-soler-martin" target="_blank" class="fab fa-linkedin"></a></div>
+                             </div>
+                          </div>
+                          <h3>Carlos Soler</h3>
+                          <h2>CEO</h2>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione perspiciatis, error deleniti quaerat beatae doloribus incidunt excepturi. Fugit deleniti accusantium neque hic quidem voluptatibus cumque.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

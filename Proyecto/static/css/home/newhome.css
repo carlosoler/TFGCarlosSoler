@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Exo+2|Yatra+One');
+
 .text-small {
     font-size: 0.9rem !important;
 }
@@ -34,4 +36,96 @@
     margin-right: auto;
     margin-left: auto;
     text-align: center;
+}
+
+.wrapper{
+  margin-top: 20px;
+  text-align: center;
+}
+
+.wrapper h1{
+    margin-bottom: 20px;
+}
+
+.our_team{
+  width: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.our_team .team_member{
+  width: 300px;
+  margin: 10px;
+  background: #fff;
+  padding: 20px 10px;
+}
+
+.our_team .team_member .member_img{
+  background: #D6EAF8;
+  max-width: 200px;
+  width: 100%;
+  height: 200px;
+  margin: 0 auto;
+  border-radius: 50%;
+  padding: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+.our_team .team_member .member_img img{
+  width: 100%;
+  height: 100%;
+}
+
+.our_team .team_member h3{
+    text-transform: uppercase;
+    font-size: 23px;
+    line-height: 18px;
+    letter-spacing: 2px;
+    margin: 15px 0 0px;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.our_team .team_member h2{
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin: 15px 0 0px;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.our_team .team_member p{
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.our_team .team_member .member_img .social_media{
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background: rgba(0,0,0,0.65);
+  width: 95%;
+  height: 95%;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0);
+   transition: all 0.5s ease;
+}
+
+.our_team .team_member .member_img .social_media .item{
+  margin: 0 10px;
+}
+
+.our_team .team_member .member_img .social_media .fab{
+  color: #00abff;
+  font-size: 35px;
+}
+
+.our_team .team_member .member_img:hover .social_media{
+  transform: scale(1);
 }

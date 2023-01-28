@@ -187,7 +187,7 @@ def modificar_alumnos():
 
 @app.route('/mod_emp', methods=["GET", "POST"])
 @login_required
-@restricted_access_toEmp
+@restricted_access_toAlumn
 def modificar_empresas():
     if session.get('logged_in'):
         if request.method == 'POST':
@@ -207,7 +207,7 @@ def modificar_empresas():
 @login_required
 @onlyAdmin
 def asignarOfertas():
-    ofert_sinAsig = requests.get('http://127.0.0.1:5000/ofertas', params={'estado': 'SIN ASIGNAR'})
+    ofert_sinAsig = requests.get('http://127.0.0.1:5000/empresas/ofertas', params={'estado': 'SIN ASIGNAR'})
     ofertas_nuevas = ofert_sinAsig.json()
     alumno_sinOfer = requests.get('http://127.0.0.1:5000/alumnos', params={'oferta': 'NO'})
     alumnos_sinOfertas = alumno_sinOfer.json()

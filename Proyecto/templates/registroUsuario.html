@@ -29,14 +29,10 @@
 
         <form class="well form-horizontal" action=" " method="post" id="contact_form">
             <fieldset>
-
-
                 <div class="right">
-                        ¿Tienes una cuenta ya? <a href="{{ url_for('main')}}">Iniciar Sesión</a>
+                    ¿Tienes una cuenta ya? <a class="btn btn-info" type="button" href="{{ url_for('main') }}" role="button">Iniciar Sesión</a>
                 </div>
-
                 <legend><center><h2><b>Crear nueva cuenta</b></h2></center></legend><br>
-
                 <div class="form-group">
                     <label class="col-md-4 control-label">Nombre de usuario</label>
                     <div class="col-md-4 inputGroupContainer">
@@ -121,7 +117,6 @@
                         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" name="botonRegistro" value="botonCrear" class="btn btn-warning" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCrear cuenta <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
                     </div>
                 </div>
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="{{ url_for('main') }}" class="btn btn-default" style="position: center">Iniciar Sesión</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
             </fieldset>
         </form>
     </div>
