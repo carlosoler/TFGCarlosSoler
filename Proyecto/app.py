@@ -163,6 +163,7 @@ def crearOfertas():
             }
 
             requests.post('http://localhost:5000/empresas/%s/ofertas' % id_emp, json=oferta)
+            requests.post('http://127.0.0.1:8015/ofertas_nuevas')
             flash("Oferta creada correctamente.")
         return render_template('crearOfertas.html')
 
@@ -226,6 +227,7 @@ def asignarOfertas():
             }
 
             requests.put('http://localhost:5000/empresas/%s/ofertas/%s' % (empresa_id, oferta_id), json=mod_oferta)
+            requests.post('http://127.0.0.1:8015/ofertas_nuevas')
 
             db.session.commit()
             flash("Oferta asignada con éxito!")
@@ -249,7 +251,6 @@ def ver_alumnos():
     if session.get('logged_in'):
         alumno_sinOfer = requests.get('http://127.0.0.1:5000/alumnos', params={'oferta': 'NO'})
         alumnos_sinOfertas = alumno_sinOfer.json()
-        #alumnos_sinOfertas = get_alum_sin_ofertas()
         return render_template('verAlumnos.html', alumnos=alumnos_sinOfertas)
 
 @app.route('/ver_ofertas')
@@ -259,8 +260,6 @@ def ver_ofertas():
     if session.get('logged_in'):
         ofert_sinAsig = requests.get('http://127.0.0.1:5000/empresas/ofertas', params={'estado': 'SIN ASIGNAR'})
         ofertas_nuevas = ofert_sinAsig.json()
-        print(ofertas_nuevas)
-        #ofertas_nuevas = get_ofertasSinAsignar()
         return render_template('verOfertas.html', ofertas=ofertas_nuevas)
 
 @app.route('/ver_skills_alumnos')
@@ -301,7 +300,7 @@ def recomendarOfertas():
 def similitudOfertasNuevas():
     if session.get('logged_in'):
         if request.method == 'POST':
-            r = requests.post('http://127.0.0.1:8015/ofertas_nuevas', params={'a': 71, 'b': 80})
+            r = requests.post('http://127.0.0.1:8015/ofertas_nuevas')
             ejemplo = r.json()
             return render_template('similitudOfertasNuevas.html', username=session['username'], ejemplo=ejemplo)
         return render_template('similitudOfertasNuevas.html', username=session['username'])

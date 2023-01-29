@@ -24,13 +24,13 @@ recomendacion_alumno_nuevo <- function(id_alum) {
   uri2 = '/CV'
   uri_get = paste(uri, alumno_id, uri2,sep="")
   curl_uri <- curl_fetch_memory(uri_get)
-  xxx <- jsonlite::prettify(rawToChar(curl_uri$content))
-  jjj <- fromJSON(xxx)
-  df_xxx <- as.data.frame(jjj)
+  json_alum1 <- jsonlite::prettify(rawToChar(curl_uri$content))
+  json_alum2 <- fromJSON(json_alum1)
+  df_alum_json <- as.data.frame(json_alum2)
   
   # Cargo los datos
   alumnos_antiguos<-read.xlsx("alumnos_antiguos.xlsx")
-  alumno_nuevo<- df_xxx
+  alumno_nuevo<- df_alum_json
   vecinos_ofertas_nuevas<-read.xlsx("vecinos_ofertas_nuevas.xlsx")
   ofertas_nuevas<-read.xlsx("ofertas_nuevas.xlsx")
   
@@ -123,22 +123,23 @@ recomendacion_alumno_nuevo <- function(id_alum) {
 #* @apiDescription El objetivo de esta API es calcular la similaridad de las ofertas nuevas con las ofertas asignadas
 
 #* @post /ofertas_nuevas
-ofertas_nuevas <- function(a,b) {
+ofertas_nuevas <- function() {
   
-  
-  # Cargo los datos
-  ofertas_asignadas<-read.xlsx("ofertas_asign.xlsx")
-  ofertas_nuevas<-read.xlsx("ofertas_nuevas.xlsx")
-  # Uno ofertas_asignadas con ofertas_nuevas
-  ofertas<-rbind(ofertas_asignadas,ofertas_nuevas)
+  # Cargo los datos y los ordeno
+  uri = 'http://127.0.0.1:5000/empresas/ofertas'
+  curl_uri <- curl_fetch_memory(uri)
+  json_ofertas1 <- jsonlite::prettify(rawToChar(curl_uri$content))
+  json_ofertas2 <- fromJSON(json_ofertas1)
+  df_ofertas <- as.data.frame(json_ofertas2)
+  ofertas <- df_ofertas[,c(14,2,6,7,15,4,12,18,13,1,10,22,5,16,8,11,20,3,19,9,21,17)]
   # Parto de ofertas y elimino las columnas con info de las ofertas no relevante
-  ofertas1<-dplyr::select(ofertas,-alumno_id,-job_id,-empresa_nombre,-job_tittle,-ciudad)
+  ofertas1<-dplyr::select(ofertas,-job_id, -alumno_id, -empresa_id,-empresa_nombre,-job_tittle,-ciudad, -telefono, -nombre_contacto, -estado)
   # Transpongo ofertas1(80x13) y obtengo ofertas2 (13x80)
   ofertas2 <- t(ofertas1)
   # Convierto ofertas2 en un DF
   ofertas2<-data.frame(ofertas2)
   # Renombro las columnas de ofertas2 como las de ofertas
-  colnames(ofertas2) <- ofertas[,2]
+  colnames(ofertas2) <- ofertas[,1]
   # Utilizo el coseno que es una medida de similaridad cuando no hay nulos
   calculoCoseno <- function(x,y){
     coseno <- sum(x*y) / (sqrt(sum(x*x)) * sqrt(sum(y*y)))
@@ -166,18 +167,20 @@ ofertas_nuevas <- function(a,b) {
   for(i in 1:ncol(ofertas.matriz)){
     vecinos[i,] <- (t(head(n=6,rownames(similaridad_ofertas[order(similaridad_ofertas[,i],decreasing=TRUE),][i]))))
   }
-  # Añado una columna a vecinos con el job_id 
-  vecinos <- cbind(vecinos,job_id=c(row.names(vecinos)))
+  # Añado una columna a vecinos con el job_id y con el estado
+  vecinos <- cbind(vecinos,job_id=c(row.names(vecinos)), estado=ofertas[,20])
   # Ordeno las columnas de vecinos
-  vecinos<-vecinos[, c(7,1,2,3,4,5,6)]
+  vecinos<-vecinos[, c(7,8,1,2,3,4,5,6)]
   # Convierto vecinos en un DF
   vecinos<-data.frame(vecinos)
   # Transformo formato numeric para job_id en vecinos
   vecinos$job_id <- as.numeric(vecinos$job_id)
-  # Elimino V2
-  vecinos<-dplyr::select(vecinos, -V2)
-  # Identifico vecinos ofertas_nuevas (71:80)
-  vecinos_ofertas_nuevas<-vecinos[vecinos$job_id == a:b,]
+  # Elimino V3
+  vecinos<-dplyr::select(vecinos, -V3)
+  # Identifico vecinos ofertas SIN ASIGNAR
+  vecinos_ofertas_nuevas<-vecinos[vecinos$estado == "SIN ASIGNAR",]
+  # Elimino columna estado
+  vecinos_ofertas_nuevas<-dplyr::select(vecinos_ofertas_nuevas, -estado)
   # Transformo el dataframe
   vecinos_ofertas_nuevas<-vecinos_ofertas_nuevas%>%
     gather(key="V",value="vecinos",2:6)
