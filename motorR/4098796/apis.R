@@ -28,11 +28,19 @@ recomendacion_alumno_nuevo <- function(id_alum) {
   json_alum2 <- fromJSON(json_alum1)
   df_alum_json <- as.data.frame(json_alum2)
   
+  #GET ofertas nuevas
+  uri = 'http://127.0.0.1:5000/empresas/ofertas'
+  curl_uri <- curl_fetch_memory(uri)
+  json_ofertas1 <- jsonlite::prettify(rawToChar(curl_uri$content))
+  json_ofertas2 <- fromJSON(json_ofertas1)
+  df_ofertas <- as.data.frame(json_ofertas2)
+  ofertas_sin_estado <- df_ofertas[,c(14,2,6,7,15,4,12,18,13,1,10,22,5,16,8,11,20,3,19,9,21,17)]
+  ofertas_nuevas<-ofertas_sin_estado[ofertas_sin_estado$estado == "SIN ASIGNAR",]
   # Cargo los datos
   alumnos_antiguos<-read.xlsx("alumnos_antiguos.xlsx")
   alumno_nuevo<- df_alum_json
   vecinos_ofertas_nuevas<-read.xlsx("vecinos_ofertas_nuevas.xlsx")
-  ofertas_nuevas<-read.xlsx("ofertas_nuevas.xlsx")
+  ###ofertas_nuevas<-read.xlsx("ofertas_nuevas.xlsx")
   
   # Parto de alumnos y elimino las columnas con info de los alumnos primera columna (me quedo solo con las skills)
   alumnos_antiguos<-dplyr::select(alumnos_antiguos, -alumno_id, -username,-password, -nombre, -apellido, -telefono, -email)
@@ -109,8 +117,8 @@ recomendacion_alumno_nuevo <- function(id_alum) {
   rec_alumno71<- rec_alumno71 %>% distinct(job_id, .keep_all = TRUE)
   # Uno los DF rec_alumno71 y ofertas_nuevas para generar las recomendaciones del alumno71
   REC_alumno71<-merge(x = rec_alumno71, y = ofertas_nuevas, by = "job_id")
-  REC_alumno71<-REC_alumno71[,1:5]
-  REC_alumno71<-REC_alumno71[,-2]
+  # Elimino los datos que no necesito
+  REC_alumno71<-dplyr::select(REC_alumno71, -alumno_id, -empresa_id, -grado, -nota_media, -ingles, -aleman, -frances, -trabajo_equipo, -comunicacion, -matematicas, -estadistica, -gestion_proyectos, -sostenibilidad, -big_data, -programacion, -estado)
   # Creo archivo xlsx y json
   # write.xlsx(REC_alumno71,"REC_alumno71.xlsx")
   # REC_alumno71 = toJSON(REC_alumno71)
