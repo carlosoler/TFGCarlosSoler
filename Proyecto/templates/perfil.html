@@ -70,9 +70,6 @@
 								<li class="nav-item">
 									<a href="{{ url_for('asignarOfertas') }}" class="nav-link">Asignar Ofertas</a>
 								</li>
-								<li class="nav-item">
-									<a href="{{ url_for('similitudOfertasNuevas')}}" class="nav-link">Calcular similitud ofertas nuevas</a>
-								</li>
 							</ul>
 						</li>
 						<li class="nav-item">
@@ -115,9 +112,9 @@
             <h1><br>Tu teléfono es: {{ alum.telefono }}</h1>
         {% endif %}
         {% if emp %}
-            <h6><br>Si desea cambiar alguno de sus datos acceda a modificar perfil en la seccion de empresas</h6>
+            <h6><br>Si desea cambiar alguno de sus datos acceda a modificar perfil en la seccion de Empresas o <a href="{{ url_for('modificar_empresas')}}">pulse aquí</a>.</h6>
         {% elif alum %}
-            <h6><br>Si desea cambiar alguno de sus datos acceda a modificar perfil en la seccion de alumnos</h6>
+            <h6><br>Si desea cambiar alguno de sus datos acceda a modificar perfil en la seccion de Alumnos o <a href="{{ url_for('modificar_alumnos')}}">pulse aquí</a>.</h6>
         {% endif %}
     </div>
 </p>

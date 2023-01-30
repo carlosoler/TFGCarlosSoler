@@ -294,17 +294,6 @@ def recomendarOfertas():
             return render_template('recomendarOfertas.html', username=session['username'], ejemplo=ejemplo)
         return render_template('recomendarOfertas.html', username=session['username'])
 
-@app.route('/similitudOfertasNuevas', methods=["GET","POST"])
-@login_required
-@onlyAdmin
-def similitudOfertasNuevas():
-    if session.get('logged_in'):
-        if request.method == 'POST':
-            r = requests.post('http://127.0.0.1:8015/ofertas_nuevas')
-            ejemplo = r.json()
-            return render_template('similitudOfertasNuevas.html', username=session['username'], ejemplo=ejemplo)
-        return render_template('similitudOfertasNuevas.html', username=session['username'])
-
 @app.route('/survey', methods=["GET", "POST"])
 @login_required
 @restricted_access_toEmp
