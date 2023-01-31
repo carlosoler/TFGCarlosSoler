@@ -128,7 +128,7 @@ def registro_empresa():
 @login_required
 def home():
     if session.get('logged_in'):
-        return render_template('home.html')
+        return render_template('home.html', username=session['username'])
 
 @app.route('/crearOfertas', methods=["GET", "POST"])
 @login_required
