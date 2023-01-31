@@ -7,9 +7,9 @@
     <list default="true" id="03aeef67-12c3-434c-b4d3-429b4ce5868e" name="Changes" comment="Eliminado vista de similitud ofertas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Proyecto/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/static/css/home/newhome.css" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/static/css/home/newhome.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/verAlumnos.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/verAlumnos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/model/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/model/model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/apis.R" beforeDir="false" afterPath="$PROJECT_DIR$/motorR/4098796/apis.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/vecinos_ofertas_nuevas.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/motorR/4098796/vecinos_ofertas_nuevas.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,6 +135,7 @@
       <workItem from="1675019043336" duration="1565000" />
       <workItem from="1675072577607" duration="911000" />
       <workItem from="1675101463747" duration="5272000" />
+      <workItem from="1675188645130" duration="3569000" />
     </task>
     <task id="LOCAL-00001" summary="Modificar alumos y ofertas">
       <created>1662483292536</created>
@@ -199,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675103949274</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Eliminado vista de similitud ofertas">
+      <created>1675188744606</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1675188744606</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,7 +238,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TFGCarlosSoler$back.coverage" NAME="programa Coverage Results" MODIFIED="1657201505306" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/" />
-    <SUITE FILE_PATH="coverage/TFGCarlosSoler$programa.coverage" NAME="programa Coverage Results" MODIFIED="1675110071746" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/" />
+    <SUITE FILE_PATH="coverage/TFGCarlosSoler$programa.coverage" NAME="programa Coverage Results" MODIFIED="1675195854342" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/" />
     <SUITE FILE_PATH="coverage/TFGCarlosSoler$front.coverage" NAME="front Coverage Results" MODIFIED="1656347690021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/front" />
   </component>
 </project>

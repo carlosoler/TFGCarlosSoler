@@ -14,7 +14,7 @@ from model.model import db, get_user_id, Alumno, get_user_by_id, CV, get_tableSk
     get_empId_byNameEmpresa, AlumnoSchema, AlumnoSchemaSinPass, EmpresaSchemaSinPass, EmpresaSchema, \
     CVSchema, get_Skill_id_by_alumno_id, get_Skills_by_alumno_id, get_SkillID_by_alumno_id, Ofertas, OfertasSchema, \
     get_ofer_id, get_ofertas_by_emp_id, get_ofertasid_by_emp_id, get_empNombre_byid, get_ofertasSinAsignar, \
-    get_alum_sin_ofertas, get_oferta_by_empID_jobID, get_EmpresaID_by_job_id, comprobar_oferta_alum, get_empID_username
+    get_alum_sin_ofertas, get_oferta_by_empID_jobID, get_EmpresaID_by_job_id, comprobar_oferta_alum, get_empID_username, get_CV_ofertaAsignada
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:qwerty@localhost:5432/JOBS'
@@ -358,7 +358,9 @@ def logout():
     logout_user()
     return redirect(url_for('main'))
 
-#END-POINTS
+###################################################################################################################################################################
+###########################################################################  END-POINTS ###########################################################################
+###################################################################################################################################################################
 
 '''@app.route('/ofertas', methods = ['POST'])
 def crear_oferta():
@@ -447,6 +449,15 @@ def get_CV_by_alumno_id(alumno_id):
     serializer = CVSchema()
     data = serializer.dump(cv)
     return jsonify(data)
+
+#############################################################
+@app.route('/alumnos/CV/oferta_asignada', methods = ['GET'])
+def get_CV_con_oferta_asignada():
+    cvs = get_CV_ofertaAsignada()
+    serializer = CVSchema(many=True)
+    data = serializer.dump(cvs)
+    return jsonify(data)
+#############################################################
 
 @app.route('/alumnos/<string:alumno_id>/CV', methods = ['POST'])
 def crear_CV_by_alumno_id(alumno_id):
@@ -585,6 +596,19 @@ def get_ofertas():
         return jsonify(data)
     else:
         return jsonify({"mensaje": "No se encuentra la oferta que busca"})
+
+'''#############################################################
+@app.route('/empresas/ofertas/<string:alumno_id>', methods = ['GET'])
+def get_oferta_by_alumno_id(alumno_id):
+    ofert = comprobar_oferta_alum(alumno_id)
+    print(ofert)
+    oferta_alum = Ofertas.get_by_id(ofert)
+    serializer = OfertasSchema()
+    data = serializer.dump(oferta_alum)
+    if not ofert:
+        return jsonify(data)
+
+#############################################################'''
 
 @app.route('/ofertas/<string:job_id>', methods = ['GET'])
 def get_ofertas_by_id(job_id):

@@ -20,40 +20,48 @@ options(scipen=999)
 recomendacion_alumno_nuevo <- function(id_alum) {
   #GET alumno nuevo
   alumno_id = id_alum
-  uri = 'http://127.0.0.1:5000/alumnos/'
-  uri2 = '/CV'
-  uri_get = paste(uri, alumno_id, uri2,sep="")
-  curl_uri <- curl_fetch_memory(uri_get)
-  json_alum1 <- jsonlite::prettify(rawToChar(curl_uri$content))
+  uri1_getalum = 'http://127.0.0.1:5000/alumnos/'
+  uri2_getalum = '/CV'
+  uri_get_alum_nuevo = paste(uri1_getalum, alumno_id, uri2_getalum,sep="")
+  curl_uri_alum_nuevo <- curl_fetch_memory(uri_get_alum_nuevo)
+  json_alum1 <- jsonlite::prettify(rawToChar(curl_uri_alum_nuevo$content))
   json_alum2 <- fromJSON(json_alum1)
   df_alum_json <- as.data.frame(json_alum2)
   
   #GET ofertas nuevas
-  uri = 'http://127.0.0.1:5000/empresas/ofertas'
-  curl_uri <- curl_fetch_memory(uri)
-  json_ofertas1 <- jsonlite::prettify(rawToChar(curl_uri$content))
+  uri_ofertas = 'http://127.0.0.1:5000/empresas/ofertas'
+  curl_uri_ofertas <- curl_fetch_memory(uri_ofertas)
+  json_ofertas1 <- jsonlite::prettify(rawToChar(curl_uri_ofertas$content))
   json_ofertas2 <- fromJSON(json_ofertas1)
   df_ofertas <- as.data.frame(json_ofertas2)
   ofertas_sin_estado <- df_ofertas[,c(14,2,6,7,15,4,12,18,13,1,10,22,5,16,8,11,20,3,19,9,21,17)]
-  ofertas_nuevas<-ofertas_sin_estado[ofertas_sin_estado$estado == "SIN ASIGNAR",]
-  # Cargo los datos
-  alumnos_antiguos<-read.xlsx("alumnos_antiguos.xlsx")
-  alumno_nuevo<- df_alum_json
-  vecinos_ofertas_nuevas<-read.xlsx("vecinos_ofertas_nuevas.xlsx")
-  ###ofertas_nuevas<-read.xlsx("ofertas_nuevas.xlsx")
+  df_ofertas_nuevas<-ofertas_sin_estado[ofertas_sin_estado$estado == "SIN ASIGNAR",]
   
-  # Parto de alumnos y elimino las columnas con info de los alumnos primera columna (me quedo solo con las skills)
-  alumnos_antiguos<-dplyr::select(alumnos_antiguos, -alumno_id, -username,-password, -nombre, -apellido, -telefono, -email)
+  #GET CV alumnos con ofertas asignadas
+  uri_alum_con_ofertas = 'http://127.0.0.1:5000/alumnos/CV/oferta_asignada'
+  curl_uri_CV_alumnos_con_ofertas <- curl_fetch_memory(uri_alum_con_ofertas)
+  json_CValum_con_ofertas1 <- jsonlite::prettify(rawToChar(curl_uri_CV_alumnos_con_ofertas$content))
+  json_CValum_con_ofertas2 <- fromJSON(json_CValum_con_ofertas1)
+  df_CV_alumnos_con_ofertas <- as.data.frame(json_CValum_con_ofertas2)
+  
+  # Cargo los datos
+  alumnos_con_ofertas<- df_CV_alumnos_con_ofertas
+  alumno_nuevo<- df_alum_json
+  ofertas_nuevas<- df_ofertas_nuevas
+  vecinos_ofertas_nuevas<-read.xlsx("vecinos_ofertas_nuevas.xlsx")
+  
+  # Parto de alumnos y elimino las columnas con info de los alumnos primera columna (me quedo solo con el CV)
+  alumnos_con_ofertas<-dplyr::select(alumnos_con_ofertas, -alumno_id, -id)
   alumno_nuevo<-dplyr::select(alumno_nuevo, -alumno_id, -id)
   
   #Ordeno alumno nuevo
   alumno_nuevo <- alumno_nuevo[,c(14, 25, 15, 1, 12, 5, 34, 7, 27, 16, 20, 8, 28, 22, 10, 9, 23, 11, 13, 31, 33, 17, 4, 21, 2, 3, 6, 18, 24, 32, 35, 36, 30, 19, 26, 29 )]
   
-  # Renombro las columnas de alumnosnuevos como las de alumnosantiguos
-  colnames(alumno_nuevo) <- colnames(alumnos_antiguos)
+  #Ordeno a los alumnos con ofertas asignadas
+  alumnos_con_ofertas <- alumnos_con_ofertas[,c(14, 25, 15, 1, 12, 5, 34, 7, 27, 16, 20, 8, 28, 22, 10, 9, 23, 11, 13, 31, 33, 17, 4, 21, 2, 3, 6, 18, 24, 32, 35, 36, 30, 19, 26, 29 )]
   
-  # Uno el alumno_nuevo con los alumnos_antiguos
-  alumnos<-rbind(alumnos_antiguos,alumno_nuevo)
+  # Uno el alumno_nuevo con los alumnos con ofertas asignadas
+  alumnos<-rbind(alumnos_con_ofertas,alumno_nuevo)
   
   # Transpongo alumnos1(71x36) y obtengo alumnos2 (36x71)
   alumnos2 <- t(alumnos)

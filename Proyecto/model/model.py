@@ -103,9 +103,13 @@ def get_alum_sin_ofertas():
     stmt = exists().where(Alumno.alumno_id == Ofertas.alumno_id)
     return db.session.query(Alumno).filter(~stmt)
 
+def get_CV_ofertaAsignada():
+    stmt = exists().where(CV.alumno_id == Ofertas.alumno_id)
+    return db.session.query(CV).filter(stmt)
+
 def comprobar_oferta_alum(alum_id):
-    stmt = exists().where(alum_id == Ofertas.alumno_id)
-    return db.session.query(Alumno).filter(stmt)
+    stmt = exists().where(Ofertas.alumno_id == alum_id)
+    return db.session.query(Ofertas.job_id).filter(stmt).order_by(Ofertas.job_id.desc()).first()
 
 '''def get_eliminarOfertas(job_id):
     return db.session.query(Ofertas).filter_by(job_id=job_id).delete()'''
