@@ -108,8 +108,8 @@ def get_CV_ofertaAsignada():
     return db.session.query(CV).filter(stmt)
 
 def comprobar_oferta_alum(alum_id):
-    stmt = exists().where(Ofertas.alumno_id == alum_id)
-    return db.session.query(Ofertas.job_id).filter(stmt).order_by(Ofertas.job_id.desc()).first()
+    return db.session.query(Ofertas.job_id).order_by(Ofertas.job_id.desc()).filter_by(alumno_id=alum_id).first().job_id
+
 
 '''def get_eliminarOfertas(job_id):
     return db.session.query(Ofertas).filter_by(job_id=job_id).delete()'''

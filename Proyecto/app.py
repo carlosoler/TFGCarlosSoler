@@ -20,7 +20,6 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:qwerty@localhost:5432/JOBS'
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.secret_key = '8d438b8cca764385ae8652fefd10487c7eec02a7c5a6fb471ad8ccff0412405d'
-#socketio = SocketIO(app, cors_allowed_origins="*")
 
 login_manager = LoginManager()
 login_manager.login_view = 'main'
@@ -260,7 +259,9 @@ def ver_ofertas():
     if session.get('logged_in'):
         ofert_sinAsig = requests.get('http://127.0.0.1:5000/empresas/ofertas', params={'estado': 'SIN ASIGNAR'})
         ofertas_nuevas = ofert_sinAsig.json()
-        return render_template('verOfertas.html', ofertas=ofertas_nuevas)
+        id_usuario = get_id_by_user(username=session['username'])
+        oferta_asignada = requests.get('http://127.0.0.1:5000/empresas/ofertas/%s' % id_usuario).json()
+        return render_template('verOfertas.html', ofertas=ofertas_nuevas, oferta_asignada=oferta_asignada)
 
 @app.route('/ver_skills_alumnos')
 @login_required
@@ -280,7 +281,7 @@ def perfil():
         emp = get_emp(username=session['username'])
         alum = get_alumn(username=session['username'])
         adm = get_adm(username=session['username'])
-        return render_template('perfil.html', username=session['username'], emp=emp, alum=alum, adm=adm)
+        return render_template('perfil.html', username=session['username'], emp=emp, alum=alum, adm=adm, ofertas=ofertas)
 
 @app.route('/recomendarOfertas', methods=["GET","POST"])
 @login_required
@@ -597,18 +598,20 @@ def get_ofertas():
     else:
         return jsonify({"mensaje": "No se encuentra la oferta que busca"})
 
-'''#############################################################
+#############################################################
 @app.route('/empresas/ofertas/<string:alumno_id>', methods = ['GET'])
 def get_oferta_by_alumno_id(alumno_id):
-    ofert = comprobar_oferta_alum(alumno_id)
-    print(ofert)
-    oferta_alum = Ofertas.get_by_id(ofert)
-    serializer = OfertasSchema()
-    data = serializer.dump(oferta_alum)
-    if not ofert:
+    try:
+        ofert = comprobar_oferta_alum(alumno_id)
+        oferta_alum = Ofertas.get_by_id(ofert)
+        serializer = OfertasSchema()
+        data = serializer.dump(oferta_alum)
         return jsonify(data)
+    except:
+        return jsonify({"mensaje": "No se le ha asignado ninguna oferta a este usuario."})
 
-#############################################################'''
+
+#############################################################
 
 @app.route('/ofertas/<string:job_id>', methods = ['GET'])
 def get_ofertas_by_id(job_id):
