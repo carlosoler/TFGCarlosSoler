@@ -94,22 +94,22 @@ def main():
             flash('Contraseña incorrecta')
     return render_template('login.html', page=page)
 
-@app.route('/resgistroUsuario', methods=["GET", "POST"])
+@app.route('/template/resgistroUsuario', methods=["GET", "POST"])
 def registro_usuario():
     if request.method == 'POST':
         user = {
-                    "apellido": request.form.get('apellido'),
-                    "email": request.form.get('email'),
-                    "nombre": request.form.get('nombre'),
-                    "password": request.form.get('pass'),
-                    "telefono": request.form.get('tel'),
-                    "username": request.form.get('username')
-                }
+                "apellido": request.form.get('apellido'),
+                "email": request.form.get('email'),
+                "nombre": request.form.get('nombre'),
+                "password": request.form.get('pass'),
+                "telefono": request.form.get('tel'),
+                "username": request.form.get('username')
+        }
         requests.post('http://127.0.0.1:5000/alumnos', json=user)
         flash("Usuario creado correctamente. Por favor inicie sesión con su usuario")
     return render_template('registroUsuario.html')
 
-@app.route('/resgistroEmpresa', methods=["GET", "POST"])
+@app.route('/template/resgistroEmpresa', methods=["GET", "POST"])
 def registro_empresa():
     if request.method == 'POST':
         empresa = {
@@ -123,13 +123,13 @@ def registro_empresa():
         flash("Empresa creada correctamente. Por favor inicie sesión con su usuario")
     return render_template('registroEmpresa.html')
 
-@app.route('/home')
+@app.route('/template/home')
 @login_required
 def home():
     if session.get('logged_in'):
         return render_template('home.html', username=session['username'])
 
-@app.route('/crearOfertas', methods=["GET", "POST"])
+@app.route('/template/crearOfertas', methods=["GET", "POST"])
 @login_required
 @restricted_access_toAlumn
 def crearOfertas():
@@ -166,7 +166,7 @@ def crearOfertas():
             flash("Oferta creada correctamente.")
         return render_template('crearOfertas.html')
 
-@app.route('/mod_alumno', methods=["GET", "POST"])
+@app.route('/template/modificar_alumno', methods=["GET", "POST"])
 @login_required
 @restricted_access_toEmp
 def modificar_alumnos():
@@ -187,7 +187,7 @@ def modificar_alumnos():
             flash("Alumno modificado")
         return render_template('modificarAlumno.html')
 
-@app.route('/mod_emp', methods=["GET", "POST"])
+@app.route('/template/modificar_empresa', methods=["GET", "POST"])
 @login_required
 @restricted_access_toAlumn
 def modificar_empresas():
@@ -205,7 +205,7 @@ def modificar_empresas():
             flash("Empresa modificada")
         return render_template('modificarEmpresa.html')
 
-@app.route('/asignarOfertas', methods=["GET", "POST"])
+@app.route('/template/asignarOfertas', methods=["GET", "POST"])
 @login_required
 @onlyAdmin
 def asignarOfertas():
@@ -233,7 +233,7 @@ def asignarOfertas():
 
     return render_template('asignarOfertas.html', ofertas_nuevas=ofertas_nuevas, alumnos_sinOfertas=alumnos_sinOfertas)
 
-@app.route('/mostrar_skills')
+@app.route('/template/mostrar_CV')
 @login_required
 @restricted_access_toEmp
 def mostrar_skills():
@@ -243,7 +243,7 @@ def mostrar_skills():
         lista_skills = skills.json()
         return render_template('mostrar_skills.html', skill=lista_skills, username=session['username'])
 
-@app.route('/ver_alumnos')
+@app.route('/template/ver_alumnos')
 @login_required
 @restricted_access_toAlumn
 def ver_alumnos():
@@ -252,7 +252,7 @@ def ver_alumnos():
         alumnos_sinOfertas = alumno_sinOfer.json()
         return render_template('verAlumnos.html', alumnos=alumnos_sinOfertas)
 
-@app.route('/ver_ofertas')
+@app.route('/template/ver_ofertas')
 @login_required
 @restricted_access_toEmp
 def ver_ofertas():
@@ -263,7 +263,7 @@ def ver_ofertas():
         oferta_asignada = requests.get('http://127.0.0.1:5000/empresas/ofertas/%s' % id_usuario).json()
         return render_template('verOfertas.html', ofertas=ofertas_nuevas, oferta_asignada=oferta_asignada)
 
-@app.route('/ver_skills_alumnos')
+@app.route('/template/ver_skills_alumnos')
 @login_required
 @restricted_access_toAlumn
 def ver_skills_alumnos():
@@ -274,16 +274,16 @@ def ver_skills_alumnos():
         lista_skills = skills.json()
         return render_template('mostrar_skills.html', skill=lista_skills, username=usuario)
 
-@app.route('/perfil')
+@app.route('/template/perfil')
 @login_required
 def perfil():
     if session.get('logged_in'):
         emp = get_emp(username=session['username'])
         alum = get_alumn(username=session['username'])
         adm = get_adm(username=session['username'])
-        return render_template('perfil.html', username=session['username'], emp=emp, alum=alum, adm=adm, ofertas=ofertas)
+        return render_template('perfil.html', username=session['username'], emp=emp, alum=alum, adm=adm)
 
-@app.route('/recomendarOfertas', methods=["GET","POST"])
+@app.route('/template/recomendarOfertas', methods=["GET","POST"])
 @login_required
 #@restricted_access_toAlumnConOferta
 def recomendarOfertas():
@@ -295,7 +295,7 @@ def recomendarOfertas():
             return render_template('recomendarOfertas.html', username=session['username'], ejemplo=ejemplo)
         return render_template('recomendarOfertas.html', username=session['username'])
 
-@app.route('/survey', methods=["GET", "POST"])
+@app.route('/template/crearCV', methods=["GET", "POST"])
 @login_required
 @restricted_access_toEmp
 def survey():
