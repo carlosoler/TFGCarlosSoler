@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03aeef67-12c3-434c-b4d3-429b4ce5868e" name="Changes" comment="Cambio de nombre de rutas">
-      <change afterPath="$PROJECT_DIR$/Proyecto/templates/ver_CV_alumnos.html" afterDir="false" />
+    <list default="true" id="03aeef67-12c3-434c-b4d3-429b4ce5868e" name="Changes" comment="Correciones de la aplicación">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/verAlumnos.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/verAlumnos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/templates/mostrar_skills.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/mostrar_skills.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/templates/recomendarOfertas.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/recomendarOfertas.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/templates/verOfertas.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/verOfertas.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,25 +44,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/carlosoler/Documents/GitHub/TFGv2/TFGCarlosSoler/Proyecto/templates",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/carlosoler/Documents/GitHub/TFGv2/TFGCarlosSoler/Proyecto/templates&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PythonContentEntriesConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Proyecto/templates" />
       <recent name="$PROJECT_DIR$/Proyecto/static/js" />
       <recent name="$PROJECT_DIR$/Proyecto/static/images" />
       <recent name="$PROJECT_DIR$/Proyecto/static/css/home" />
-      <recent name="$PROJECT_DIR$/Proyecto/templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Proyecto/static/images" />
@@ -136,7 +135,8 @@
       <workItem from="1675072577607" duration="911000" />
       <workItem from="1675101463747" duration="5272000" />
       <workItem from="1675188645130" duration="3770000" />
-      <workItem from="1675273385697" duration="6323000" />
+      <workItem from="1675273385697" duration="6653000" />
+      <workItem from="1675362639425" duration="851000" />
     </task>
     <task id="LOCAL-00001" summary="Modificar alumos y ofertas">
       <created>1662483292536</created>
@@ -229,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675277060896</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Correciones de la aplicación">
+      <created>1675281548092</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1675281548092</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,11 +266,12 @@
     <MESSAGE value="Modelo R funcional" />
     <MESSAGE value="Posibilidad de ver si un alumno tiene ofertas asignadas" />
     <MESSAGE value="Cambio de nombre de rutas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambio de nombre de rutas" />
+    <MESSAGE value="Correciones de la aplicación" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correciones de la aplicación" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TFGCarlosSoler$back.coverage" NAME="programa Coverage Results" MODIFIED="1657201505306" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/" />
-    <SUITE FILE_PATH="coverage/TFGCarlosSoler$programa.coverage" NAME="programa Coverage Results" MODIFIED="1675281058088" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/" />
+    <SUITE FILE_PATH="coverage/TFGCarlosSoler$programa.coverage" NAME="programa Coverage Results" MODIFIED="1675363283763" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/" />
     <SUITE FILE_PATH="coverage/TFGCarlosSoler$front.coverage" NAME="front Coverage Results" MODIFIED="1656347690021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/front" />
   </component>
 </project>

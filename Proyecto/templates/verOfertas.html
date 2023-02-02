@@ -101,7 +101,7 @@
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 <h2>Ofertas disponibles</h2>
-                <p class="text-muted lead">Para acceder las ofertas que más se ajustan a tu CV accede a la pestaña de Recomendacion dentro de la sección Alumnos o pulsa <a href="{{ url_for('recomendarOfertas')}}">aquí</a>.</p>
+                <p class="text-muted lead">Para buscar las ofertas que más se ajustan a tu CV accede a la pestaña de Recomendacion dentro de la sección Alumnos o pulsa <a href="{{ url_for('recomendarOfertas')}}">aquí</a>.</p>
                 {% if not oferta_asignada.mensaje %}
                    <p class="text-muted lead">Actualmente cuenta con la siguiente oferta asignada: {{ oferta_asignada.job_tittle }} en {{ oferta_asignada.ciudad }}</p>
                 {% else %}
