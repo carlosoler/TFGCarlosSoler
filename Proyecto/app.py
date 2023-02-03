@@ -263,6 +263,16 @@ def ver_ofertas():
         oferta_asignada = requests.get('http://127.0.0.1:5000/empresas/ofertas/%s' % id_usuario).json()
         return render_template('verOfertas.html', ofertas=ofertas_nuevas, oferta_asignada=oferta_asignada)
 
+@app.route('/template/ver_mis_ofertas_creadas')
+@login_required
+@restricted_access_toAlumn
+def ver_mis_ofertas_creadas():
+    if session.get('logged_in'):
+        id_user_session = get_empID_username(session['username'])
+        emp = requests.get('http://127.0.0.1:5000/empresas/%s' % id_user_session).json()['empresa_nombre']
+        ofertas_creadas = requests.get('http://127.0.0.1:5000/empresas/%s/ofertas' % id_user_session).json()
+        return render_template('verMisOfertasCreadas.html', ofertas=ofertas_creadas, emp=emp)
+
 @app.route('/template/ver_skills_alumnos')
 @login_required
 @restricted_access_toAlumn

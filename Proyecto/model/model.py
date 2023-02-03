@@ -43,7 +43,7 @@ def get_user_tableSkill_id(username):
     return db.session.query(Alumno.alumno_id).order_by(Alumno.alumno_id.desc()).filter_by(username=username).first().alumno_id
 
 def get_empID_username(username):
-    return db.session.query(Empresa.empresa_id).order_by(Empresa.empresa_id.desc()).filter_by(username=username).first().empresa.id
+    return db.session.query(Empresa.empresa_id).order_by(Empresa.empresa_id.desc()).filter_by(username=username).first().empresa_id
 
 def get_Skill_id_by_alumno_id(alumno_id):
     return db.session.query(CV.id).order_by(CV.id.desc()).filter_by(alumno_id=alumno_id).first().id

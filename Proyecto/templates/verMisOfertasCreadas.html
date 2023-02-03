@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'css/home/newhome.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'fonts/icomoon/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/home/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/home/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'vendor/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'vendor/animate/animate.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'vendor/select2/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'vendor/perfect-scrollbar/perfect-scrollbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/verAlumn/util.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/verAlumn/main.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://techsolutionshere.com/wp-content/themes/techsolution/assets/blog-post-css-js/meanmenu.css">
+    <title>Ver mis ofertas</title>
+  </head>
+  <body>
+  <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+      <div class="navbar-area">
+        <div class="mobile-nav">
+            <a href="#" class="logo">
+                Logo
+            </a>
+        </div>
+        <div class="main-nav">
+            <div class="container">
+                <nav class="navbar navbar-expand-md navbar-light">
+                    <span class="login100-form-logo">
+                        <img src="{{ url_for('static', filename='images/logo.png') }}" class="brand_logo" alt="Logo" width="60" height="60">
+                    </span>
+                    <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a href="{{ url_for('home')}}" class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link dropdown-toggle">Alumnos</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a href="{{ url_for('survey')}}" class="nav-link">Crear/Modificar CV</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ url_for('mostrar_skills')}}" class="nav-link">Mostrar mi CV</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ url_for('ver_ofertas')}}" class="nav-link">Ver ofertas</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ url_for('recomendarOfertas')}}" class="nav-link">Recomendacion</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ url_for('modificar_alumnos')}}" class="nav-link">Modificar perfil</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link dropdown-toggle">Empresas</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a href="{{ url_for('crearOfertas')}}" class="nav-link">Crear ofertas</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ url_for('ver_alumnos')}}" class="nav-link">Ver alumnos</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ url_for('modificar_empresas')}}" class="nav-link">Modificar perfil</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link dropdown-toggle">Admin</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a href="{{ url_for('asignarOfertas') }}" class="nav-link">Asignar Ofertas</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ url_for('perfil')}}" class="nav-link">Perfil</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ url_for('logout')}}" class="nav-link">Cerrar Sesión</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    </header>
+    </br>
+    </br>
+    <section class="py-5 section-1">
+    <div class="container py-5 text-center">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2>Todas mis ofertas</h2>
+                <p class="text-muted lead">Se muestran todas las ofertas creadas por la empresa: {{ emp }}</p>
+            </div>
+        </div>
+    </div>
+    </section>
+    <div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100 ver1 m-b-110">
+					<div class="table100-head">
+						<table>
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column1">Titulo trabajo</th>
+									<th class="cell100 column2">Ciudad</th>
+                                    <th class="cell100 column3">Nombre contacto</th>
+                                    <th class="cell100 column4">Teléfono contacto</th>
+                                    <th class="cell100 column5">Estado oferta</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+
+					<div class="table100-body js-pscroll">
+						<table>
+							<tbody>
+                            {% for oferta in ofertas %}
+								<tr class="row100 body">
+									<td class="cell100 column1">{{ oferta.job_tittle }}</td>
+									<td class="cell100 column2">{{ oferta.ciudad }}</td>
+                                    <td class="cell100 column3">{{ oferta.nombre_contacto }}</td>
+                                    <td class="cell100 column4">{{ oferta.telefono }}</td>
+                                    <td class="cell100 column5">{{ oferta.estado }}</td>
+								</tr>
+                            {% endfor %}
+							</tbody>
+						</table>
+					</div>
+				</div>
+            </div>
+        </div>
+    </div>
+  </body>
+    <script src="{{ url_for('static', filename= 'js/home/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'js/home/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'js/home/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'js/home/jquery.sticky.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'js/home/main.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'vendor/bootstrap/js/popper.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'vendor/select2/select2.min.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'vendor/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+</html>
