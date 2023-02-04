@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03aeef67-12c3-434c-b4d3-429b4ce5868e" name="Changes" comment="Cambios en la memoria y borrado archivos innecesarios en motor R">
+    <list default="true" id="03aeef67-12c3-434c-b4d3-429b4ce5868e" name="Changes" comment="Cambios en la memoria, mejoras en algorimo R">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Proyecto/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/mostrar_skills.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/mostrar_skills.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/perfil.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/perfil.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/recomendarOfertas.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/recomendarOfertas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/verAlumnos.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/verAlumnos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/verMisOfertasCreadas.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/verMisOfertasCreadas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/verOfertas.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/verOfertas.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/gisi-tfg-csoler-memoria-curso-2022 (vLimpio).docx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/gisi-tfg-csoler-memoria-curso-2022 (vLimpio).docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/apis.R" beforeDir="false" afterPath="$PROJECT_DIR$/motorR/4098796/apis.R" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/vecinos_ofertas_nuevas.xlsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +137,7 @@
       <workItem from="1675273385697" duration="6653000" />
       <workItem from="1675362639425" duration="971000" />
       <workItem from="1675365238112" duration="3467000" />
-      <workItem from="1675453310962" duration="1644000" />
+      <workItem from="1675453310962" duration="3179000" />
     </task>
     <task id="LOCAL-00001" summary="Modificar alumos y ofertas">
       <created>1662483292536</created>
@@ -266,7 +258,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675453975935</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Cambios en la memoria, mejoras en algorimo R">
+      <created>1675529488408</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1675529488408</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,11 +299,12 @@
     <MESSAGE value="Boton volver atrás en ver CV" />
     <MESSAGE value="Las empresas pueden ver sus empresas creadas" />
     <MESSAGE value="Cambios en la memoria y borrado archivos innecesarios en motor R" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambios en la memoria y borrado archivos innecesarios en motor R" />
+    <MESSAGE value="Cambios en la memoria, mejoras en algorimo R" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambios en la memoria, mejoras en algorimo R" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TFGCarlosSoler$back.coverage" NAME="programa Coverage Results" MODIFIED="1657201505306" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/" />
-    <SUITE FILE_PATH="coverage/TFGCarlosSoler$programa.coverage" NAME="programa Coverage Results" MODIFIED="1675526934140" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/" />
+    <SUITE FILE_PATH="coverage/TFGCarlosSoler$programa.coverage" NAME="programa Coverage Results" MODIFIED="1675530652621" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/" />
     <SUITE FILE_PATH="coverage/TFGCarlosSoler$front.coverage" NAME="front Coverage Results" MODIFIED="1656347690021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/front" />
   </component>
 </project>
