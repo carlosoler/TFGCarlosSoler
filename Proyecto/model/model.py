@@ -502,7 +502,7 @@ class EmpresaSchemaSinPass(Schema):
 
 class Admin(db.Model):
     __tablename__ = 'admin'
-    admin_id = db.Column(db.Integer, primary_key=True)
+    admin_id = db.Column(db.Integer, primary_key=True, nullable=False)
     username = db.Column(db.String, unique=True)
     password = db.Column(db.String)
 

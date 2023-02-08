@@ -1,5 +1,4 @@
 from functools import wraps
-
 import sqlalchemy
 from flask import jsonify
 
@@ -18,6 +17,7 @@ from model.model import db, get_user_id, Alumno, get_user_by_id, CV, get_tableSk
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:qwerty@localhost:5432/JOBS'
+#app.config['SQLALCHEMY_DATABASE_URI']= 'postgresql://jobs_3k7e_user:W2JCKxXFPMyoDP0Ncmts5RRxIR1Lu5PJ@dpg-cfgklvg2i3mg6pdroq50-a.frankfurt-postgres.render.com/jobs_3k7e'
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.secret_key = '8d438b8cca764385ae8652fefd10487c7eec02a7c5a6fb471ad8ccff0412405d'
 
@@ -705,4 +705,5 @@ def internal_server(error):
     return jsonify({"mensaje": "Este método no está permitido"}), 405
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run()
+

@@ -4,10 +4,51 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03aeef67-12c3-434c-b4d3-429b4ce5868e" name="Changes" comment="Cambios en la memoria, mejoras en algorimo R">
+    <list default="true" id="03aeef67-12c3-434c-b4d3-429b4ce5868e" name="Changes" comment="Mejora de la memoria">
+      <change afterPath="$PROJECT_DIR$/Proyecto/motorR/4098796/apis.R" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Proyecto/motorR/4098796/llamadaAPIS.R" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Proyecto/motorR/4098796/project.Rproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/model/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/model/model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/gisi-tfg-csoler-memoria-curso-2022 (vLimpio).docx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/gisi-tfg-csoler-memoria-curso-2022 (vLimpio).docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rhistory" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/pcs/debug-breakpoints.pper" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/pcs/files-pane.pper" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/pcs/source-pane.pper" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/pcs/windowlayoutstate.pper" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/pcs/workbench-pane.pper" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/persistent-state" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/saved_source_markers" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/sources/prop/DF5F6EB7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/sources/prop/F240A1A7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/sources/prop/INDEX" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/sources/s-820b9a06/08AD682C" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/sources/s-820b9a06/08AD682C-contents" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/sources/s-820b9a06/2ECF9EF2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/sources/s-820b9a06/2ECF9EF2-contents" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/sources/s-820b9a06/76A720BD-contents" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/sources/s-820b9a06/C7C9E2EC-contents" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/sources/s-820b9a06/suspend_file" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/ctx/ctx-8787/console_actions" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/ctx/ctx-8787/environment" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/ctx/ctx-8787/environment_vars" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/ctx/ctx-8787/history" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/ctx/ctx-8787/libpaths" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/ctx/ctx-8787/options" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/ctx/ctx-8787/rversion" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/ctx/ctx-8787/settings" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/pcs/files-pane.pper" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/pcs/source-pane.pper" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/pcs/windowlayoutstate.pper" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/pcs/workbench-pane.pper" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/persistent-state" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/shared/RVersion" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/shared/notebooks/patch-chunk-names" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/shared/notebooks/paths" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/apis.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/llamadaAPIS.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorR/4098796/project.Rproj" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +89,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/carlosoler/Documents/GitHub/TFGv2/TFGCarlosSoler/Proyecto/templates&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/carlosoler/Documents/GitHub/TFGv2/TFGCarlosSoler/Proyecto&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -58,17 +99,50 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Proyecto" />
       <recent name="$PROJECT_DIR$/Proyecto/templates" />
       <recent name="$PROJECT_DIR$/Proyecto/static/js" />
       <recent name="$PROJECT_DIR$/Proyecto/static/images" />
       <recent name="$PROJECT_DIR$/Proyecto/static/css/home" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Proyecto/static/images" />
       <recent name="$PROJECT_DIR$/Proyecto" />
+      <recent name="$PROJECT_DIR$/Proyecto/static/images" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Shell Script.execute_TFG.sh">
+    <configuration name="R" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="TFGCarlosSoler" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Proyecto" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </EXTENSION>
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Proyecto/R.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="programa" type="PythonConfigurationType" factoryName="Python">
       <module name="TFGCarlosSoler" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -101,6 +175,48 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="TFG" type="ShConfigurationType" singleton="false">
+      <option name="SCRIPT_TEXT" value="" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/Proyecto/execute_TFG.sh" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="/bin/zsh" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <option name="EXECUTE_SCRIPT_FILE" value="true" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="execute_TFG.sh" type="ShConfigurationType" temporary="true">
+      <option name="SCRIPT_TEXT" value="" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/Proyecto/execute_TFG.sh" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$/Proyecto" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="/bin/zsh" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <option name="EXECUTE_SCRIPT_FILE" value="true" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.programa" />
+      <item itemvalue="Python.R" />
+      <item itemvalue="Shell Script.TFG" />
+      <item itemvalue="Shell Script.execute_TFG.sh" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Shell Script.execute_TFG.sh" />
+        <item itemvalue="Python.R" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -137,7 +253,11 @@
       <workItem from="1675273385697" duration="6653000" />
       <workItem from="1675362639425" duration="971000" />
       <workItem from="1675365238112" duration="3467000" />
-      <workItem from="1675453310962" duration="3179000" />
+      <workItem from="1675453310962" duration="3343000" />
+      <workItem from="1675707425593" duration="4807000" />
+      <workItem from="1675866984787" duration="2007000" />
+      <workItem from="1675869516444" duration="830000" />
+      <workItem from="1675871193660" duration="255000" />
     </task>
     <task id="LOCAL-00001" summary="Modificar alumos y ofertas">
       <created>1662483292536</created>
@@ -265,7 +385,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675529488408</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Mejora de la memoria">
+      <created>1675531371199</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1675531371199</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,11 +427,13 @@
     <MESSAGE value="Las empresas pueden ver sus empresas creadas" />
     <MESSAGE value="Cambios en la memoria y borrado archivos innecesarios en motor R" />
     <MESSAGE value="Cambios en la memoria, mejoras en algorimo R" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambios en la memoria, mejoras en algorimo R" />
+    <MESSAGE value="Mejora de la memoria" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mejora de la memoria" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TFGCarlosSoler$back.coverage" NAME="programa Coverage Results" MODIFIED="1657201505306" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/" />
-    <SUITE FILE_PATH="coverage/TFGCarlosSoler$programa.coverage" NAME="programa Coverage Results" MODIFIED="1675530652621" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/" />
+    <SUITE FILE_PATH="coverage/TFGCarlosSoler$programa.coverage" NAME="programa Coverage Results" MODIFIED="1675868584135" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/" />
     <SUITE FILE_PATH="coverage/TFGCarlosSoler$front.coverage" NAME="front Coverage Results" MODIFIED="1656347690021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto/front" />
+    <SUITE FILE_PATH="coverage/TFGCarlosSoler$prueba.coverage" NAME="prueba Coverage Results" MODIFIED="1675868671179" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proyecto" />
   </component>
 </project>
