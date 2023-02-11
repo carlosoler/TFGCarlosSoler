@@ -13,7 +13,7 @@ from model.model import db, get_user_id, Alumno, get_user_by_id, CV, get_tableSk
     get_empId_byNameEmpresa, AlumnoSchema, AlumnoSchemaSinPass, EmpresaSchemaSinPass, EmpresaSchema, \
     CVSchema, get_Skill_id_by_alumno_id, get_Skills_by_alumno_id, get_SkillID_by_alumno_id, Ofertas, OfertasSchema, \
     get_ofer_id, get_ofertas_by_emp_id, get_ofertasid_by_emp_id, get_empNombre_byid, get_ofertasSinAsignar, \
-    get_alum_sin_ofertas, get_oferta_by_empID_jobID, get_EmpresaID_by_job_id, comprobar_oferta_alum, get_empID_username, get_CV_ofertaAsignada
+    get_alum_sin_ofertas, get_oferta_by_empID_jobID, get_EmpresaID_by_job_id, comprobar_oferta_alum, get_empID_username, get_CV_ofertaAsignada, comprobar_alum
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:qwerty@localhost:5432/jobs'
@@ -51,17 +51,15 @@ def restricted_access_toEmp(func):
         return func()
     return wrappper_restricted_access
 
-'''def restricted_access_toAlumnConOferta(func):
+def restricted_access_toAlumnConOferta(func):
     @wraps(func)
     def wrappper_restricted_access():
-        alum = comprobar_oferta_alum(get_id_by_user(session['username']))
-        print(get_id_by_user(session['username']))
-        print(alum)
-        if not alum:
+        alum = comprobar_alum(get_id_by_user(session['username']))
+        if alum:
             flash('Este nombre de usuario tiene ya una oferta asignada')
             return redirect(url_for('home'))
         return func()
-    return wrappper_restricted_access'''
+    return wrappper_restricted_access
 
 def onlyAdmin(func):
     @wraps(func)
@@ -294,7 +292,8 @@ def perfil():
 
 @app.route('/template/recomendarOfertas', methods=["GET","POST"])
 @login_required
-#@restricted_access_toAlumnConOferta
+@restricted_access_toEmp
+@restricted_access_toAlumnConOferta
 def recomendarOfertas():
     if session.get('logged_in'):
         id = get_id_by_user(session['username'])

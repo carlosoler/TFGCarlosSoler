@@ -87,38 +87,38 @@
 </header>
 </br>
 </br>
-</br>
-<p>
-    <div id="boxperfil">
-        <div class ="imagenPerfil">
-            <img src="{{ url_for('static', filename='images/perfil.jpg') }}" alt="" />
+<section class="py-5 section-1">
+    <div class="container py-5 text-center">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <img width="250" height="250" src="{{ url_for('static', filename='images/perfil.jpg') }}" alt="" />
+                <h1> <br>Bienvenido, <b> {{ username }} </b></h1>
+                {% if emp %}
+                    <h1><br>Tu tipo de cuenta: Empresa</h1>
+                {% elif alum %}
+                    <h1><br>Tu tipo de cuenta: Alumno</h1>
+                {% elif adm %}
+                    <h1><br>Tu tipo de cuenta: Administrador</h1>
+                {% endif %}
+                {% if emp %}
+                    <h1><br>Tu email es: {{ emp.email }}</h1>
+                {% elif alum %}
+                    <h1><br>Tu email es: {{ alum.email }}</h1>
+                {% endif %}
+                {% if emp %}
+                    <h1><br>Tu teléfono es: {{ emp.telefono }}</h1>
+                {% elif alum %}
+                    <h1><br>Tu teléfono es: {{ alum.telefono }}</h1>
+                {% endif %}
+                {% if emp %}
+                    <h6><br>Si desea cambiar alguno de sus datos acceda a modificar perfil en la seccion de Empresas o <a href="{{ url_for('modificar_empresas')}}">pulse aquí</a>.</h6>
+                {% elif alum %}
+                    <h6><br>Si desea cambiar alguno de sus datos acceda a modificar perfil en la seccion de Alumnos o <a href="{{ url_for('modificar_alumnos')}}">pulse aquí</a>.</h6>
+                {% endif %}
+            </div>
         </div>
-        <h1> <br>Bienvenido, <b> {{ username }} </b></h1>
-        {% if emp %}
-            <h1><br>Tu tipo de cuenta: Empresa</h1>
-        {% elif alum %}
-            <h1><br>Tu tipo de cuenta: Alumno</h1>
-        {% elif adm %}
-            <h1><br>Tu tipo de cuenta: Administrador</h1>
-        {% endif %}
-        {% if emp %}
-            <h1><br>Tu email es: {{ emp.email }}</h1>
-        {% elif alum %}
-            <h1><br>Tu email es: {{ alum.email }}</h1>
-        {% endif %}
-        {% if emp %}
-            <h1><br>Tu teléfono es: {{ emp.telefono }}</h1>
-        {% elif alum %}
-            <h1><br>Tu teléfono es: {{ alum.telefono }}</h1>
-        {% endif %}
-        {% if emp %}
-            <h6><br>Si desea cambiar alguno de sus datos acceda a modificar perfil en la seccion de Empresas o <a href="{{ url_for('modificar_empresas')}}">pulse aquí</a>.</h6>
-        {% elif alum %}
-            <h6><br>Si desea cambiar alguno de sus datos acceda a modificar perfil en la seccion de Alumnos o <a href="{{ url_for('modificar_alumnos')}}">pulse aquí</a>.</h6>
-        {% endif %}
     </div>
-</p>
-
+</section>
 
     <script src="{{ url_for('static', filename= 'js/home/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ url_for('static', filename= 'js/home/popper.min.js') }}"></script>

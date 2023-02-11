@@ -136,7 +136,7 @@ iframe {
 [ Table ]*/
 
 .limiter {
-  width: 1366px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -157,7 +157,7 @@ iframe {
 }
 
 .wrap-table100 {
-  width: 1170px;
+  width: 100%;
 }
 
 /*//////////////////////////////////////////////////////////////////
