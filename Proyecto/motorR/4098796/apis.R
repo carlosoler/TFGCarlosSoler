@@ -38,7 +38,7 @@ recomendacion_alumno_nuevo <- function(id_alum) {
   df_ofertas_nuevas<-ofertas_sin_estado[ofertas_sin_estado$estado == "SIN ASIGNAR",]
   
   #GET CV alumnos con ofertas asignadas
-  uri_alum_con_ofertas = 'http://127.0.0.1:5000/alumnos/CV/oferta_asignada'
+  uri_alum_con_ofertas = 'http://127.0.0.1:5000/ofertas/cvs?estado=ASIGNADA'
   curl_uri_CV_alumnos_con_ofertas <- curl_fetch_memory(uri_alum_con_ofertas)
   json_CValum_con_ofertas1 <- jsonlite::prettify(rawToChar(curl_uri_CV_alumnos_con_ofertas$content))
   json_CValum_con_ofertas2 <- fromJSON(json_CValum_con_ofertas1)

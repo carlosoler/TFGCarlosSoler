@@ -5,50 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03aeef67-12c3-434c-b4d3-429b4ce5868e" name="Changes" comment="Mejora de la memoria">
-      <change afterPath="$PROJECT_DIR$/Proyecto/motorR/4098796/apis.R" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Proyecto/motorR/4098796/llamadaAPIS.R" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Proyecto/motorR/4098796/project.Rproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/R.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/R.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Proyecto/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/model/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/model/model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/execute_TFG.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/execute_TFG.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/motorR/4098796/apis.R" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/motorR/4098796/apis.R" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/gisi-tfg-csoler-memoria-curso-2022 (vLimpio).docx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/gisi-tfg-csoler-memoria-curso-2022 (vLimpio).docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rhistory" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/pcs/debug-breakpoints.pper" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/pcs/files-pane.pper" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/pcs/source-pane.pper" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/pcs/windowlayoutstate.pper" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/pcs/workbench-pane.pper" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/persistent-state" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/saved_source_markers" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/sources/prop/DF5F6EB7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/sources/prop/F240A1A7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/sources/prop/INDEX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/sources/s-820b9a06/08AD682C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/sources/s-820b9a06/08AD682C-contents" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/sources/s-820b9a06/2ECF9EF2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/sources/s-820b9a06/2ECF9EF2-contents" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/sources/s-820b9a06/76A720BD-contents" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/sources/s-820b9a06/C7C9E2EC-contents" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/A40EB7E7/sources/s-820b9a06/suspend_file" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/ctx/ctx-8787/console_actions" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/ctx/ctx-8787/environment" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/ctx/ctx-8787/environment_vars" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/ctx/ctx-8787/history" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/ctx/ctx-8787/libpaths" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/ctx/ctx-8787/options" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/ctx/ctx-8787/rversion" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/ctx/ctx-8787/settings" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/pcs/files-pane.pper" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/pcs/source-pane.pper" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/pcs/windowlayoutstate.pper" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/pcs/workbench-pane.pper" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/persistent-state" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/shared/RVersion" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/shared/notebooks/patch-chunk-names" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/.Rproj.user/shared/notebooks/paths" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/apis.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/llamadaAPIS.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motorR/4098796/project.Rproj" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -258,6 +220,7 @@
       <workItem from="1675866984787" duration="2007000" />
       <workItem from="1675869516444" duration="830000" />
       <workItem from="1675871193660" duration="255000" />
+      <workItem from="1678898376262" duration="4545000" />
     </task>
     <task id="LOCAL-00001" summary="Modificar alumos y ofertas">
       <created>1662483292536</created>

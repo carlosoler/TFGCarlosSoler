@@ -257,7 +257,7 @@ def ver_ofertas():
         ofert_sinAsig = requests.get('http://127.0.0.1:5000/empresas/ofertas', params={'estado': 'SIN ASIGNAR'})
         ofertas_nuevas = ofert_sinAsig.json()
         id_usuario = get_id_by_user(username=session['username'])
-        oferta_asignada = requests.get('http://127.0.0.1:5000/empresas/ofertas/%s' % id_usuario).json()
+        oferta_asignada = requests.get('http://127.0.0.1:5000/ofertas', params={'alumno': id_usuario}).json()
         return render_template('verOfertas.html', ofertas=ofertas_nuevas, oferta_asignada=oferta_asignada)
 
 @app.route('/template/ver_mis_ofertas_creadas')
@@ -371,29 +371,7 @@ def logout():
 ###########################################################################  END-POINTS ###########################################################################
 ###################################################################################################################################################################
 
-'''@app.route('/ofertas', methods = ['POST'])
-def crear_oferta():
-    data = request.get_json()
-    nuevaOferta = Ofertas(job_id=get_ofer_id(), empresa_id=get_empId_byNameEmpresa(data.get("empresa_nombre")), empresa_nombre=data.get("empresa_nombre"),
-        job_tittle=data.get("job_tittle"), ciudad=data.get("ciudad"), grado=data.get("grado"), nota_media=data.get("nota_media"),
-        ingles=data.get("ingles"), aleman=data.get("aleman"), frances=data.get("frances"),
-        trabajo_equipo=data.get("trabajo_equipo"), comunicacion=data.get("comunicacion"), matematicas=data.get("matematicas"),
-        estadistica=data.get("estadistica"), gestion_proyectos=data.get("gestion_proyectos"), sostenibilidad=data.get("sostenibilidad"),
-        big_data=data.get("big_data"), programacion=data.get("programacion"))
-
-    nuevaOferta.save()
-    serializer = OfertasSchema()
-    data = serializer.dump(nuevaOferta)
-    return jsonify(data), 201
-
-@app.route('/ofertas/<int:job_id>', methods = ['DELETE'])
-def borrar_oferta_nueva(job_id):
-    oferta_borrar = Ofertas.get_by_id(job_id)
-    oferta_borrar.delete()
-
-    return jsonify({"message": "Oferta borrada correctamente"}), 204'''
-
-#END-POINTS alumnos
+###########################################################################  ALUMNOS ##############################################################################
 
 @app.route('/alumnos', methods = ['GET'])
 def get_alumnos():
@@ -442,15 +420,6 @@ def crear_alumno_nuevo():
     data = serializer.dump(user)
     return jsonify(data), 201
 
-'''@app.route('/alumnos/<int:alumno_id>', methods = ['DELETE'])
-def borrar_alumno(alumno_id):
-    cv_alumno = get_SkillID_by_alumno_id(alumno_id)
-    cv = CV.get_by_id(cv_alumno)
-    alumno_borrar = Alumno.get_by_id(alumno_id)
-    cv.delete()
-    alumno_borrar.delete()
-    return jsonify({"message": "Alumno borrado correctamente"}), 204'''
-
 @app.route('/alumnos/<string:alumno_id>/CV', methods = ['GET'])
 def get_CV_by_alumno_id(alumno_id):
     cv_id = get_SkillID_by_alumno_id(alumno_id)
@@ -458,15 +427,6 @@ def get_CV_by_alumno_id(alumno_id):
     serializer = CVSchema()
     data = serializer.dump(cv)
     return jsonify(data)
-
-#############################################################
-@app.route('/alumnos/CV/oferta_asignada', methods = ['GET'])
-def get_CV_con_oferta_asignada():
-    cvs = get_CV_ofertaAsignada()
-    serializer = CVSchema(many=True)
-    data = serializer.dump(cvs)
-    return jsonify(data)
-#############################################################
 
 @app.route('/alumnos/<string:alumno_id>/CV', methods = ['POST'])
 def crear_CV_by_alumno_id(alumno_id):
@@ -545,14 +505,7 @@ def modificar_CV_by_alumno_id(alumno_id):
     cv_data = serializer.dump(cv_modificar)
     return jsonify(cv_data), 200
 
-
-'''@app.route('/alumnos/<int:alumno_id>', methods = ['DELETE']) #Solo borra si no tiene skills asociadas, habria que borrar las skills primero
-def borrar_alumno(alumno_id):
-    alumno_borrar = Alumno.get_by_id(alumno_id)
-    alumno_borrar.delete()
-    return jsonify({"message": "Alumno borrado correctamente"}), 204'''
-
-#END-POINTS empresas
+###########################################################################  EMPRESAS ##############################################################################
 
 @app.route('/empresas', methods = ['GET'])
 def get_empresas():
@@ -605,28 +558,6 @@ def get_ofertas():
         return jsonify(data)
     else:
         return jsonify({"mensaje": "No se encuentra la oferta que busca"})
-
-#############################################################
-@app.route('/empresas/ofertas/<string:alumno_id>', methods = ['GET'])
-def get_oferta_by_alumno_id(alumno_id):
-    try:
-        ofert = comprobar_oferta_alum(alumno_id)
-        oferta_alum = Ofertas.get_by_id(ofert)
-        serializer = OfertasSchema()
-        data = serializer.dump(oferta_alum)
-        return jsonify(data)
-    except:
-        return jsonify({"mensaje": "No se le ha asignado ninguna oferta a este usuario."})
-
-
-#############################################################
-
-@app.route('/ofertas/<string:job_id>', methods = ['GET'])
-def get_ofertas_by_id(job_id):
-    oferta = Ofertas.get_by_id(job_id)
-    serializer = OfertasSchema()
-    data = serializer.dump(oferta)
-    return jsonify(data)
 
 @app.route('/empresas/<string:empresa_id>/ofertas', methods = ['GET'])
 def get_ofertas_by_empresaid(empresa_id):
@@ -682,13 +613,51 @@ def mod_ofertas_by_empresaid_job_id(empresa_id, job_id):
     oferta_data = serializer.dump(oferta_mod)
     return jsonify(oferta_data), 200
 
-'''@app.route('/empresas/<int:empresa_id>', methods = ['DELETE'])
-def borrar_empresa(empresa_id):
-    empresa_borrar = Empresa.get_by_id(empresa_id)
-    empresa_borrar.delete()
+###########################################################################  OFERTAS ##############################################################################
 
-    return jsonify({"message": "Empresa borrada correctamente"}), 204'''
+@app.route('/ofertas', methods = ['GET'])
+def ofertas_endpoint():
+    estado = request.args.get("estado")
+    alumno = request.args.get("alumno")
+    if alumno:
+        try:
+            ofert = comprobar_oferta_alum(alumno)
+            oferta_alum = Ofertas.get_by_id(ofert)
+            serializer = OfertasSchema()
+            data = serializer.dump(oferta_alum)
+            return jsonify(data)
+        except:
+            return jsonify({"mensaje": "No se le ha asignado ninguna oferta a este usuario."})
+    elif not estado:
+        oferta = Ofertas.get_all()
+        serializer = OfertasSchema(many=True)
+        data = serializer.dump(oferta)
+        return jsonify(data)
+    elif estado == "SIN ASIGNAR":
+        oferta = get_ofertasSinAsignar()
+        serializer = OfertasSchema(many=True)
+        data = serializer.dump(oferta)
+        return jsonify(data)
+    else:
+        return jsonify({"mensaje": "No se encuentra la oferta que busca"})
 
+@app.route('/ofertas/<string:job_id>', methods = ['GET'])
+def get_ofertas_by_id(job_id):
+    oferta = Ofertas.get_by_id(job_id)
+    serializer = OfertasSchema()
+    data = serializer.dump(oferta)
+    return jsonify(data)
+
+@app.route('/ofertas/cvs', methods = ['GET'])
+def get_CV_con_oferta_asignada():
+    estado = request.args.get("estado")
+    if estado == "ASIGNADA":
+        cvs = get_CV_ofertaAsignada()
+        serializer = CVSchema(many=True)
+        data = serializer.dump(cvs)
+        return jsonify(data)
+    else:
+        return jsonify({"mensaje": "No se encuentra el CV que busca"})
 
 @app.errorhandler(404)
 def not_found(error):
