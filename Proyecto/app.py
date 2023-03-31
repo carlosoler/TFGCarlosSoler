@@ -543,22 +543,6 @@ def crear_empresa_nueva():
     data = serializer.dump(empresa)
     return jsonify(data), 201
 
-@app.route('/empresas/ofertas', methods = ['GET'])
-def get_ofertas():
-    estado = request.args.get("estado")
-    if not estado:
-        oferta = Ofertas.get_all()
-        serializer = OfertasSchema(many=True)
-        data = serializer.dump(oferta)
-        return jsonify(data)
-    elif estado == "SIN ASIGNAR":
-        oferta = get_ofertasSinAsignar()
-        serializer = OfertasSchema(many=True)
-        data = serializer.dump(oferta)
-        return jsonify(data)
-    else:
-        return jsonify({"mensaje": "No se encuentra la oferta que busca"})
-
 @app.route('/empresas/<string:empresa_id>/ofertas', methods = ['GET'])
 def get_ofertas_by_empresaid(empresa_id):
     data = []

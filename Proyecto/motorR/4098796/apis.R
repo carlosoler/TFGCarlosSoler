@@ -134,7 +134,7 @@ recomendacion_alumno_nuevo <- function(id_alum) {
 ofertas_nuevas <- function() {
   
   # Cargo los datos y los ordeno
-  uri = 'http://127.0.0.1:5000/empresas/ofertas'
+  uri = 'http://127.0.0.1:5000/ofertas'
   curl_uri <- curl_fetch_memory(uri)
   json_ofertas1 <- jsonlite::prettify(rawToChar(curl_uri$content))
   json_ofertas2 <- fromJSON(json_ofertas1)
