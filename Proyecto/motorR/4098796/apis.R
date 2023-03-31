@@ -29,7 +29,7 @@ recomendacion_alumno_nuevo <- function(id_alum) {
   df_alum_json <- as.data.frame(json_alum2)
   
   #GET ofertas nuevas
-  uri_ofertas = 'http://127.0.0.1:5000/empresas/ofertas'
+  uri_ofertas = 'http://127.0.0.1:5000/ofertas'
   curl_uri_ofertas <- curl_fetch_memory(uri_ofertas)
   json_ofertas1 <- jsonlite::prettify(rawToChar(curl_uri_ofertas$content))
   json_ofertas2 <- fromJSON(json_ofertas1)

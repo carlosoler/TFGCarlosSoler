@@ -206,7 +206,7 @@ def modificar_empresas():
 @login_required
 @onlyAdmin
 def asignarOfertas():
-    ofert_sinAsig = requests.get('http://127.0.0.1:5000/empresas/ofertas', params={'estado': 'SIN ASIGNAR'})
+    ofert_sinAsig = requests.get('http://127.0.0.1:5000/ofertas', params={'estado': 'SIN ASIGNAR'})
     ofertas_nuevas = ofert_sinAsig.json()
     alumno_sinOfer = requests.get('http://127.0.0.1:5000/alumnos', params={'oferta': 'NO'})
     alumnos_sinOfertas = alumno_sinOfer.json()
@@ -254,7 +254,7 @@ def ver_alumnos():
 @restricted_access_toEmp
 def ver_ofertas():
     if session.get('logged_in'):
-        ofert_sinAsig = requests.get('http://127.0.0.1:5000/empresas/ofertas', params={'estado': 'SIN ASIGNAR'})
+        ofert_sinAsig = requests.get('http://127.0.0.1:5000/ofertas', params={'estado': 'SIN ASIGNAR'})
         ofertas_nuevas = ofert_sinAsig.json()
         id_usuario = get_id_by_user(username=session['username'])
         oferta_asignada = requests.get('http://127.0.0.1:5000/ofertas', params={'alumno': id_usuario}).json()
