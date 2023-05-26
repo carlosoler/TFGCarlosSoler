@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03aeef67-12c3-434c-b4d3-429b4ce5868e" name="Changes" comment="Mejora de la memoria">
-      <change beforePath="$PROJECT_DIR$/Proyecto/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/motorR/4098796/apis.R" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/motorR/4098796/apis.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/gisi-tfg-csoler-memoria-curso-2022 (vLimpio).docx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/gisi-tfg-csoler-memoria-curso-2022 (vLimpio).docx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,6 +221,13 @@
       <workItem from="1679067054747" duration="882000" />
       <workItem from="1679314003348" duration="361000" />
       <workItem from="1680291131004" duration="481000" />
+      <workItem from="1682177109734" duration="1348000" />
+      <workItem from="1683015233812" duration="834000" />
+      <workItem from="1683391506963" duration="1028000" />
+      <workItem from="1683821055103" duration="518000" />
+      <workItem from="1684168458397" duration="260000" />
+      <workItem from="1685036931061" duration="1096000" />
+      <workItem from="1685101535666" duration="1349000" />
     </task>
     <task id="LOCAL-00001" summary="Modificar alumos y ofertas">
       <created>1662483292536</created>
