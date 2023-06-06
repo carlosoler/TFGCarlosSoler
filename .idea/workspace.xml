@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03aeef67-12c3-434c-b4d3-429b4ce5868e" name="Changes" comment="Mejora de la memoria">
+      <change afterPath="$PROJECT_DIR$/Proyecto/backupDB/backup_jobs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/R.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/R.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/execute_TFG.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/execute_TFG.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/venv_TFG.sh" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/gisi-tfg-csoler-memoria-curso-2022 (vLimpio).docx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/gisi-tfg-csoler-memoria-curso-2022 (vLimpio).docx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,23 +42,27 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="26ykUzR4hxWT0MEmHOePHqMhhex" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/carlosoler/Documents/GitHub/TFGWord/TFGCarlosSoler&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/carlosoler/Documents/GitHub/TFGWord/TFGCarlosSoler/Proyecto",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Proyecto" />
@@ -228,7 +236,8 @@
       <workItem from="1684168458397" duration="260000" />
       <workItem from="1685036931061" duration="1096000" />
       <workItem from="1685101535666" duration="1349000" />
-      <workItem from="1686043704874" duration="3317000" />
+      <workItem from="1686043704874" duration="5023000" />
+      <workItem from="1686062668588" duration="1435000" />
     </task>
     <task id="LOCAL-00001" summary="Modificar alumos y ofertas">
       <created>1662483292536</created>
@@ -381,6 +390,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Modificar alumos y ofertas" />
     <MESSAGE value="Cambios en REST" />
     <MESSAGE value="Mojorando HTML" />
