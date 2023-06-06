@@ -23,79 +23,81 @@
   <body>
     
     <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
-      <div class="navbar-area">
-        <div class="mobile-nav">
-            <a href="#" class="logo">
-                Logo
-            </a>
-        </div>
-        <div class="main-nav">
-            <div class="container">
-                <nav class="navbar navbar-expand-md navbar-light">
-                    <span class="login100-form-logo">
-                        <img src="{{ url_for('static', filename='images/logo.png') }}" class="brand_logo" alt="Logo" width="60" height="60">
-                    </span>
-                    <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item">
-                                <a href="{{ url_for('home')}}" class="nav-link">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link dropdown-toggle">Alumnos</a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item">
-                                        <a href="{{ url_for('survey')}}" class="nav-link">Crear/Modificar CV</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ url_for('mostrar_skills')}}" class="nav-link">Mostrar mi CV</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ url_for('ver_ofertas')}}" class="nav-link">Ver ofertas</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ url_for('recomendarOfertas')}}" class="nav-link">Recomendador</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ url_for('modificar_alumnos')}}" class="nav-link">Modificar perfil</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link dropdown-toggle">Empresas</a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item">
-                                        <a href="{{ url_for('crearOfertas')}}" class="nav-link">Crear ofertas</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ url_for('ver_alumnos')}}" class="nav-link">Ver alumnos</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ url_for('modificar_empresas')}}" class="nav-link">Modificar perfil</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link dropdown-toggle">Admin</a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item">
-                                        <a href="{{ url_for('asignarOfertas') }}" class="nav-link">Asignar Ofertas</a>
-                                    </li>
-
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ url_for('perfil')}}" class="nav-link">Perfil</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ url_for('logout')}}" class="nav-link">Cerrar Sesión</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </div>
-    </header>
+  <div class="navbar-area">
+	<div class="mobile-nav">
+		<a href="#" class="logo">
+			Logo
+		</a>
+	</div>
+	<div class="main-nav">
+		<div class="container">
+			<nav class="navbar navbar-expand-md navbar-light">
+                <span class="login100-form-logo">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" class="brand_logo" alt="Logo" width="60" height="60">
+                </span>
+				<div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+					<ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+							<a href="{{ url_for('home')}}" class="nav-link">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link dropdown-toggle">Alumnos</a>
+							<ul class="dropdown-menu">
+								<li class="nav-item">
+									<a href="{{ url_for('survey')}}" class="nav-link">Crear/Modificar CV</a>
+								</li>
+								<li class="nav-item">
+									<a href="{{ url_for('mostrar_skills')}}" class="nav-link">Mostrar mi CV</a>
+								</li>
+								<li class="nav-item">
+									<a href="{{ url_for('ver_ofertas')}}" class="nav-link">Ver ofertas</a>
+								</li>
+								<li class="nav-item">
+									<a href="{{ url_for('recomendarOfertas')}}" class="nav-link">Recomendador</a>
+								</li>
+                                <li class="nav-item">
+									<a href="{{ url_for('modificar_alumnos')}}" class="nav-link">Modificar perfil</a>
+								</li>
+							</ul>
+						</li>
+                        <li class="nav-item">
+							<a class="nav-link dropdown-toggle">Empresas</a>
+							<ul class="dropdown-menu">
+								<li class="nav-item">
+									<a href="{{ url_for('crearOfertas')}}" class="nav-link">Crear ofertas</a>
+								</li>
+                                <li class="nav-item">
+									<a href="{{ url_for('ver_mis_ofertas_creadas')}}" class="nav-link">Ver mis ofertas</a>
+								</li>
+								<li class="nav-item">
+									<a href="{{ url_for('ver_alumnos')}}" class="nav-link">Ver alumnos</a>
+								</li>
+								<li class="nav-item">
+									<a href="{{ url_for('modificar_empresas')}}" class="nav-link">Modificar perfil</a>
+								</li>
+							</ul>
+						</li>
+                        <li class="nav-item">
+							<a class="nav-link dropdown-toggle">Admin</a>
+							<ul class="dropdown-menu">
+								<li class="nav-item">
+									<a href="{{ url_for('asignarOfertas') }}" class="nav-link">Asignar Ofertas</a>
+								</li>
+							</ul>
+						</li>
+						<li class="nav-item">
+							<a href="{{ url_for('perfil')}}" class="nav-link">Perfil</a>
+						</li>
+						<li class="nav-item">
+							<a href="{{ url_for('logout')}}" class="nav-link">Cerrar Sesión</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+</div>
+</header>
     </br>
     </br>
     <section class="py-5 section-1">
@@ -135,7 +137,7 @@
 									<td class="cell100 column2">{{ alumno.apellido }}</td>
 									<td class="cell100 column3">{{ alumno.email }}</td>
 									<td class="cell100 column4">{{ alumno.telefono }}</td>
-                                    <td class="cell100 column5"><a href="http://15.236.156.240:5000/template/ver_skills_alumnos?username={{ alumno.username }}">Pulse aquí</a></td>
+                                    <td class="cell100 column5"><a href="http://15.236.156.240:5000/template/mostrar_skills?username={{ alumno.username }}">Pulse aquí</a></td>
 								</tr>
                             {% endfor %}
 							</tbody>

@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03aeef67-12c3-434c-b4d3-429b4ce5868e" name="Changes" comment="Mejora de la memoria">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/templates/mostrar_skills.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/mostrar_skills.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/templates/perfil.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/perfil.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/templates/recomendarOfertas.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/recomendarOfertas.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/templates/verAlumnos.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/templates/verAlumnos.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/gisi-tfg-csoler-memoria-curso-2022 (vLimpio).docx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/gisi-tfg-csoler-memoria-curso-2022 (vLimpio).docx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -228,6 +231,7 @@
       <workItem from="1684168458397" duration="260000" />
       <workItem from="1685036931061" duration="1096000" />
       <workItem from="1685101535666" duration="1349000" />
+      <workItem from="1686043704874" duration="383000" />
     </task>
     <task id="LOCAL-00001" summary="Modificar alumos y ofertas">
       <created>1662483292536</created>

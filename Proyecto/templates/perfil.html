@@ -22,7 +22,7 @@
 	<div class="main-nav">
 		<div class="container">
 			<nav class="navbar navbar-expand-md navbar-light">
-				<span class="login100-form-logo">
+                <span class="login100-form-logo">
                     <img src="{{ url_for('static', filename='images/logo.png') }}" class="brand_logo" alt="Logo" width="60" height="60">
                 </span>
 				<div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
@@ -55,6 +55,9 @@
 							<ul class="dropdown-menu">
 								<li class="nav-item">
 									<a href="{{ url_for('crearOfertas')}}" class="nav-link">Crear ofertas</a>
+								</li>
+                                <li class="nav-item">
+									<a href="{{ url_for('ver_mis_ofertas_creadas')}}" class="nav-link">Ver mis ofertas</a>
 								</li>
 								<li class="nav-item">
 									<a href="{{ url_for('ver_alumnos')}}" class="nav-link">Ver alumnos</a>
