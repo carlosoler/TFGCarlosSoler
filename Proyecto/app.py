@@ -16,7 +16,7 @@ from model.model import db, get_user_id, Alumno, get_user_by_id, CV, get_tableSk
     get_alum_sin_ofertas, get_oferta_by_empID_jobID, get_EmpresaID_by_job_id, comprobar_oferta_alum, get_empID_username, get_CV_ofertaAsignada, comprobar_alum
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:qwerty@localhost:5432/jobs1'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:qwerty@localhost:5432/jobs'
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.secret_key = '8d438b8cca764385ae8652fefd10487c7eec02a7c5a6fb471ad8ccff0412405d'
 

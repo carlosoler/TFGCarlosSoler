@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="03aeef67-12c3-434c-b4d3-429b4ce5868e" name="Changes" comment="Mejora de la memoria">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/R.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/R.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Proyecto/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/execute_TFG.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/execute_TFG.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/motorR/4098796/apis.R" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/motorR/4098796/apis.R" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/motorR/4098796/llamadaAPIS.R" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/motorR/4098796/llamadaAPIS.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/gisi-tfg-csoler-memoria-curso-2022 (vLimpio).docx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/gisi-tfg-csoler-memoria-curso-2022 (vLimpio).docx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,7 +236,7 @@
       <workItem from="1686043704874" duration="5023000" />
       <workItem from="1686062668588" duration="4391000" />
       <workItem from="1686079581117" duration="42000" />
-      <workItem from="1686079737697" duration="357000" />
+      <workItem from="1686079737697" duration="1100000" />
     </task>
     <task id="LOCAL-00001" summary="Modificar alumos y ofertas">
       <created>1662483292536</created>
