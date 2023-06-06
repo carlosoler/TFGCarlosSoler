@@ -48,7 +48,7 @@ recomendacion_alumno_nuevo <- function(id_alum) {
   alumnos_con_ofertas<- df_CV_alumnos_con_ofertas
   alumno_nuevo<- df_alum_json
   ofertas_nuevas<- df_ofertas_nuevas
-  vecinos_ofertas_nuevas<-read.xlsx("/home/ubuntu/TFGCarlosSoler/Proyecto/motorR/4098796/vecinos_ofertas_sin_asignar.xlsx")
+  vecinos_ofertas_nuevas<-read.xlsx("vecinos_ofertas_sin_asignar.xlsx")
   
   # Uno el alumno_nuevo con los alumnos con ofertas asignadas
   alumnos_tot<-rbind(alumnos_con_ofertas,alumno_nuevo)
@@ -194,7 +194,7 @@ ofertas_nuevas <- function() {
     gather(key="V",value="vecinos",2:6)
   vecinos_ofertas_nuevas<-dplyr::select(vecinos_ofertas_nuevas, -V)
   # Creo archivo xlsx
-  write.xlsx(vecinos_ofertas_nuevas,"/home/ubuntu/TFGCarlosSoler/Proyecto/motorR/4098796/vecinos_ofertas_sin_asignar.xlsx")
+  write.xlsx(vecinos_ofertas_nuevas,"vecinos_ofertas_sin_asignar.xlsx")
   
   return(vecinos_ofertas_nuevas)
 }
